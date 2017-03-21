@@ -11736,6 +11736,8 @@ div#notebook {
         // we use CSS to left justify single line equations in code cells.
         displayAlign: 'center',
         "HTML-CSS": {
+            availableFonts: ["TeX"],
+    preferredFont: "TeX",
             styles: {'.MathJax_Display': {"margin": 0}},
             linebreaks: { automatic: true }
         }
@@ -11761,6 +11763,66 @@ div#notebook {
 
 </div>
 
+<br><br><br>
+
+<!-- share buttons -->
+<div style="width: 60%; margin:auto;">
+
+	<div id="1" style="width: 75%; float:left;">
+		<span style="color:#B0B0B0; font-family:'lato', sans-serif; font-size: 16px;">code</span>
+		<div style="width: 95px; border-bottom: solid 1px; border-color:#B0B0B0;">
+		
+			<div class="logo-share"></div>
+			<div class="logo-share"></div>
+
+			<div class="logo-share">
+				<!-- github -->
+				<a target="_blank" href="https://github.com/jermwatt/mlrefined/blob/master/9.5_Reinforcement_part_1.ipynb">
+					<img src="demo_images/github.png" width=28 height=28 onmouseover="this.src='demo_images/github_filled.png';" onmouseout="this.src='demo_images/github.png';">
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div id="2" style="width: 25%; float:left;">
+		<span style="color:#B0B0B0; font-family:'lato', sans-serif; font-size: 16px;">share</span>
+		<div style="width: 210px; border-bottom: solid 1px; border-color:#B0B0B0;">
+
+			<div class="logo-share"></div>
+			<div class="logo-share"></div>
+
+			<div class="logo-share">
+				<!-- linkedin -->
+				<a target="_blank" href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2F9.5_Reinforcement_part_1.html">
+					<img src="demo_images/linkedin.png" width=28 height=28 onmouseover="this.src='demo_images/linkedin_filled.png';" onmouseout="this.src='demo_images/linkedin.png';">
+				</a>
+			</div>
+
+			<div class="logo-share"></div>
+
+			<div class="logo-share">
+				<!-- twitter -->
+				<a target="_blank" href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&tw_p=tweetbutton&url=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2F9.5_Reinforcement_part_1.html">
+					<img src="demo_images/twitter.png" width=28 height=28 onmouseover="this.src='demo_images/twitter_filled.png';" onmouseout="this.src='demo_images/twitter.png';">
+				</a>
+			</div>
+	
+			<div class="logo-share"></div>
+
+			<div class="logo-share">
+				<!-- facebook -->
+				<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2F9.5_Reinforcement_part_1.html">
+					<img src="demo_images/facebook.png" width=28 height=28 onmouseover="this.src='demo_images/facebook_filled.png';" onmouseout="this.src='demo_images/facebook.png';">
+				</a>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<br><br>
+
+
 <div class="page-title" style="text-align: center !important;"><mark> Reinforcement Learning: part 1 <br> the fundamentals</mark></div>
 
 
@@ -11778,8 +11840,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <br>
-<div style=" width: 40px; height:40px; position: relative; margin: auto; padding: 0; top: 0; right: 0; bottom: 0; left: 0;"><a href="https://github.com/jermwatt/mlrefined/blob/master/9.5_Reinforcement_part_1.ipynb"><img src="demo_images/github-logo.png" width=40 height=40/></a></div>
-<br><br>
+
 
 <p>Reinforcement Learning is a general framework for building computational agents which can, if trained properly, act intelligently in a well-defined but dynamic environment.  Interesting applications of this paradigm include game AI (e.g., AlphaGo and self-playing Atari and Nintendo games), as well as various challenging problems in mechanical control and robotics.</p>
 <p>In this notebook we introduce the fundamentals of Reinforcement Learning - including the nomenclature, modeling tools, and problem types.  The notebooks that follow will contain more advanced concepts including features, integrating function approximators and deep reinforcement learning, as well as further algorithms.</p>
@@ -14000,5 +14061,30 @@ APA</p>
 </div>
     </div>
   </div>
+  
+  
+    <br><br><br><br><br><br><br><br><br>
+  
+<!-- comment section -->  
+<div id="disqus_thread" style="width:70%; height:auto; margin:auto;"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://mlrefined.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>  
 </body>
 </html>
