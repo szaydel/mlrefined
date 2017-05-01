@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300');
-@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:100');
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:300');
 
 :root{ /* define colors */
   --MyGrey: #75715e;
@@ -16,6 +16,57 @@ body {
   text-align: justify;
   text-justify: inter-word;
 }
+
+
+a:link {
+    text-decoration: none !important;
+    color: #268bd2;
+}
+
+a:visited {
+    text-decoration: none !important;
+    color: #268bd2;
+}
+
+a:hover {
+    text-decoration: underline !important;
+    color: #268bd2;
+}
+
+a:active {
+    text-decoration: underline !important;
+    color: #268bd2;
+}
+
+code {
+    background: #ddd !important;
+    padding: 0 5px 2px !important;
+    border-radius: 4px !important;
+    position: relative !important;
+    top: -1px !important;
+    margin: 0 3px 0 1px !important;
+    font-size: 90% !important;
+ }
+
+
+blockquote.quote {
+font-family: Georgia, serif;
+font-size: 16px;
+font-style: italic;
+width: 650px;
+margin: 1em 70px;
+padding: 1em 20px;
+line-height: 1.45;
+position: relative;
+color: #515151;
+border: none;
+}
+
+
+li span { 
+	margin-left: -15px;
+	 }
+
 
 h1 {
   padding: 40px 0px 40px 0px;
@@ -70,9 +121,14 @@ mark{
   padding: 20px 0px 20px 0px;
 }
 
+
+
+
+
 .page-title{
+  color: red !important;
   font-family: 'Alegreya sans', sans-serif;
-  font-size: 36pt;
+  font-size: 32pt;
   margin-right: 240px;
   margin-left: 240px;
   margin-top: 120px;
@@ -80,7 +136,7 @@ mark{
   text-align: center;
   line-height: 65px;
   word-spacing: 5px;
-  color: #000;
+
 }
 
 div.input_area { /* code cell */
@@ -103,10 +159,10 @@ div.output_area pre {
 }
 
 div.text_cell_render { /* markdown cell */
-  color: black;
-  font-family: 'lato', sans-serif;
+  color: #515151;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
   font-weight: 300;
-  font-size: 18px;
+  font-size: 17px;
   margin-left: 72px;
   margin-right: 150px;
   line-height: 1.5em;
@@ -157,6 +213,8 @@ div#notebook {
 	padding-top: 10px;
 
 	}
+	
+	
 
 
 pre {
