@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300');
 @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:300');
 
+
 :root{ /* define colors */
   --MyGrey: #75715e;
   --MyRed: #f92672;
@@ -213,7 +214,10 @@ div#notebook {
 	padding-top: 10px;
 
 	}
-	
+
+.centered {
+	text-align: center !important;
+}	
 	
 
 
