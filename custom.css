@@ -1,8 +1,9 @@
+/* import fonts */
 @import url('https://fonts.googleapis.com/css?family=Lato:300');
 @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:300');
 
 
-:root{ /* define colors */
+:root { /* define colors */
   --MyGrey: #75715e;
   --MyRed: #f92672;
   --MyBlue: #66d9ef;
@@ -10,123 +11,25 @@
   --MyPurple: #ae81ff;
   --MyGreen: #4daa31;
   --MyOrange: #cea544;
+  --MyLinks: #268bd2;
+  --TitleHighlighter: #f9f3c2;
+  --TitleHighlighterRed: #ffd6d6;
+  --TitleHighlighterBlue:#d6e9ff;
+  --TitleHighlighterGreen: #dbfcde;    
 }
 
 
-body {
-  text-align: justify;
-  text-justify: inter-word;
+.logo-share { /* social media logos */
+	float: left;
+	width: 30px; 
+	height:30px;
+	position: relative;
+	margin: auto;
+	padding-top: 10px;
 }
 
 
-a:link {
-    text-decoration: none !important;
-    color: #268bd2;
-}
-
-a:visited {
-    text-decoration: none !important;
-    color: #268bd2;
-}
-
-a:hover {
-    text-decoration: underline !important;
-    color: #268bd2;
-}
-
-a:active {
-    text-decoration: underline !important;
-    color: #268bd2;
-}
-
-code {
-    background: #ddd !important;
-    padding: 0 5px 2px !important;
-    border-radius: 4px !important;
-    position: relative !important;
-    top: -1px !important;
-    margin: 0 3px 0 1px !important;
-    font-size: 90% !important;
- }
-
-
-blockquote.quote {
-font-family: Georgia, serif;
-font-size: 16px;
-font-style: italic;
-width: 650px;
-margin: 1em 70px;
-padding: 1em 20px;
-line-height: 1.45;
-position: relative;
-color: #515151;
-border: none;
-}
-
-
-li span { 
-	margin-left: -15px;
-	 }
-
-
-h1 {
-  padding: 40px 0px 40px 0px;
-  /* color: #13BFBF; */
-  font-size: 150% !important;
-  font-weight: 700 !important;
-
-}
-
-h2 {
-  padding: 30px 0px 30px 0px;
-  /* color: #13BFBF; */
-  font-size: 130% !important;
-  font-weight: 700 !important;
-}
-
-
-h3 {
-  padding: 20px 0px 20px 0px;
-  /* color: #13BFBF; */
-  font-size: 110% !important;
-  font-weight: 700 !important;
-}
-
-
-li strong {
-
-  background-color: #f9f3c2;
-   padding: 0px;
-}
-
-
-mark{
-  padding: 0px;
-    background-color: #f9f3c2;
-}
-
-.mark-grey {
-  background-color: #ededed;
-   padding: 0px;
-}
-
-.mark-yellow {
-  background-color: #fff4b7;
- padding: 0px !important;
-
-}
-
-
-
-.inside-img {
-  padding: 20px 0px 20px 0px;
-}
-
-
-
-
-
-.page-title{
+.page-title { /* page title */
   color: red !important;
   font-family: 'Alegreya sans', sans-serif;
   font-size: 32pt;
@@ -137,9 +40,140 @@ mark{
   text-align: center;
   line-height: 65px;
   word-spacing: 5px;
-
 }
 
+mark { /* highlighter (used for page title) */
+	padding: 0px;
+	background-color: var(--TitleHighlighter);
+}
+
+mark.RedHighlight { 
+	padding: 0px;
+	background-color: var(--TitleHighlighterRed);
+}
+
+mark.BlueHighlight { 
+	padding: 0px;
+	background-color: var(--TitleHighlighterBlue);
+}
+
+mark.GreenHighlight { 
+	padding: 0px;
+	background-color: var(--TitleHighlighterGreen);
+}
+
+
+
+/* <h> tags */
+h1 {
+  padding: 40px 0px 40px 0px;
+  font-size: 150% !important;
+  font-weight: 700 !important;
+}
+
+h2 {
+  padding: 30px 0px 30px 0px;
+  font-size: 130% !important;
+  font-weight: 700 !important;
+}
+
+h3 {
+  padding: 20px 0px 20px 0px;
+  font-size: 110% !important;
+  font-weight: 700 !important;
+}
+/* end of <h> tags */
+
+
+/* regular <a> tags */
+a:link {
+    text-decoration: none !important;
+    color: var(--MyLinks);
+}
+
+a:visited {
+    text-decoration: none !important;
+    color: var(--MyLinks);
+}
+
+a:hover {
+    text-decoration: underline !important;
+    color: var(--MyLinks);
+}
+
+a:active {
+    text-decoration: underline !important;
+    color: var(--MyLinks);
+}
+/* end of regular <a> tags */
+
+
+/* <code> tags */
+code {
+    background: #ddd !important; /* background color */
+    padding: 0 5px 2px !important;
+    border-radius: 4px !important;
+    position: relative !important;
+    top: -1px !important;
+    margin: 0 3px 0 1px !important;
+    font-size: 90% !important;
+}
+/* end of <code> tags */
+
+
+/* blockquote classes: quote, orange, and gray  */
+blockquote.quote { /* quote --> actual quotes  */
+	font-family: Georgia, serif;
+	font-size: 16px;
+	font-style: italic;
+	width: 650px;
+	margin: 1em 70px;
+	padding: 1em 20px;
+	line-height: 1.45;
+	position: relative;
+	color: #515151;
+	border: none;
+}
+
+
+blockquote.gray { /* gray --> gray background  */
+	border-left: 10px solid;
+	border-left-color: #ccc;
+	background: #f5f5f5;
+}
+	
+blockquote.orange { /* orange --> orange background  */
+	border-left: 10px solid;
+	border-left-color: #ffbf00;
+	background: #fff0c6;
+}
+/* end of blockquote classes */
+
+
+
+.centered { /* centers stuff (e.g., table cells)*/
+	text-align: center !important;
+}
+
+
+.inside-img { /* add top/bottom padding to inside images */   
+  padding: 20px 0px 20px 0px;
+}
+
+
+/* li classes */
+li span { /* to reduce the distance between bullet points and list items (see RL part 1) */
+	margin-left: -15px;
+}
+
+li strong { /*  highlights list objects (see Intro to ML) */
+	background-color: var(--TitleHighlighter); 
+	padding: 0px;
+}
+/* end of li classes */
+
+
+/* organizes jupyter stuff: input/output area, etc */  
 div.input_area { /* code cell */
   border: none;
   background: #272822;
@@ -177,11 +211,11 @@ div.text_cell_render { /* markdown cell */
 }
 
 
-div.input_prompt { /* In[] */
+div.input_prompt { /* make In[] transparent */
   color: transparent;
 }
 
-div.output_prompt { /* Out[] */
+div.output_prompt { /* make Out[] transparent */
   color: transparent;
 }
 
@@ -194,6 +228,7 @@ div#notebook {
   padding-top: 20px;
   margin: 0px;
 }
+
 @media not print {
   #notebook-container {
     padding: 15px;
@@ -203,35 +238,24 @@ div#notebook {
     box-shadow: none; /* no shadow */
   }
 }
+/* end of - orgnaizes jupyter stuff: input/output area, etc */  
 
 
-.logo-share {
-	float: left;
-	width: 30px; 
-	height:30px;
-	position: relative;
-	margin: auto;
-	padding-top: 10px;
-
-	}
-
-.centered {
-	text-align: center !important;
-}	
-	
 
 
-pre {
-color: var(--MyGreen);
-font-size: 16px;  /* code cell font size */
+/* ********   CODE BLOCKS    *******/ 
+
+pre { /* comments */ 
+	color: var(--MyGreen);
+	font-size: 16px;
 }
 
-.n {
-  color: var(--MyOrange);
+.n { /* variables */ 
+	color: var(--MyOrange);
 }
 
-.p {
-color: var(--MyRed);
+.p { /* python keywords */ 
+	color: var(--MyRed);
 }
 
 .highlight .hll { background-color: #ffffcc }
@@ -301,24 +325,19 @@ color: var(--MyRed);
 .highlight .il { color: var(--MyGreen); } /* Literal.Number.Integer.Long */
 
 
+/* ********  end of -  CODE BLOCKS    *******/ 
 
 
 
-
-
-
-
+/* Makes tilte bounce at hover (index page) */
 
 .wrap {
-
 }
 
 .wrap:hover {
--webkit-animation: animation 1000ms linear both;
-  animation: animation 1000ms linear both;
+	-webkit-animation: animation 1000ms linear both;
+	animation: animation 1000ms linear both;
 }
-
-/* Generated with Bounce.js. Edit at http://bouncejs.com/#{s:[{T:"c",e:"b",d:1000,D:0,f:{x:1,y:1},t:{x:1.1,y:1},s:1,b:4},{T:"c",e:"b",d:1000,D:0,f:{x:1,y:1},t:{x:1,y:1.1},s:1,b:6}]} */
 
 @-webkit-keyframes animation {
   0% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
@@ -447,3 +466,16 @@ color: var(--MyRed);
   98.333333% { -webkit-transform: matrix3d(1.09994, 0, 0, 0, 0, 1.09995, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.09994, 0, 0, 0, 0, 1.09995, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
   100% { -webkit-transform: matrix3d(1.1, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.1, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
 }
+/* end of - Makes tilte bounce at hover (index page) */
+
+
+
+/* extras that can be removed */
+.mark-grey {
+  background-color: #ededed; /* used in 1.1 can be removed */
+   padding: 0px;
+}
+
+
+
+
