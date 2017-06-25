@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300');
 @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:300');
 
+body {
+ font-variant-ligatures: none;
+}
+
 
 :root { /* define colors */
   --MyGrey: #75715e;
