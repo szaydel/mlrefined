@@ -101,7 +101,7 @@ script_1 = '''
 
 <div class="page-title" style="text-align: center !important;">
 	<span style="color: #333; font-size: 40%; letter-spacing: 3px;">
-		<span style="font-size: 80%;">&#x25BA; </span><a href="'''+ series_url + '''.html" style="color: black; cursor: pointer; text-transform: uppercase; font-weight:bold;">'''+ series + '''</a>
+		<span style="font-size: 80%;">&#x25BA; </span><a href="../../../'''+ series_url + '''.html" style="color: black; cursor: pointer; text-transform: uppercase; font-weight:bold;">'''+ series + '''</a>
 	</span>
 	<br><br>
 	<mark style="padding: 0px; background-color: #f9f3c2;">'''+ page_title +'''</mark>
