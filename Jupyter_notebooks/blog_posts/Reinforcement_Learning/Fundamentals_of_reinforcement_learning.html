@@ -11866,7 +11866,7 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Application-area.---Robotics"><span style="color:#a50e3e;">Application area. </span>  Robotics<a class="anchor-link" href="#Application-area.---Robotics">¶</a></h3><p>Path planning problems are commonly encountered in robotics applications, as well as video games, and mapping services. For many robots (e.g., a cleaning bot) path planning is essential for efficient operation. In a video game the enemy AI uses path planning to reach human players in a level as quickly as possible. With a digital mapping service, path planning is used to efficiently route you from point A to point B <a href="#bib_cell">[2]</a>.</p>
 <p>We will look, throughout the RL series, at a toy version of this problem called Gridworld, wherein the robot (agent) must learn how to navigate a grid-like map efficiently in order to reach a target destination (goal) on the map. Figure below shows a simple example of Gridworld - a small maze. The blue square here denotes the robot's location and the green square the desired destination. In the Gridworld environment the robot can move one unit left, right, up, or down at a time, to any ‘safe’ square (colored gray). While the robot is also allowed to pass through the ‘hazard’ squares (colored red), it would be heavily penalized for doing so, as these squares simulate hazardous locations, e.g., a slippery or obstructed part of the floor. Starting at any given location, the agent in Gridworld must learn the shortest path to the green square while avoiding hazards along the way.</p>
-<p><img src="../../../demo_images/RL_images/maze.gif"/></p>
+<p><img src="../../../demo_images/RL_images/maze.gif" width="240,height=240"/></p>
 </div>
 </div>
 </div>
@@ -11910,9 +11910,8 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Application-area.--Game-playing-AI"><span style="color:#a50e3e;">Application area. </span> Game playing AI<a class="anchor-link" href="#Application-area.--Game-playing-AI">¶</a></h3><p>Another common application of Reinforcement Learning is to train AI agents to win certain games. In the game of chess for example, this means training an agent that can consistently check-mate its opponent <a href="#bib_cell">[3]</a>.</p>
-<p>&lt;img src="../../../demo_images/RL_images/chess.gif",width=250,height=250&gt;</p>
-<p>Reinforcement Learning can also be used to train an agent to win (simple) video games, like those from the Atari 2600 collection <a href="#bib_cell">[4]</a>, and Pac-Man <a href="#bib_cell">[5]</a>.</p>
-<p>&lt;img src="../../../demo_images/RL_images/looping_pacman.gif",width=400,height=400&gt;</p>
+<p><img src="../../../demo_images/RL_images/chess.gif"/></p><p>Reinforcement Learning can also be used to train an agent to win (simple) video games, like those from the Atari 2600 collection <a href="#bib_cell">[4]</a>, and Pac-Man <a href="#bib_cell">[5]</a>.</p>
+<p><img src="../../../demo_images/RL_images/looping_pacman.gif"/></p>
 </div>
 </div>
 </div>
@@ -11929,9 +11928,8 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Application-area.--Automatic-control"><span style="color:#a50e3e;">Application area. </span> Automatic control<a class="anchor-link" href="#Application-area.--Automatic-control">¶</a></h3><p>Many automatic control problems involve teaching an agent how to control a particular mechanical, electrical, or aerodynamic system. One classic toy example in this area is to teach an agent how to balance a pole on a moving cart, sometimes referred to as the cart-pole or inverted pendulum problem. The pole is free to rotate about an axis on the cart, with the cart on a track so that it may be moved left and right, affecting the location of the pole. The pole feels the force of Earth's gravity, and so if unbalanced, will fall to the ground <a href="#bib_cell">[6]</a>.</p>
-<p>&lt;img src="../../../demo_images/RL_images/cartpole.gif",width=400,height=400&gt;</p>
-<p>Autopilot systems are another technology that can make use of Reinforcement Learning. A toy problem in this area is the so-called lunar-lander, where the objective is to simulate a real lunar lander by training an RL agent that can correctly land a space craft in a certain landing zone (in the area between the two flags as shown in the figure below) <a href="#bib_cell">[6]</a>.</p>
-<p>&lt;img src="../../../demo_images/RL_images/lunar_lander.gif",width=400,height=400&gt;</p>
+<p><img src="../../../demo_images/RL_images/cartpole.gif"/></p><p>Autopilot systems are another technology that can make use of Reinforcement Learning. A toy problem in this area is the so-called lunar-lander, where the objective is to simulate a real lunar lander by training an RL agent that can correctly land a space craft in a certain landing zone (in the area between the two flags as shown in the figure below) <a href="#bib_cell">[6]</a>.</p>
+<p><img src="../../../demo_images/RL_images/lunar_lander.gif"/></p>
 </div>
 </div>
 </div>
