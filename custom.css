@@ -139,6 +139,7 @@ blockquote.quote { /* quote --> actual quotes  */
 	position: relative;
 	color: #515151;
 	border: none;
+	background: white !important;
 }
 
 
