@@ -21,13 +21,13 @@ soup.html.head.title.string = page_title
 
 # assign series URL
 if 'supervised' in series.lower():
-    series_url = 'Supervised_Learning.html'
+    series_url = 'Supervised_Learning'
 
 if 'reinforcement' in series.lower():
-    series_url = 'Reinforcement_Learning.html'
+    series_url = 'Reinforcement_Learning'
 
 if 'optimization' in series.lower():
-    series_url = 'Mathematical_Optimization.html' 
+    series_url = 'Mathematical_Optimization' 
     
 
 # This script adds navigation bar + sharing logos + title
@@ -101,7 +101,7 @@ script_1 = '''
 
 <div class="page-title" style="text-align: center !important;">
 	<span style="color: #333; font-size: 40%; letter-spacing: 3px;">
-		<span style="font-size: 80%;">&#x25BA; </span><a href="'''+ series_url + '''" style="color: black; cursor: pointer; text-transform: uppercase; font-weight:bold;">'''+ series + '''</a>
+		<span style="font-size: 80%;">&#x25BA; </span><a href="'''+ series_url + '''.html" style="color: black; cursor: pointer; text-transform: uppercase; font-weight:bold;">'''+ series + '''</a>
 	</span>
 	<br><br>
 	<mark style="padding: 0px; background-color: #f9f3c2;">'''+ page_title +'''</mark>
