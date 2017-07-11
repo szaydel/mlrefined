@@ -1,10 +1,8 @@
+/* CSS for jupyter notebooks */ 
+
 /* import fonts */
 @import url('https://fonts.googleapis.com/css?family=Lato:300');
 @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:300');
-
-body {
- font-variant-ligatures: none;
-}
 
 
 :root { /* define colors */
@@ -22,7 +20,6 @@ body {
   --TitleHighlighterGreen: #dbfcde;    
 }
 
-
 .logo-share { /* social media logos */
 	float: left;
 	width: 30px; 
@@ -31,7 +28,6 @@ body {
 	margin: auto;
 	padding-top: 10px;
 }
-
 
 .page-title { /* page title */
   color: red !important;
@@ -65,8 +61,6 @@ mark.GreenHighlight {
 	padding: 0px;
 	background-color: var(--TitleHighlighterGreen);
 }
-
-
 
 /* <h> tags */
 h1 {
@@ -126,6 +120,14 @@ code {
 
 
 /* blockquote classes: quote, orange, and gray  */
+
+blockquote { /* default */
+	border-left: 10px solid;
+	border-left-color: #ffbf00;
+	background: #fff0c6;
+}
+
+
 blockquote.quote { /* quote --> actual quotes  */
 	font-family: Georgia, serif;
 	font-size: 16px;
@@ -146,11 +148,6 @@ blockquote.gray { /* gray --> gray background  */
 	background: #f5f5f5;
 }
 	
-blockquote.orange { /* orange --> orange background  */
-	border-left: 10px solid;
-	border-left-color: #ffbf00;
-	background: #fff0c6;
-}
 /* end of blockquote classes */
 
 
@@ -193,9 +190,8 @@ div.output_area {
   margin-right: 80px;
 }
 
-div.output_area pre {
-  color: transparent;
-}
+
+
 
 div.text_cell_render { /* markdown cell */
   color: #515151;
@@ -334,7 +330,6 @@ pre { /* comments */
 
 
 /* Makes tilte bounce at hover (index page) */
-
 .wrap {
 }
 
@@ -473,13 +468,16 @@ pre { /* comments */
 /* end of - Makes tilte bounce at hover (index page) */
 
 
-
 /* extras that can be removed */
 .mark-grey {
   background-color: #ededed; /* used in 1.1 can be removed */
    padding: 0px;
 }
 
-
+/*
+div.output_area pre {
+  color: transparent;
+}
+*/
 
 

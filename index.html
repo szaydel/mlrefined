@@ -1,136 +1,171 @@
+<!DOCTYPE html>
 
 <html>
+	
 	<head>
-	
-	    <script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js'></script>
-
-	
-
-	
+		<!-- always use https, not http --> 
+		<script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js'></script>
 		<link rel="stylesheet" href="home.css">
-		
-<style>
-	*{
-		 font-variant-ligatures: none;
-	}
-	</style>
-		
-
-
+		<style>
+			.back-text-color { /* color of text on the back of each card */
+				color: #333;
+			}
+		 </style>	
 	</head>
 
-<body>
+	<body>
 
-
-
-	<br><br>
-<p id="title">Machine Learning Refined</p>
-
-<br><br>
-	<p id="sub-title">This is a blog about machine learning and deep learning fundamentals with tons of careful descriptions and interactive coding widgets!
-	The content here, organized in the following categories, is supplementary material for the textbook <a class="redlink" target="_blank" href="http://mlrefined.com">Machine Learning Refined</a> published by Cambridge University Press, and authored by the <a class="redlink" href="about.html">creators</a> of this blog.</p>
-	<br><br>
-	<div class="wrapper">
-      <div class="col_third">
-        <div class="hover panel">
-          <div class="front">
-            <div class="box1">
-              <p>SUPERVISED LEARNING</p>
-            </div>
-          </div>
-          <div class="back">
-            <div class="box2">
-              <br>
-              <p><code style="color:#333">Topics include neural networks and deep learning, kernels, trees, and more.</code></p>
-      
-              <p><code><a href="Supervised_Learning.html">click to read</a></code></p>
-              
-            </div>
-          </div>
-        </div>
-		</div>
-
-		<div class="col_third">
-        <div class="hover panel">
-          <div class="front">
-            <div class="box1">
-              <p>REINFORCEMENT LEARNING</p>
-            </div>
-          </div>
-          <div class="back">
-            <div class="box2">
-              <p><code style="color:#333">Topics include basic Q-learning algorithm and common enhancements, deep reinforcement learning, and more. </code></p>
-      
-              <p><code><a href="Reinforcement_Learning.html">click to read</a></code></p>
-            </div>
-          </div>
-        </div>
-		</div>
-
-		<div class="col_third end">
-        <div class="hover panel">
-          <div class="front">
-            <div class="box1">
-              <p>MATHEMATICAL OPTIMIZATION</p>
-            </div>
-          </div>
-          <div class="back">
-            <div class="box2">
-                    
-              <p><code style="color:#333">Topics include gradient descent, stochastic gradient descent, Newton and quasi-Newton methods, and more.</code></p>
-      
-              <p><code><a href="Mathematical_Optimization.html">click to read</a></code></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-<!--      
-      <div style="padding-top:230px; background-color: white;"></div>
-      
-      
-      <div class="col_third end">
-        <div class="hover panel">
-          <div class="front">
-            <div class="box1">
-              <p>MATHEMATICAL OPTIMIZATION</p>
-            </div>
-          </div>
-          <div class="back">
-            <div class="box2">
-                    
-              <p><code style="color:#333">Topics include gradient descent, stochastic gradient descent, Newton and quasi-Newton methods, and more.</code></p>
-      
-              <p><code><a href="Mathematical_Optimization.html">click to read</a></code></p>
-            </div>
-          </div>
-        </div>
-      </div>
--->      
-
-      
-      
-      
-	 </div>	
-	<br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br>
-
+		<br/><br/>
+		<p id="title">Machine Learning Refined</p>
+		<br/><br/>
+		<p id="sub-title">
+		This is a blog about machine learning and deep learning fundamentals with tons of careful descriptions and interactive coding widgets!
+		The content here, organized in the following categories, is supplementary material for the textbook <a class="redlink" target="_blank" href="http://mlrefined.com">Machine Learning Refined</a>
+		published by Cambridge University Press, and authored by the <a class="redlink" href="about.html">creators</a> of this blog.
+		</p>
+		<br/><br/>
 		
+		<div class="wrapper">
+      		
+      		<!-- first card -->
+      		<div class="col_third">
+        		<div class="hover panel">		
+          			<!-- front face -->
+          			<div class="front">
+            			<div class="box1">
+              				<p>SUPERVISED LEARNING</p>
+            			</div>
+          			</div>
+          			<!-- back face -->
+          			<div class="back">
+            			<div class="box2">
+              				<br/>
+             	 			<p><code class="back-text-color">Topics include neural networks and deep learning, kernels, trees, and more.</code></p>
+      						<p><code><a href="Supervised_Learning.html">click to read</a></code></p>
+    					</div>
+          			</div>	
+        		</div>
+			</div>
+			
+			<!-- second card -->
+			<div class="col_third">
+        		<div class="hover panel">
+        			<!-- front face -->
+          			<div class="front">
+            			<div class="box1">
+              				<p>REINFORCEMENT LEARNING</p>
+            			</div>
+          			</div>
+          			<!-- back face -->          			
+          			<div class="back">
+            			<div class="box2">
+              				<p><code class="back-text-color">Topics include basic Q-learning algorithm and common enhancements, deep reinforcement learning, and more.</code></p>
+      						<p><code><a href="Reinforcement_Learning.html">click to read</a></code></p>
+            			</div>
+          			</div>
+        		</div>
+			</div>
+			
+			<!-- third card -->
+			<div class="col_third end">
+        		<div class="hover panel">
+        			<!-- front face -->        		
+        			<div class="front">
+            			<div class="box1">
+              				<p>MATHEMATICAL OPTIMIZATION</p>
+            			</div>
+          			</div>
+          			<!-- back face -->   
+          			<div class="back">
+            			<div class="box2">  
+              				<p><code class="back-text-color">Topics include gradient descent, stochastic gradient descent, Newton and quasi-Newton methods, and more.</code></p>
+              				<p><code><a href="Mathematical_Optimization.html">click to read</a></code></p>
+            			</div>
+          			</div>
+        		</div>
+			</div>
+      
+			<!-- make sure second row appears correctly -->
+		    <div style="padding-top:230px; background-color: white;"></div>
+			
+			
+			
+			<!-- uncomment to  add more cards 
+			
+			<!- - fourth card - ->    
+      		<div class="col_third">
+        		<div class="hover panel">
+					<!- - front face - ->  
+          			<div class="front">
+            			<div class="box1">
+              				<p>BLAH BLAH BLAH</p>
+            			</div>
+          			</div>
+          			<!- - back face - -> 
+          			<div class="back">
+            			<div class="box2">      
+              				<p><code class="back-text-color">Topics include blah blah blah</code></p>
+      						<p><code><a href="blah blah blah">click to read</a></code></p>
+						</div>
+					</div>
+        		</div>
+      		</div>
+      		 		
+      					
+			<!- - fifth card - ->    
+      		<div class="col_third">
+        		<div class="hover panel">
+					<!- - front face - ->  
+          			<div class="front">
+            			<div class="box1">
+              				<p>BLAH BLAH BLAH</p>
+            			</div>
+          			</div>
+          			<!- - back face - -> 
+          			<div class="back">
+            			<div class="box2">      
+              				<p><code class="back-text-color">Topics include blah blah blah</code></p>
+      						<p><code><a href="blah blah blah">click to read</a></code></p>
+						</div>
+					</div>
+        		</div>
+      		</div>
+      		
+      		
+      		<!- - sixth card - ->    
+      		<div class="col_third end">
+        		<div class="hover panel">
+					<!- - front face - ->  
+          			<div class="front">
+            			<div class="box1">
+              				<p>BLAH BLAH BLAH</p>
+            			</div>
+          			</div>
+          			<!- - back face - -> 
+          			<div class="back">
+            			<div class="box2">      
+              				<p><code class="back-text-color">Topics include blah blah blah</code></p>
+      						<p><code><a href="blah blah blah">click to read</a></code></p>
+						</div>
+					</div>
+        		</div>
+      		</div> 
+    	
+         uncomment to add more cards -->
 		
+		</div>	
 		
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
 		<script>
-	$(document).ready(function(){
-		// set up hover panels
-		// although this can be done without JavaScript, we've attached these events
-		// because it causes the hover to be triggered when the element is tapped on a touch device
-		$('.hover').hover(function(){
-			$(this).addClass('flip');
-		},function(){
-			$(this).removeClass('flip');
-		});
-	});
-	</script>
+			$(document).ready(function(){
+				$('.hover').hover(function(){
+					$(this).addClass('flip');
+					},function(){
+						$(this).removeClass('flip');
+					});
+				});
+		</script>
 	
-
 	</body>
 </html>

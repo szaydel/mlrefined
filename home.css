@@ -1,17 +1,16 @@
+/* CSS for index.html */ 
+
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
-u {
-
-      border-bottom: solid 3px #ff7e70;
-      display: inline;
-      padding-bottom: 1px;
-
+u { /* custom underline */
+	border-bottom: solid 3px #ff7e70;
+    display: inline;
+    padding-bottom: 1px;
 }
 
 a.redlink {
 color: #ff7e70;
 }
-
 
 #title {
 color: #333;
@@ -31,11 +30,9 @@ padding: 0px 135px 0px 135px;
 }
 
 
-
-* {
+* { /* ligature */
     text-decoration: none;
-    font-variant-ligatures: none;
-  
+    font-variant-ligatures: none;  
 }
 
 body {
@@ -46,6 +43,7 @@ body {
 	color: white; 
 	text-align: center;	
 }
+
 .box1 p { color: #ffffff;
   padding-top: 32px;
   letter-spacing: 5px;
@@ -140,16 +138,19 @@ line-height: 20px;
 		 -o-transition: all .4s ease-in-out;
 			transition: all .4s ease-in-out;
 }
+
 .panel.flip .front {
 	z-index: 900;
 	-webkit-transform: rotateY(180deg);
 	-moz-transform: rotateY(180deg);
 }
+
 .panel.flip .back {
 	z-index: 1000;
 	-webkit-transform: rotateX(0deg) rotateY(0deg);
 	-moz-transform: rotateX(0deg) rotateY(0deg);
 }
+
 .box1{
 	background-color: #333;
 	width: 250px;
@@ -160,6 +161,7 @@ line-height: 20px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 }
+
 .box2{
 	background-color: #ff7e70;
 	width: 250px;
