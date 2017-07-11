@@ -11866,7 +11866,7 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Application-area.---Robotics"><span style="color:#a50e3e;">Application area. </span>  Robotics<a class="anchor-link" href="#Application-area.---Robotics">¶</a></h3><p>Path planning problems are commonly encountered in robotics applications, as well as video games, and mapping services. For many robots (e.g., a cleaning bot) path planning is essential for efficient operation. In a video game the enemy AI uses path planning to reach human players in a level as quickly as possible. With a digital mapping service, path planning is used to efficiently route you from point A to point B <a href="#bib_cell">[2]</a>.</p>
 <p>We will look, throughout the RL series, at a toy version of this problem called Gridworld, wherein the robot (agent) must learn how to navigate a grid-like map efficiently in order to reach a target destination (goal) on the map. Figure below shows a simple example of Gridworld - a small maze. The blue square here denotes the robot's location and the green square the desired destination. In the Gridworld environment the robot can move one unit left, right, up, or down at a time, to any ‘safe’ square (colored gray). While the robot is also allowed to pass through the ‘hazard’ squares (colored red), it would be heavily penalized for doing so, as these squares simulate hazardous locations, e.g., a slippery or obstructed part of the floor. Starting at any given location, the agent in Gridworld must learn the shortest path to the green square while avoiding hazards along the way.</p>
-<p><img src="../../../demo_images/RL_images/maze.gif" width="240,height=240"/></p>
+<p><img height="240" src="../../../demo_images/RL_images/maze.gif" width="240"/></p>
 </div>
 </div>
 </div>
@@ -11875,7 +11875,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Note that in Gridworld the agent cannot ‘see’ the entire map, the way it is depicted in the figure above. From the agent’s perspective, the world looks like the one shown below where the robot can only see those parts of the map it is allowed to move to.</p>
-<p><img src="../../../demo_images/RL_images/off.gif"/></p>
+<p><img height="240" src="../../../demo_images/RL_images/off.gif" width="240"/></p>
 </div>
 </div>
 </div>
@@ -11884,7 +11884,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Gridworlds come in many shapes and sizes. Here is one example where the hazards are arranged in a certain way to form a narrow passage of safe squares separating one half of the world from another. If the robot starts on the ‘wrong’ side of the world, as shown below, then it must cross a narrow bridge of safe squares to reach the target.</p>
-<p><img src="../../../demo_images/RL_images/moat.gif"/></p>
+<p><img height="240" src="../../../demo_images/RL_images/moat.gif" width="240"/></p>
 </div>
 </div>
 </div>
@@ -11893,7 +11893,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Another example: a Gridworld with randomly-placed hazards! In this case too, the robot must learn to navigate a hazard-free path to reach the target efficiently.</p>
-<p><img src="../../../demo_images/RL_images/random.gif"/></p>
+<p><img height="240" src="../../../demo_images/RL_images/random.gif" width="240"/></p>
 </div>
 </div>
 </div>
@@ -11910,8 +11910,8 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Application-area.--Game-playing-AI"><span style="color:#a50e3e;">Application area. </span> Game playing AI<a class="anchor-link" href="#Application-area.--Game-playing-AI">¶</a></h3><p>Another common application of Reinforcement Learning is to train AI agents to win certain games. In the game of chess for example, this means training an agent that can consistently check-mate its opponent <a href="#bib_cell">[3]</a>.</p>
-<p><img src="../../../demo_images/RL_images/chess.gif"/></p><p>Reinforcement Learning can also be used to train an agent to win (simple) video games, like those from the Atari 2600 collection <a href="#bib_cell">[4]</a>, and Pac-Man <a href="#bib_cell">[5]</a>.</p>
-<p><img src="../../../demo_images/RL_images/looping_pacman.gif"/></p>
+<p><img height="250" src="../../../demo_images/RL_images/chess.gif" width="250"/></p><p>Reinforcement Learning can also be used to train an agent to win (simple) video games, like those from the Atari 2600 collection <a href="#bib_cell">[4]</a>, and Pac-Man <a href="#bib_cell">[5]</a>.</p>
+<p><img height="400" src="../../../demo_images/RL_images/looping_pacman.gif" width="400"/></p>
 </div>
 </div>
 </div>
@@ -11928,8 +11928,8 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Application-area.--Automatic-control"><span style="color:#a50e3e;">Application area. </span> Automatic control<a class="anchor-link" href="#Application-area.--Automatic-control">¶</a></h3><p>Many automatic control problems involve teaching an agent how to control a particular mechanical, electrical, or aerodynamic system. One classic toy example in this area is to teach an agent how to balance a pole on a moving cart, sometimes referred to as the cart-pole or inverted pendulum problem. The pole is free to rotate about an axis on the cart, with the cart on a track so that it may be moved left and right, affecting the location of the pole. The pole feels the force of Earth's gravity, and so if unbalanced, will fall to the ground <a href="#bib_cell">[6]</a>.</p>
-<p><img src="../../../demo_images/RL_images/cartpole.gif"/></p><p>Autopilot systems are another technology that can make use of Reinforcement Learning. A toy problem in this area is the so-called lunar-lander, where the objective is to simulate a real lunar lander by training an RL agent that can correctly land a space craft in a certain landing zone (in the area between the two flags as shown in the figure below) <a href="#bib_cell">[6]</a>.</p>
-<p><img src="../../../demo_images/RL_images/lunar_lander.gif"/></p>
+<p><img height="400" src="../../../demo_images/RL_images/cartpole.gif" width="400"/></p><p>Autopilot systems are another technology that can make use of Reinforcement Learning. A toy problem in this area is the so-called lunar-lander, where the objective is to simulate a real lunar lander by training an RL agent that can correctly land a space craft in a certain landing zone (in the area between the two flags as shown in the figure below) <a href="#bib_cell">[6]</a>.</p>
+<p><img height="400" src="../../../demo_images/RL_images/lunar_lander.gif" width="400"/></p>
 </div>
 </div>
 </div>
@@ -12057,7 +12057,7 @@ Be careful not to confuse the $s$'s with the $\sigma$'s, and the $a$'s with the 
 <li><span>Take an action (denoted by $a_3$)</span></li>
 <li><span>This takes you to a new state (denoted by $s_3$) and you receive your third reward $r_3$</span></li><p>
 Taken together a sequence of such steps, ending either when a goal state is reached (as in the Gridworld or chess examples) or after a maximum number of iterations is completed (as in the cart-pole example), is referred to in RL jargon as an <strong>episode</strong>. The RL nomenclature and notation introduced so far are summarized in the figure below.
-</p><p><img height="90%" src="../../../demo_images/RL_images/notation.png" width="70%"/></p><p>We end this brief section by noting that not all RL problems are <em>deterministic</em> in nature, such as those considered here, where one realized action $a_k$ at a given state $s_k$ always leads to the same next state $s_{k+1}$. In <em>stochastic</em> RL problems, a given action at a state may lead to different conclusions. For example, many RL-based robotics problems are stochastic in nature: a robot may perform a given action - like accelerate forward one unit of thrust - at a state and reach different outcomes due to things like inconsistencies in the application of this action, sensor issues, friction, etc. Almost the same modeling used above captures this variability for such stochastic problems, with the main difference being that the reward function must also necessarily be a function of the state $s_{k+1}$ in addition to $s_k$ and $a_k$. We will deal this generality later on once we flush out all the details of the deterministic scenario.</p>
+</p><p><img height="auto" src="../../../demo_images/RL_images/notation.png" width="75%"/></p><p>We end this brief section by noting that not all RL problems are <em>deterministic</em> in nature, such as those considered here, where one realized action $a_k$ at a given state $s_k$ always leads to the same next state $s_{k+1}$. In <em>stochastic</em> RL problems, a given action at a state may lead to different conclusions. For example, many RL-based robotics problems are stochastic in nature: a robot may perform a given action - like accelerate forward one unit of thrust - at a state and reach different outcomes due to things like inconsistencies in the application of this action, sensor issues, friction, etc. Almost the same modeling used above captures this variability for such stochastic problems, with the main difference being that the reward function must also necessarily be a function of the state $s_{k+1}$ in addition to $s_k$ and $a_k$. We will deal this generality later on once we flush out all the details of the deterministic scenario.</p>
 </div>
 </div>
 </div>
