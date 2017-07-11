@@ -35,7 +35,7 @@ script_1 = '''
 <!-- uncomment to add back menu
 <div style="text-align:center !important; padding-top:58px;">
 
-				<a href="index.html" style="font-family: inherit; font-weight: 200; letter-spacing: 1.5px; color: #222; font-size: 97%;">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="about.html" style="font-family: inherit; font-weight: 200; letter-spacing: 1.5px; color: #222; font-size: 97%;">ABOUT</a>
+				<a href="../../../index.html" style="font-family: inherit; font-weight: 200; letter-spacing: 1.5px; color: #222; font-size: 97%;">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../about.html" style="font-family: inherit; font-weight: 200; letter-spacing: 1.5px; color: #222; font-size: 97%;">ABOUT</a>
 		
 
 </div> -->
@@ -54,8 +54,8 @@ script_1 = '''
 
 			<div class="logo-share">
 				<!-- github -->
-				<a target="_blank" href="https://github.com/jermwatt/mlrefined/blob/master/'''+name+'''.ipynb">
-					<img src="demo_images/github.png" width=28 height=28 onmouseover="this.src='demo_images/github_filled.png';" onmouseout="this.src='demo_images/github.png';">
+				<a target="_blank" href="https://github.com/jermwatt/mlrefined/blob/master/Jupyter_notebooks/blog_posts/'''+series_url+'''/'''+ name+'''.ipynb">
+					<img src="../../../demo_images/github.png" width=28 height=28 onmouseover="this.src='../../../demo_images/github_filled.png';" onmouseout="this.src='../../../demo_images/github.png';">
 				</a>
 			</div>
 		</div>
@@ -70,8 +70,8 @@ script_1 = '''
 
 			<div class="logo-share">
 				<!-- linkedin -->
-				<a target="_blank" href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2F'''+name+'''.html">
-					<img src="demo_images/linkedin.png" width=28 height=28 onmouseover="this.src='demo_images/linkedin_filled.png';" onmouseout="this.src='demo_images/linkedin.png';">
+				<a target="_blank" href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2FJupyter_notebooks%2Fblog_posts%2F'''+series_url+'''%2F'''+ name+'''.html">
+					<img src="../../../demo_images/linkedin.png" width=28 height=28 onmouseover="this.src='../../../demo_images/linkedin_filled.png';" onmouseout="this.src='../../../demo_images/linkedin.png';">
 				</a>
 			</div>
 
@@ -79,8 +79,8 @@ script_1 = '''
 
 			<div class="logo-share">
 				<!-- twitter -->
-				<a target="_blank" href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&tw_p=tweetbutton&url=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2F'''+name+'''.html">
-					<img src="demo_images/twitter.png" width=28 height=28 onmouseover="this.src='demo_images/twitter_filled.png';" onmouseout="this.src='demo_images/twitter.png';">
+				<a target="_blank" href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&tw_p=tweetbutton&url=https%3A%2F%2Fjermwatt.github.io%2Fblog_posts%2F'''+series_url+'''%2F'''+ name+'''.html">
+					<img src="../../../demo_images/twitter.png" width=28 height=28 onmouseover="this.src='../../../demo_images/twitter_filled.png';" onmouseout="this.src='../../../demo_images/twitter.png';">
 				</a>
 			</div>
 	
@@ -88,8 +88,8 @@ script_1 = '''
 
 			<div class="logo-share">
 				<!-- facebook -->
-				<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2F'''+name+'''.html">
-					<img src="demo_images/facebook.png" width=28 height=28 onmouseover="this.src='demo_images/facebook_filled.png';" onmouseout="this.src='demo_images/facebook.png';">
+				<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjermwatt.github.io%2Fblog_posts%2F'''+series_url+'''%2F'''+ name+'''.html">
+					<img src="../../../demo_images/facebook.png" width=28 height=28 onmouseover="this.src='../../../demo_images/facebook_filled.png';" onmouseout="this.src='../../../demo_images/facebook.png';">
 				</a>
 			</div>
 		</div>
@@ -161,6 +161,8 @@ script_3 = '''
         }
     });
     </script>
+    
+    <link href="../../../custom.css" rel="stylesheet"/>
     
     <style>
         p {
