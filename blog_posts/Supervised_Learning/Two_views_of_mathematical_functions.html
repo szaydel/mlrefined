@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8"/>
-<title>Two views of mathematical functions</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<head><meta charset="utf-8" />
+<title>Two_views_of_mathematical_functions</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
 <style type="text/css">
     /*!
 *
@@ -11713,6 +11714,8 @@ ul.typeahead-list > li > a {
 .ansi-bold { font-weight: bold; }
 
     </style>
+
+
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
 body {
@@ -11723,7 +11726,9 @@ body {
 div#notebook {
   overflow: visible;
   border-top: none;
-}@media print {
+}
+
+@media print {
   div.cell {
     display: block;
     page-break-inside: avoid;
@@ -11738,13 +11743,15 @@ div#notebook {
   }
 }
 </style>
+
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
-<link href="custom.css" rel="stylesheet"/>
+<link rel="stylesheet" href="custom.css">
+
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
-<!-- MathJax configuration -->
-<script type="text/x-mathjax-config">
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
             inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -11756,139 +11763,81 @@ div#notebook {
         // we use CSS to left justify single line equations in code cells.
         displayAlign: 'center',
         "HTML-CSS": {
-            availableFonts: ["TeX"],
-            preferredFont: "TeX",
             styles: {'.MathJax_Display': {"margin": 0}},
             linebreaks: { automatic: true }
         }
     });
     </script>
-<link href="../../../custom.css" rel="stylesheet"/>
-<style>
-        p {
-            text-align: justify !important;
-            text-justify: inter-word !important;
-        }
-    </style>
-<!-- End of mathjax configuration --></head>
+    <!-- End of mathjax configuration --></head>
 <body>
-<!-- uncomment to add back menu
-<div style="text-align:center !important; padding-top:58px;">
+  <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
 
-				<a href="../../../index.html" style="font-family: inherit; font-weight: 200; letter-spacing: 1.5px; color: #222; font-size: 97%;">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../about.html" style="font-family: inherit; font-weight: 200; letter-spacing: 1.5px; color: #222; font-size: 97%;">ABOUT</a>
-		
-
-</div> -->
-<br/><br/><br/>
-<!-- share buttons -->
-<div style="width: 53%; margin:auto;">
-<div id="1" style="width: 75%; float:left;">
-<span style="color:black; font-family:'lato', sans-serif; font-size: 18px;">code</span>
-<div style="width: 95px; border-bottom: solid 1px; border-color:black;">
-<div class="logo-share"></div>
-<div class="logo-share"></div>
-<div class="logo-share">
-<!-- github -->
-<a href="https://github.com/jermwatt/mlrefined/blob/master/Jupyter_notebooks/blog_posts/Supervised_Learning/Two_views_of_mathematical_functions.ipynb" target="_blank">
-<img height="28" onmouseout="this.src='../../../demo_images/github.png';" onmouseover="this.src='../../../demo_images/github_filled.png';" src="../../../demo_images/github.png" width="28"/>
-</a>
-</div>
-</div>
-</div>
-<div id="2" style="width: 25%; float:left;">
-<span style="color:black; font-family:'lato', sans-serif; font-size: 18px;">share</span>
-<div style="width: 210px; border-bottom: solid 1px; border-color:black;">
-<div class="logo-share"></div>
-<div class="logo-share"></div>
-<div class="logo-share">
-<!-- linkedin -->
-<a href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2FJupyter_notebooks%2Fblog_posts%2FSupervised_Learning%2FTwo_views_of_mathematical_functions.html" target="_blank">
-<img height="28" onmouseout="this.src='../../../demo_images/linkedin.png';" onmouseover="this.src='../../../demo_images/linkedin_filled.png';" src="../../../demo_images/linkedin.png" width="28"/>
-</a>
-</div>
-<div class="logo-share"></div>
-<div class="logo-share">
-<!-- twitter -->
-<a href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fjermwatt.github.io%2Fblog_posts%2FSupervised_Learning%2FTwo_views_of_mathematical_functions.html" target="_blank">
-<img height="28" onmouseout="this.src='../../../demo_images/twitter.png';" onmouseover="this.src='../../../demo_images/twitter_filled.png';" src="../../../demo_images/twitter.png" width="28"/>
-</a>
-</div>
-<div class="logo-share"></div>
-<div class="logo-share">
-<!-- facebook -->
-<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjermwatt.github.io%2Fblog_posts%2FSupervised_Learning%2FTwo_views_of_mathematical_functions.html" target="_blank">
-<img height="28" onmouseout="this.src='../../../demo_images/facebook.png';" onmouseover="this.src='../../../demo_images/facebook_filled.png';" src="../../../demo_images/facebook.png" width="28"/>
-</a>
-</div>
-</div>
-</div>
-</div>
-<br/><br/>
-<div class="page-title" style="text-align: center !important;">
-<span style="color: #333; font-size: 40%; letter-spacing: 3px;">
-<span style="font-size: 80%;">► </span><a href="../../../Supervised_Learning.html" style="color: black; cursor: pointer; text-transform: uppercase; font-weight:bold;">Nonlinear supervised learning series</a>
-</span>
-<br/><br/>
-<mark style="padding: 0px; background-color: #f9f3c2;">Two views of mathematical functions</mark>
-</div>
-<br/>
-<div class="border-box-sizing" id="notebook" tabindex="-1">
-<div class="container" id="notebook-container">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-
+<h2 id="Nonlinear-supervised-learning-series">Nonlinear supervised learning series<a class="anchor-link" href="#Nonlinear-supervised-learning-series">&#182;</a></h2>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In this notebook we start off on our journey towards understanding the fundamentals of nonlinear supervised learning, and the main tools used to tackle such problems. In part 1 of the nonlinear supervised learning series we focus on flushing out two basic ways of viewing a mathematical function, and how these views relate fundamentally to the problem of nonlinear supervised learning. This understanding helps frame and motivate the use of <b>function approximators</b> - that is kernels, neural networks, and decision trees - introduced in the notebook following this one.</p>
+<h1 id="Two-views-of-mathematical-functions">Two views of mathematical functions<a class="anchor-link" href="#Two-views-of-mathematical-functions">&#182;</a></h1><p>In this notebook we start off on our journey towards understanding the fundamentals of nonlinear supervised learning, and the main tools used to tackle such problems. In part 1 of the nonlinear supervised learning series we focus on flushing out two basic ways of viewing a mathematical function, and how these views relate fundamentally to the problem of nonlinear supervised learning. This understanding helps frame and motivate the use of <b>function approximators</b> - that is kernels, neural networks, and decision trees - introduced in the notebook following this one.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [1]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># run this cell to import all necessary libraries for the notebook experiments</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="k">import</span> <span class="n">Axes3D</span>
 <span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">gridspec</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="1.--Mathematical-functions">1.  Mathematical functions<a class="anchor-link" href="#1.--Mathematical-functions">¶</a></h1><p>Here we discuss a number of fundamental concepts regarding mathematical functions that will be very useful in our future discussions of nonlinear supervised learning. This includes two common ways of viewing mathematical functions: as an algebraic equation or formula, and as a table of values (or collection of data).</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.1--The-equation-view">1.1  The equation view<a class="anchor-link" href="#1.1--The-equation-view">¶</a></h2><p>In secondary school math classes you learn about all sorts of mathematical functions: lines, parabolas, polynomials, sine waves, etc. A function is just a rule for transforming inputs into an associated set of outputs - like a recipe which tells you how to transform ingredients into a useful product.
+<h1 id="1.--Mathematical-functions">1.  Mathematical functions<a class="anchor-link" href="#1.--Mathematical-functions">&#182;</a></h1><p>Here we discuss a number of fundamental concepts regarding mathematical functions that will be very useful in our future discussions of nonlinear supervised learning. This includes two common ways of viewing mathematical functions: as an algebraic equation or formula, and as a table of values (or collection of data).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="1.1--The-equation-view">1.1  The equation view<a class="anchor-link" href="#1.1--The-equation-view">&#182;</a></h2><p>In secondary school math classes you learn about all sorts of mathematical functions: lines, parabolas, polynomials, sine waves, etc. A function is just a rule for transforming inputs into an associated set of outputs - like a recipe which tells you how to transform ingredients into a useful product.
 One of the primary ways we are taught to think about mathematical functions is via their <strong>equation</strong> or <strong>formula</strong>. For example, take the commonly taught equation of a line</p>
 <p>$$ y = w_0 + w_1x$$</p><p>This is an explicitly written rule for taking an input $x$ and transforming it into an associated output $y$ . Given a specific input $x$ how do we transform it to get its associated output? According to the equation of the line, we simply multiply the input by the weight $w_1$ and add the weight $w_0$.</p>
 <p>In the next cell we plot a picture of this equation/rule. Here we have set  $w_0=−3$  and  $w_1=2$  to create one instance of a line shown in red, plotted over the input range (values of $x$) from $-5$ to $5$.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [2]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># specify range of input for our function</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
 
@@ -11903,229 +11852,285 @@ One of the primary ways we are taught to think about mathematical functions is v
 <span class="n">line_table</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  
 
 <span class="c1"># plot the line</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">'ggplot'</span><span class="p">)</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>   <span class="c1"># add empty panel to center plot</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>   <span class="c1"># add empty panel to center plot</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+<span class="c1"># create subplot with 3 panels, plot input function in center plot</span>
+<span class="n">gs</span> <span class="o">=</span> <span class="n">gridspec</span><span class="o">.</span><span class="n">GridSpec</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">width_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> 
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">line_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># plot input function</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">line_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># plot x and y axes, and clean up</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">'both'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x$&#39;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$y$&#39;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span><span class="n">rotation</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area">
 <div class="prompt"></div>
+
+
+
 <div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-"/>
+<img src="data:image/png;base64,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
+AABAC1CcAQAAgBagOAMAAAAtwJ0DAQAAgBbgjDMATZ061ewIbS4U5yQxr2ASinMCwh3FGQAAAGgB
+ijMAAADQAhRnAMrMzDQ7QpsLxTlJzCuYhOKcgHDHmwMBAACAFuCMMwAAANACFGcAAACgBexmBwAQ
+OF566SU9++yzevLJJ5WQkGB2nDP27LPPateuXbLb7eratauysrLUqVMns2P9IHv37tW6devk9/s1
+bNgwjRgxwuxIZ6y8vFwrVqyQ2+2WxWJRZmamrr32WrNjtRm/36+pU6fK6XRyaTogRFCcAUj6usTs
+27dPKSkpZkdpMwMGDNDtt98um82m9evXa9OmTbrzzjvNjtVqfr9fa9as0fTp05WcnKxp06Zp8ODB
+6tatm9nRzojNZtPo0aPVs2dP1dXVaerUqRowYEDQz+sbr7zyitLT01VXV2d2FABthKUaACRJTz/9
+tO644w5ZLBazo7SZCy+8UDabTZLUt29fVVZWmpzohykpKVFqaqq6du0qu92uoUOHaufOnWbHOmMO
+h0M9e/aUJMXExCg9PT1oj9F3VVRUaPfu3Ro2bJjZUQC0IYozAO3cuVNOp1M9evQwO0q72bp1qwYO
+HGh2jB+ksrJSycnJxx8nJyeHTMH8RllZmT799FP17t3b7Cht4qmnntKdd94ZUr+IAmCpBhA28vPz
+5Xa7m20fNWqUNm3apOnTp5uQ6sydal5DhgyRJL3wwguy2Wy64oorOjoeWqC+vl5LlizRmDFjFBsb
+a3acM7Zr1y4lJiaqZ8+e2r9/v9lxALQhruMMhLnPP/9cs2fPVlRUlKSv/8TscDg0f/58JSUlmZzu
+zL3++ut69dVXNXPmzONzDDYfffSRNm7cqLy8PEnSpk2bJEm/+MUvzIzVJrxerxYsWKALL7xQ119/
+vdlx2sQf/vAHbd++XTabTY2Njaqrq9PFF1+snJwcs6MBOEMUZwAnyM7O1vz580Piqhp79+7V008/
+rcceeyyo5+Pz+fTQQw9p5syZcjqdmjZtmnJycpSRkWF2tDNiGIZWrFihuLg4jRkzxuw47WL//v16
+6aWXuKoGECJYqgEgZK1Zs0Zer1f5+fmSpD59+mjs2LEmp2o9m82me+65R3PnzpXf79fVV18d9KVZ
+kg4cOKDt27ere/fumjx5siTptttu06BBg0xOBgAnxxlnAAAAoAW4qgYAAADQAhRnAAAAoAUozgAA
+AEALUJwBAACAFqA4AwAAAC1AcQYAAABagOIMAAAAtADFGQAAAGgBijMABLAPPvhAI0eO1O7du49v
+Kysr069//WutXbvWxGQAEH4ozgAQwPr376/zzjtPmzZtkiTV1taqoKBAvXv31pgxY8wNBwBhhuIM
+AAFu5MiROnDggN59910tW7ZMNptNEyZMkNXKf+EA0JEshmEYZocAAJxafn6+PvroI8XGxmrevHlK
+Tk42OxIAhB1OVwBAEEhNTVVDQ4NGjhxJaQYAk1CcASDAFRcX669//avOPvtsbd261ew4ABC2KM4A
+EMD27dunNWvW6P7779d9992njz/+WHv27DE7FgCEJYozAASoL774QkuXLtWNN96oq666Sn379tUF
+F1ygjRs3mh0NAMISxRkAApDH41FBQYEGDBigW2+99fj2m2++WSUlJSdc1xkA0DG4qgYAAADQApxx
+BgAAAFqA4gwAAAC0AMUZAAAAaAGKMwAAANACFGcAAACgBSjOAAAAQAtQnAEAAIAWoDgDAAAALfD/
+AVJ3uy1zvmFHAAAAAElFTkSuQmCC
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Another common function we learn about in secondary school is the <strong>parabola</strong>. To get a parabola we just square the input $x$, mutilply it by a weight $w_2$, and add it to the line above</p>
 <p>$$y = w_0 + w_1x + w_2x^2$$</p><p>Again we can plot a parabola with explicit values for the weights $w_0$, $w_1$, and $w_2$. In the next cell we set $w_0=−3$, $w_1=2$, and $w_2=1$, and plot the parabola over the same input range (values of $x$) as the line.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [3]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># specify range of input for our function</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
 
@@ -12143,28 +12148,35 @@ MFQBAAAAAGHl/wHZXu1ubBLVtAAAAABJRU5ErkJggg==
 <span class="c1"># plot the parabola</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>   <span class="c1"># add empty panel to center plot</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>   <span class="c1"># add empty panel to center plot</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">parabola_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">parabola_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">parabola_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">parabola_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># plot x and y axes, and clean up</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">'both'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">35</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area">
 <div class="prompt"></div>
+
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA6oAAAD8CAYAAAB+Q1lpAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3Xl0VPXB//HPnZkkk0nIOgFKBC1CS7VQG0HUiojE5QBS
@@ -12369,129 +12381,143 @@ uXKl5s2bFxXdoVBIt956q+bMmaOsrCzdc889mjZtmrp27Wo6rUVs29bSpUuVmpqqCRMmmM45bh98
 Rc1IlaQdO3aopKRE3bp101133SVJGjt2rPLy8gyXAQBiGUdUAQAAAAARhav+AgAAAAAiCkMVAAAA
 ABBRGKoAAAAAgIjCUAUAAAAARBSGKgAAAAAgojBUAQAAAAARhaEKAAAAAIgo/x8YzTKZORqllQAA
 AABJRU5ErkJggg==
-"/>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Writing down the equation of the line, parabola, or any other function gives us its rule - its recipe for transforming inputs into outputs. This is what we call the equation view of a mathematical function.</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <blockquote><p>One valid way to think about a function is through its equation, that is, its explicitly defined rule for transforming inputs into outputs. We call this <strong>the equation view</strong> of a mathematical function.</p>
 </blockquote>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.2--The-table-view">1.2  The table view<a class="anchor-link" href="#1.2--The-table-view">¶</a></h2><p>Another way to think about a function is to view it as the actual set of input/output pairs defined by its equation, or in other words, as a table of values. This is how we actually graph functions like the ones above: we plug in various input values into the function's equation, find their corresponding output values and print the results.</p>
+<h2 id="1.2--The-table-view">1.2  The table view<a class="anchor-link" href="#1.2--The-table-view">&#182;</a></h2><p>Another way to think about a function is to view it as the actual set of input/output pairs defined by its equation, or in other words, as a table of values. This is how we actually graph functions like the ones above: we plug in various input values into the function's equation, find their corresponding output values and print the results.</p>
 <p>For example, for the line</p>
 <p>$$y = w_0 + w_1x$$</p><p>that we plotted previously with $w_0=−3$ and $w_1=2$, this table of values looks like</p>
-<p><br/></p>
-<p></p><table>
-<thead style="background-color: #eee;">
-<tr>
-<th>input:  $x$</th>
-<th>output:  $y$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="centered">$0$</td>
-<td class="centered">$-3$</td>
-</tr>
-<tr>
-<td class="centered">$-0.4$</td>
-<td class="centered">$-3.8$</td>
-</tr>
-<tr>
-<td class="centered">$2.8$</td>
-<td class="centered">$2.6$</td>
-</tr>
-<tr>
-<td class="centered">$-1$</td>
-<td class="centered">$5$</td>
-</tr>
-<tr>
-<td class="centered">$\vdots$</td>
-<td class="centered">$\vdots$</td>
-</tr>
-</tbody>
+<p><br></p>
+<p><table>
+    <thead style="background-color: #eee;">
+        <tr>
+            <th>input: &nbsp;$x$</th>
+            <th>output: &nbsp;$y$</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="centered">$0$</td>
+            <td class="centered">$-3$</td>
+        </tr>
+        <tr>
+            <td class="centered">$-0.4$</td>
+            <td class="centered">$-3.8$</td>
+        </tr>
+        <tr>
+            <td class="centered">$2.8$</td>
+            <td class="centered">$2.6$</td>
+        </tr>
+        <tr>
+            <td class="centered">$-1$</td>
+            <td class="centered">$5$</td>
+        </tr>
+        <tr>
+            <td class="centered">$\vdots$</td>
+            <td class="centered">$\vdots$</td>
+        </tr>
+    </tbody>
 </table>
-<br/>
+<br></p>
 <p>The vertical dots in each colunm indicate that we could keep on listing off input and output pairs (in no particular order). So in theory, we can find - somewhere on this infinitely long table - the corresponding output value for any input number we can think of.</p>
 <p>When we take the table view of a function we view it as a (possibly infinitely long) listing of explicit input/output pairs, not as its equation. In other words, we think of the function as a collection of input/output data points.</p>
 <p>As with the line, we can also view a parabola either as its equation (equation view) or as its associated table of values (table view). For the choice of weights we used previously, the table view of our parabola looks like</p>
-<p><br/></p>
-<p></p><table>
-<thead style="background-color: #eee;">
-<tr>
-<th>input:  $x$</th>
-<th>output:  $y$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="centered">$0$</td>
-<td class="centered">$-3$</td>
-</tr>
-<tr>
-<td class="centered">$-0.4$</td>
-<td class="centered">$-1.56$</td>
-</tr>
-<tr>
-<td class="centered">$2.8$</td>
-<td class="centered">$10.44$</td>
-</tr>
-<tr>
-<td class="centered">$-1$</td>
-<td class="centered">$-4$</td>
-</tr>
-<tr>
-<td class="centered">$\vdots$</td>
-<td class="centered">$\vdots$</td>
-</tr>
-</tbody>
+<p><br></p>
+<p><table>
+    <thead style="background-color: #eee;">
+        <tr>
+            <th>input: &nbsp;$x$</th>
+            <th>output: &nbsp;$y$</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="centered">$0$</td>
+            <td class="centered">$-3$</td>
+        </tr>
+        <tr>
+            <td class="centered">$-0.4$</td>
+            <td class="centered">$-1.56$</td>
+        </tr>
+        <tr>
+            <td class="centered">$2.8$</td>
+            <td class="centered">$10.44$</td>
+        </tr>
+        <tr>
+            <td class="centered">$-1$</td>
+            <td class="centered">$-4$</td>
+        </tr>
+        <tr>
+            <td class="centered">$\vdots$</td>
+            <td class="centered">$\vdots$</td>
+        </tr>
+    </tbody>
 </table>
-<br/>
+<br></p>
 <p>Once again the three vertical dots in each column indicate that this list is infinitely long. Any input value we can think of will be found at some point on this table, along with its associated output.</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <blockquote><p>Another way to think about a function is as an infinitely long table of explicit input/output values. We call this <strong>the table view</strong> of a mathematical function.</p>
 </blockquote>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Using a subset of these table values we can visualize functions with one or two inputs by plotting their graphs. Notice that the plots produced this way (and shown previously) are not <em>continuous</em>, although they appear so. Those plots we made above are actually kind of a trick - an optical illusion. If you look closely you can see that we only <em>sampled</em> input/output data points for each function's table. That is, we did not plot all infinitely many, just a small subset of them. The plots however <em>look</em> continuous - the way we might draw them using pencil and paper - because we used the <code>plot</code> function from Python's matplotlib library which interpolates smoothly between points it plots. If we use <code>scatter</code> to plot the data instead you can really see all the input/output points we defined individually. We do this in the next Python cell.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># specify range of input for our functions</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>    
 
@@ -12511,24 +12537,31 @@ AABJRU5ErkJggg==
 <span class="c1"># plot the functions </span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">);</span> <span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">);</span> 
-<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">line_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">line_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">parabola_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">parabola_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">line_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">line_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">parabola_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">parabola_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 
 <span class="c1"># plot x and y axes, and clean up</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">'both'</span><span class="p">),</span> <span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">'both'</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">),</span> <span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">]);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">35</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area">
 <div class="prompt"></div>
+
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA3MAAAD8CAYAAADdR/3qAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3XtwVPX5x/HPZhdlSQwkLIXJEmpjcKw0aCOgMKWobJWJ
@@ -12701,59 +12734,65 @@ QzNNV1eXampqlJWVpQULFpgdjuXs27dPW7ZscV2nLrgDY+Q3GCO/wRiZiDGyb24dI1lmibRbv369
 YrGYKisrJUljx47VwoULTY4q/bxer+666y6tWrVK8Xhc11xzjasHKUnav3+/GhoaNGbMGC1ZskSS
 NGfOHBUXF5scGQCkB2PkNxgjEzFGojfMzAEAAACADdHNEgAAAABsiGIOAAAAAGyIYg4AAAAAbIhi
 DgAAAABsiGIOAAAAAGyIYg4AAAAAbIhiDgAAAABs6P8BmMfP+DgtKZgAAAAASUVORK5CYII=
-"/>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.3--Higher-dimensions:-same-deal">1.3  Higher dimensions: same deal<a class="anchor-link" href="#1.3--Higher-dimensions:-same-deal">¶</a></h2><p>The duality of viewing a function via its equation or its table of values, holds regardless of how many inputs our function has. For example, a line that takes in two inputs ($x_1$ and $x_2$ instead of just $x$) is usually called a <em>plane</em> or <em>hyperplane</em>, and its equation generally takes the form</p>
+<h2 id="1.3--Higher-dimensions:-same-deal">1.3  Higher dimensions: same deal<a class="anchor-link" href="#1.3--Higher-dimensions:-same-deal">&#182;</a></h2><p>The duality of viewing a function via its equation or its table of values, holds regardless of how many inputs our function has. For example, a line that takes in two inputs ($x_1$ and $x_2$ instead of just $x$) is usually called a <em>plane</em> or <em>hyperplane</em>, and its equation generally takes the form</p>
 <p>$$w_0 + w_1x_1 + w_2x_2 = y$$</p><p>where $w_0$ , $w_1$, and $w_2$ are tunable weights. For any particular set of weights we can write out a table of values, and plot it (this time in 3d). For example, if we set $w_0=3$, $w_1=−2$, and $w_2=0.5$, we can create a table of values like this</p>
-<p><br/></p>
-<p></p><table>
-<thead style="background-color: #eee;">
-<tr>
-<th>input:  $(x_1,x_2)$</th>
-<th>output:  $y$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="centered">$(0,0)$</td>
-<td class="centered">$3$</td>
-</tr>
-<tr>
-<td class="centered">$(1,2)$</td>
-<td class="centered">$2$</td>
-</tr>
-<tr>
-<td class="centered">$(3.14,1.6)$</td>
-<td class="centered">$4.88$</td>
-</tr>
-<tr>
-<td class="centered">$(-1,1)$</td>
-<td class="centered">$-4$</td>
-</tr>
-<tr>
-<td class="centered">$\vdots$</td>
-<td class="centered">$\vdots$</td>
-</tr>
-</tbody>
+<p><br></p>
+<p><table>
+    <thead style="background-color: #eee;">
+        <tr>
+            <th>input: &nbsp;$(x_1,x_2)$</th>
+            <th>output: &nbsp;$y$</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="centered">$(0,0)$</td>
+            <td class="centered">$3$</td>
+        </tr>
+        <tr>
+            <td class="centered">$(1,2)$</td>
+            <td class="centered">$2$</td>
+        </tr>
+        <tr>
+            <td class="centered">$(3.14,1.6)$</td>
+            <td class="centered">$4.88$</td>
+        </tr>
+        <tr>
+            <td class="centered">$(-1,1)$</td>
+            <td class="centered">$-4$</td>
+        </tr>
+        <tr>
+            <td class="centered">$\vdots$</td>
+            <td class="centered">$\vdots$</td>
+        </tr>
+    </tbody>
 </table>
-<br/>
+<br></p>
 <p>or plot a shortened list of its table of values as in the next Python cell.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># specify range of input for for x1 and x2</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>                  
 <span class="n">x_1</span><span class="p">,</span> <span class="n">x_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
@@ -12773,24 +12812,31 @@ DgAAAABsiGIOAAAAAGyIYg4AAAAAbIhiDgAAAABs6P8BmMfP+DgtKZgAAAAASUVORK5CYII=
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">rcParamsDefault</span><span class="p">)</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>              <span class="c1"># add empty panel to center plot</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>              <span class="c1"># add empty panel to center plot</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
-<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">,</span><span class="n">projection</span><span class="o">=</span><span class="s1">'3d'</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">line_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">line_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">line_table</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">,</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">line_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">line_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">line_table</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
 
 <span class="c1"># clean up plot and set viewing angle</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">'both'</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area">
 <div class="prompt"></div>
+
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABMkAAAFlCAYAAADxtr+mAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAAPYQAAD2EBqD+naQAAIABJREFUeJzs3duPZel91//386zzXqfqw7Rn2vaMPTNKnDAGggkIAo6T
@@ -13929,26 +13975,32 @@ JAMAAABgT5IBAAAAsCfJAAAAANiTZAAAAADsSTIAAAAA9iQZAAAAAHuSDAAAAIA9SQYAAADAniQD
 AAAAYE+SAQAAALAnyQAAAADYk2QAAAAA7EkyAAAAAPYkGQAAAAB7kgwAAACAPUkGAAAAwJ4kAwAA
 AGBPkgEAAACwJ8kAAAAA2JNkAAAAAOxJMgAAAAD2JBkAAAAAewE6YVY4FqoJRgAAAABJRU5ErkJg
 gg==
-"/>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>A higher dimensional parabola works analagously. The general equation with 2 inputs takes the form</p>
 <p>$$y = w_0 + w_1x_1 + w_2x_2 + w_3x_1x_2 + w_4x_1^2 + w_5x_2^2$$</p><p>For any weight setting we can write out a table of values, or plot a small section of the table as in the next Python cell, where we have set $w_0=3$, $w_1=−2$, $w_2=0.5$, $w_3=1.3$, $w_4=−0.3$, and  $w_5=4$.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [6]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#specify range of input for for x1 and x2</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>                 
 <span class="n">x_1</span><span class="p">,</span> <span class="n">x_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
@@ -13970,24 +14022,31 @@ gg==
 <span class="c1"># plot the 2d parabola</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>              <span class="c1"># add empty panel to center plot</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>              <span class="c1"># add empty panel to center plot</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
-<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">,</span><span class="n">projection</span><span class="o">=</span><span class="s1">'3d'</span><span class="p">)</span> 
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">line_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">line_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">line_table</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">'r'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">,</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span> 
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">line_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">line_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">line_table</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
 
 <span class="c1"># clean up plot and set viewing angle</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">'both'</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area">
 <div class="prompt"></div>
+
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABMkAAAFlCAYAAADxtr+mAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAAPYQAAD2EBqD+naQAAIABJREFUeJzs3WuMXPd93vHvuc59hrtLShQlU2IsyZIdWUlcOFYSB7Zh
@@ -15131,86 +15190,99 @@ ERERERERkfOeQjIRERERERERETnvKSQTEREREREREZHznkIyERERERERERE57ykkExERERERERGR
 hREAAADsSTIAAAAA9iQZAAAAAHuSDAAAAIA9SQYAAADAniQDAAAAYE+SAQAAALAnyQAAAADYk2QA
 AAAA7EkyAAAAAPYkGQAAAAB7kgwAAACAPUkGAAAAwJ4kAwAAAGBPkgEAAACwJ8kAAAAA2JNkAAAA
 AOxJMgAAAAD2JBkAAAAAe5IMAAAAgL0AqsefEMQSwikAAAAASUVORK5CYII=
-"/>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.4--Which-view-of-a-function-is-best?">1.4  Which view of a function is best?<a class="anchor-link" href="#1.4--Which-view-of-a-function-is-best?">¶</a></h2><p>If we could only choose one, which would we rather have: the equation of a function or a table consisting of all its input/output pairs?</p>
+<h2 id="1.4--Which-view-of-a-function-is-best?">1.4  Which view of a function is best?<a class="anchor-link" href="#1.4--Which-view-of-a-function-is-best?">&#182;</a></h2><p>If we could only choose one, which would we rather have: the equation of a function or a table consisting of all its input/output pairs?</p>
 <p>Well, if we had the equation we could always generate its associated table of input/output values. So that is a big plus to having the equation - if we have it we can get the table for free. How about the reverse? If we had a table of values, could we intuit its equation easily? In other words, if we have the table do we get the equation for free?</p>
 <p>Well, by just examining a function's raw table it is not exactly obvious how to draw conclusions vis-a-vis its associated equation. That is, just eye-balling a raw table like this one</p>
-<p><br/></p>
-<p></p><table>
-<thead style="background-color: #eee;">
-<tr>
-<th>input:  $x$</th>
-<th>output:  $y$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="centered">$0$</td>
-<td class="centered">$-3$</td>
-</tr>
-<tr>
-<td class="centered">$-0.4$</td>
-<td class="centered">$-1.56$</td>
-</tr>
-<tr>
-<td class="centered">$2.8$</td>
-<td class="centered">$10.44$</td>
-</tr>
-<tr>
-<td class="centered">$-1$</td>
-<td class="centered">$-4$</td>
-</tr>
-<tr>
-<td class="centered">$\vdots$</td>
-<td class="centered">$\vdots$</td>
-</tr>
-</tbody>
+<p><br></p>
+<p><table>
+    <thead style="background-color: #eee;">
+        <tr>
+            <th>input: &nbsp;$x$</th>
+            <th>output: &nbsp;$y$</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="centered">$0$</td>
+            <td class="centered">$-3$</td>
+        </tr>
+        <tr>
+            <td class="centered">$-0.4$</td>
+            <td class="centered">$-1.56$</td>
+        </tr>
+        <tr>
+            <td class="centered">$2.8$</td>
+            <td class="centered">$10.44$</td>
+        </tr>
+        <tr>
+            <td class="centered">$-1$</td>
+            <td class="centered">$-4$</td>
+        </tr>
+        <tr>
+            <td class="centered">$\vdots$</td>
+            <td class="centered">$\vdots$</td>
+        </tr>
+    </tbody>
 </table>
-<br/>
+<br></p>
 <p>might not lead us to any useful conclusions regarding an equation.</p>
 <p>But we could plot the table of values, or some portion of it, as we have been doing so far. Using the plot we could then try to determine the equation 'by eye'. That would probably be much easier than just looking at a table of numbers. Let's plot a few examples and see if this is do-able. See if you can guess the equation associated with each. After you have made your guess you can scroll down a bit to see the associated equations.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [12]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># load in table of values for two functions</span>
-<span class="n">first_table</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">'../../../demo_datasets/guess_this_1.txt'</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">)</span>
-<span class="n">second_table</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">'../../../demo_datasets/guess_this_2.txt'</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">)</span>
+<span class="n">first_table</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;../../../demo_datasets/guess_this_1.txt&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">second_table</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;../../../demo_datasets/guess_this_2.txt&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
 
 <span class="c1"># plot these functions</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">'ggplot'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">);</span> <span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">);</span> 
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">first_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">first_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">second_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">second_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">first_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">first_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">second_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">second_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># plot x axis and clean up</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">'both'</span><span class="p">),</span><span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">'both'</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">),</span><span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">]);</span> 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area">
 <div class="prompt"></div>
+
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABNUAAAFjCAYAAAAafT3dAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAAPYQAAD2EBqD+naQAAIABJREFUeJzs3Xd8VFX+//HXnZZM6oS2AVGKYEMQrKirovgVXSurq2tj
@@ -15890,13 +15962,18 @@ VNL/fs7QP1gDfZ490OfZA32e9dHn2QN9nvVFs89zGJx/CAAAAAAAAJhiqzXVAAAAAAAAACtgqAYA
 AAAAAACYxFANAAAAAAAAMImhGgAAAAAAAGASQzUAAAAAAADAJIZqAAAAAAAAgEkM1QAAAAAAAACT
 GKoBAAAAAAAAJjFUAwAAAAAAAExiqAYAAAAAAACYxFANAAAAAAAAMImhGgAAAAAAAGDS/wGhQgKO
 EDSyDwAAAABJRU5ErkJggg==
-"/>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -15906,59 +15983,71 @@ EDSyDwAAAABJRU5ErkJggg==
 <p>$$y = e^{3x}\frac{\text{sin}(3\pi^2 (x-0.5))}{3{\pi}^2(x-0.5)}$$</p><p>then you definitely deserve a pat on the back! Regardless, wouldn't you agree that this one is much harder?</p>
 <p>The point here is that even when we only have a <em>single</em> input, identifying a function's equation by plotting its table of values is very difficult to do 'by eye'. And it is worth emphasizing again that we could only even attempt this for functions of one or two inputs, since we can't meaningfully visualize functions that take in three or more inputs - they are too high dimensional!</p>
 <p>So in general we can't just look at a table of values - whether in the raw or by graphing it - and hope to accurately guess at the associated equation. Is there another way to accurately estimate the equation of a table? There is, and it is the basis for all nonlinear machine learning. It is called <strong>function approximation</strong>, a topic we investigate at length starting in the next notebook.</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <blockquote><p>If we have a function's equation we can always generate its associated table of values effortlessly, however the reverse is not so straight forward. That is, given a table of values it is not yet clear how, in general, we can infer an associated equation. In this important sense, the equation view of a function outstrips the table view, and is superior.</p>
 </blockquote>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.5--What-does-all-this-have-to-do-with-supervised-learning?">1.5  What does all this have to do with supervised learning?<a class="anchor-link" href="#1.5--What-does-all-this-have-to-do-with-supervised-learning?">¶</a></h2><p>We can describe supervised learning, that is regression and classification, directly in terms of our two views of functions: the aim of supervised learning is to recover the equation of a function based on noisy samples of its table of values.</p>
+<h2 id="1.5--What-does-all-this-have-to-do-with-supervised-learning?">1.5  What does all this have to do with supervised learning?<a class="anchor-link" href="#1.5--What-does-all-this-have-to-do-with-supervised-learning?">&#182;</a></h2><p>We can describe supervised learning, that is regression and classification, directly in terms of our two views of functions: the aim of supervised learning is to recover the equation of a function based on noisy samples of its table of values.</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <blockquote><p>In terms of our two views of functions, the aim of supervised learning is to recover the equation of a function based on <em>noisy</em> samples of its table of values.</p>
 </blockquote>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In other words, with supervised learning we have a table of values representing a function. But the values we are given are (likely) noisy, and we have a limited supply of them. This factoid is illustrated figuratively in the animation below for one particular regression dataset.</p>
-<p><img height="300/" src="../../../demo_images/regr_to_func_approx.gif" width="300"/></p><p>The GIF begins by illustrating a prototypical nonlinear regression dataset consisting of a small sample of sinusoidal input/output pairs, with noise being added to the output. 'Noise' here means that each point has been nudged a little above, or below, where the true function is.</p>
+<p><img src="../../../demo_images/regr_to_func_approx.gif" width=300 height=300/></p><p>The GIF begins by illustrating a prototypical nonlinear regression dataset consisting of a small sample of sinusoidal input/output pairs, with noise being added to the output. 'Noise' here means that each point has been nudged a little above, or below, where the true function is.</p>
 <p>The next slide in the animation then shows the same dataset, only with the noise removed. The points drop down or raise up to the true sinusoidal function. While the regression dataset table of values contained noisy samples of the true function, each of the values in this table are now true input/output pairs. But we still only have a small sample of all such pairs. The final slide in the animation fills out the table completely and shows the true, underlying function table of values.</p>
 <p>Up next, an analagous animation for two-class classification. Everything here is entirely similar to the regression case animated above, shown for one particular nonlinear classification dataset. This is because classification is a regression problem, one where our output <em>is</em> constrained to strictly take on discrete values.</p>
-<p><img height="300/" src="../../../demo_images/class_to_func_approx_2d_slow.gif" width="350"/></p><p><img height="300/" src="../../../demo_images/class_to_func_approx_3d.gif" width="400"/></p><p>In the first slide of the animations we see a prototypical classification dataset - a noisy table of values - from both 'above' (in the top GIF) and 'the side' (bottom GIF). Note that with classification a point is 'noisy' if it is mislabeled, that is if its label takes on the wrong discrete value. So, a noisy point here is one that - if on the bottom step, should be on the top - and vice versa.</p>
+<p><img src="../../../demo_images/class_to_func_approx_2d_slow.gif" width=350 height=300/></p><p><img src="../../../demo_images/class_to_func_approx_3d.gif" width=400 height=300/></p><p>In the first slide of the animations we see a prototypical classification dataset - a noisy table of values - from both 'above' (in the top GIF) and 'the side' (bottom GIF). Note that with classification a point is 'noisy' if it is mislabeled, that is if its label takes on the wrong discrete value. So, a noisy point here is one that - if on the bottom step, should be on the top - and vice versa.</p>
 <p>In the next slide of the animation we remove noise from all points, so every point now lies on its correct level. At this point we have a clean sample of table values for our function, but only a subset of them.</p>
 <p>Finally we transition to the final slide, showing the complete table of values for our desired function. The difference between this and the final slide of the regression GIF, is that with classification we deal with <strong>discontinuous step functions</strong> which can have linear or nonlinear boundaries between their steps.</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.6--What-is-next?">1.6  What is next?<a class="anchor-link" href="#1.6--What-is-next?">¶</a></h2><p>Finding the equation of a complete, noise-free table of values is challenging as we discussed in Section 1.4. Supervised learning is just doing this - finding an equation - only our table of values (our data) is finite and much smaller, and is potentially noisy. It then stands to reason that supervised learning must be a harder task. But if don't even know how to tackle the former problem yet (the one that seems easier), how can we hope to tackle the latter?</p>
+<h2 id="1.6--What-is-next?">1.6  What is next?<a class="anchor-link" href="#1.6--What-is-next?">&#182;</a></h2><p>Finding the equation of a complete, noise-free table of values is challenging as we discussed in Section 1.4. Supervised learning is just doing this - finding an equation - only our table of values (our data) is finite and much smaller, and is potentially noisy. It then stands to reason that supervised learning must be a harder task. But if don't even know how to tackle the former problem yet (the one that seems easier), how can we hope to tackle the latter?</p>
 <p>In the next post we start off by introducing the tools needed to accurately determine the equation of a function given its complete table of values. We will then see, because supervised learning is so similar in concept to this problem, that we can carry over the exact same set of tools to tackle supervised learning. This toolset is called <strong>function approximation</strong>, and is where (perhaps familiar) terms like <strong>kernels</strong>, <strong>neural networks</strong>, and <strong>decision trees</strong> enter the picture.</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -15967,7 +16056,11 @@ EDSyDwAAAABJRU5ErkJggg==
 </div>
 </div>
 </div>
-</div>
-</div>
+    </div>
+  </div>
 </body>
+
+ 
+
+
 </html>
