@@ -11765,7 +11765,7 @@ div#notebook {
         }
     });
     </script>
-<link href="../../../custom.css" rel="stylesheet"/>
+<link href="../../custom.css" rel="stylesheet"/>
 <style>
         p {
             text-align: justify !important;
@@ -11792,7 +11792,7 @@ div#notebook {
 <div class="logo-share">
 <!-- github -->
 <a href="https://github.com/jermwatt/mlrefined/blob/master/blog_posts/Supervised_Learning/Two_views_of_mathematical_functions.ipynb" target="_blank">
-<img height="28" onmouseout="this.src='../../../demo_images/github.png';" onmouseover="this.src='../../../demo_images/github_filled.png';" src="../../../demo_images/github.png" width="28"/>
+<img height="28" onmouseout="this.src='../../pics/github.png';" onmouseover="this.src='../../pics/github_filled.png';" src="../../pics/github.png" width="28"/>
 </a>
 </div>
 </div>
@@ -11805,21 +11805,21 @@ div#notebook {
 <div class="logo-share">
 <!-- linkedin -->
 <a href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2Fblog_posts%2FSupervised_Learning%2FTwo_views_of_mathematical_functions.html" target="_blank">
-<img height="28" onmouseout="this.src='../../../demo_images/linkedin.png';" onmouseover="this.src='../../../demo_images/linkedin_filled.png';" src="../../../demo_images/linkedin.png" width="28"/>
+<img height="28" onmouseout="this.src='../../pics/linkedin.png';" onmouseover="this.src='../../pics/linkedin_filled.png';" src="../../pics/linkedin.png" width="28"/>
 </a>
 </div>
 <div class="logo-share"></div>
 <div class="logo-share">
 <!-- twitter -->
 <a href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fjermwatt.github.io%2Fblog_posts%2FSupervised_Learning%2FTwo_views_of_mathematical_functions.html" target="_blank">
-<img height="28" onmouseout="this.src='../../../demo_images/twitter.png';" onmouseover="this.src='../../../demo_images/twitter_filled.png';" src="../../../demo_images/twitter.png" width="28"/>
+<img height="28" onmouseout="this.src='../../pics/twitter.png';" onmouseover="this.src='../../pics/twitter_filled.png';" src="../../pics/twitter.png" width="28"/>
 </a>
 </div>
 <div class="logo-share"></div>
 <div class="logo-share">
 <!-- facebook -->
 <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjermwatt.github.io%2Fblog_posts%2FSupervised_Learning%2FTwo_views_of_mathematical_functions.html" target="_blank">
-<img height="28" onmouseout="this.src='../../../demo_images/facebook.png';" onmouseover="this.src='../../../demo_images/facebook_filled.png';" src="../../../demo_images/facebook.png" width="28"/>
+<img height="28" onmouseout="this.src='../../pics/facebook.png';" onmouseover="this.src='../../pics/facebook_filled.png';" src="../../pics/facebook.png" width="28"/>
 </a>
 </div>
 </div>
@@ -16004,10 +16004,10 @@ EDSyDwAAAABJRU5ErkJggg==
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In other words, with supervised learning we have a table of values representing a function. But the values we are given are (likely) noisy, and we have a limited supply of them. This factoid is illustrated figuratively in the animation below for one particular regression dataset.</p>
-<p><img height="300/" src="../../../demo_images/regr_to_func_approx.gif" width="300"/></p><p>The GIF begins by illustrating a prototypical nonlinear regression dataset consisting of a small sample of sinusoidal input/output pairs, with noise being added to the output. 'Noise' here means that each point has been nudged a little above, or below, where the true function is.</p>
+<p><img height="300/" src="../../images/regr_to_func_approx.gif" width="300"/></p><p>The GIF begins by illustrating a prototypical nonlinear regression dataset consisting of a small sample of sinusoidal input/output pairs, with noise being added to the output. 'Noise' here means that each point has been nudged a little above, or below, where the true function is.</p>
 <p>The next slide in the animation then shows the same dataset, only with the noise removed. The points drop down or raise up to the true sinusoidal function. While the regression dataset table of values contained noisy samples of the true function, each of the values in this table are now true input/output pairs. But we still only have a small sample of all such pairs. The final slide in the animation fills out the table completely and shows the true, underlying function table of values.</p>
 <p>Up next, an analagous animation for two-class classification. Everything here is entirely similar to the regression case animated above, shown for one particular nonlinear classification dataset. This is because classification is a regression problem, one where our output <em>is</em> constrained to strictly take on discrete values.</p>
-<p><img height="300/" src="../../../demo_images/class_to_func_approx_2d_slow.gif" width="350"/></p><p><img height="300/" src="../../../demo_images/class_to_func_approx_3d.gif" width="400"/></p><p>In the first slide of the animations we see a prototypical classification dataset - a noisy table of values - from both 'above' (in the top GIF) and 'the side' (bottom GIF). Note that with classification a point is 'noisy' if it is mislabeled, that is if its label takes on the wrong discrete value. So, a noisy point here is one that - if on the bottom step, should be on the top - and vice versa.</p>
+<p><img height="300/" src="../../images/class_to_func_approx_2d_slow.gif" width="350"/></p><p><img height="300/" src="../../images/class_to_func_approx_3d.gif" width="400"/></p><p>In the first slide of the animations we see a prototypical classification dataset - a noisy table of values - from both 'above' (in the top GIF) and 'the side' (bottom GIF). Note that with classification a point is 'noisy' if it is mislabeled, that is if its label takes on the wrong discrete value. So, a noisy point here is one that - if on the bottom step, should be on the top - and vice versa.</p>
 <p>In the next slide of the animation we remove noise from all points, so every point now lies on its correct level. At this point we have a clean sample of table values for our function, but only a subset of them.</p>
 <p>Finally we transition to the final slide, showing the complete table of values for our desired function. The difference between this and the final slide of the regression GIF, is that with classification we deal with <strong>discontinuous step functions</strong> which can have linear or nonlinear boundaries between their steps.</p>
 </div>

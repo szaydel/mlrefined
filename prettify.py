@@ -55,7 +55,7 @@ script_1 = '''
 			<div class="logo-share">
 				<!-- github -->
 				<a target="_blank" href="https://github.com/jermwatt/mlrefined/blob/master/blog_posts/'''+series_url+'''/'''+ name+'''.ipynb">
-					<img src="../../../demo_images/github.png" width=28 height=28 onmouseover="this.src='../../../demo_images/github_filled.png';" onmouseout="this.src='../../../demo_images/github.png';">
+					<img src="../../pics/github.png" width=28 height=28 onmouseover="this.src='../../pics/github_filled.png';" onmouseout="this.src='../../pics/github.png';">
 				</a>
 			</div>
 		</div>
@@ -71,7 +71,7 @@ script_1 = '''
 			<div class="logo-share">
 				<!-- linkedin -->
 				<a target="_blank" href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2Fblog_posts%2F'''+series_url+'''%2F'''+ name+'''.html">
-					<img src="../../../demo_images/linkedin.png" width=28 height=28 onmouseover="this.src='../../../demo_images/linkedin_filled.png';" onmouseout="this.src='../../../demo_images/linkedin.png';">
+					<img src="../../pics/linkedin.png" width=28 height=28 onmouseover="this.src='../../pics/linkedin_filled.png';" onmouseout="this.src='../../pics/linkedin.png';">
 				</a>
 			</div>
 
@@ -80,7 +80,7 @@ script_1 = '''
 			<div class="logo-share">
 				<!-- twitter -->
 				<a target="_blank" href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&tw_p=tweetbutton&url=https%3A%2F%2Fjermwatt.github.io%2Fblog_posts%2F'''+series_url+'''%2F'''+ name+'''.html">
-					<img src="../../../demo_images/twitter.png" width=28 height=28 onmouseover="this.src='../../../demo_images/twitter_filled.png';" onmouseout="this.src='../../../demo_images/twitter.png';">
+					<img src="../../pics/twitter.png" width=28 height=28 onmouseover="this.src='../../pics/twitter_filled.png';" onmouseout="this.src='../../pics/twitter.png';">
 				</a>
 			</div>
 	
@@ -89,7 +89,7 @@ script_1 = '''
 			<div class="logo-share">
 				<!-- facebook -->
 				<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjermwatt.github.io%2Fblog_posts%2F'''+series_url+'''%2F'''+ name+'''.html">
-					<img src="../../../demo_images/facebook.png" width=28 height=28 onmouseover="this.src='../../../demo_images/facebook_filled.png';" onmouseout="this.src='../../../demo_images/facebook.png';">
+					<img src="../../pics/facebook.png" width=28 height=28 onmouseover="this.src='../../pics/facebook_filled.png';" onmouseout="this.src='../../pics/facebook.png';">
 				</a>
 			</div>
 		</div>
@@ -162,7 +162,7 @@ script_3 = '''
     });
     </script>
     
-    <link href="../../../custom.css" rel="stylesheet"/>
+    <link href="../../custom.css" rel="stylesheet"/>
     
     <style>
         p {
