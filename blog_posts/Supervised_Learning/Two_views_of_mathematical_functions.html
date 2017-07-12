@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8" />
-<title>Two_views_of_mathematical_functions</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<head><meta charset="utf-8"/>
+<title>Two views of mathematical functions</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
 <style type="text/css">
     /*!
 *
@@ -11714,8 +11713,6 @@ ul.typeahead-list > li > a {
 .ansi-bold { font-weight: bold; }
 
     </style>
-
-
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
 body {
@@ -11743,15 +11740,13 @@ div#notebook {
   }
 }
 </style>
-
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
-<link rel="stylesheet" href="custom.css">
-
+<link href="custom.css" rel="stylesheet"/>
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+<!-- MathJax configuration -->
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
             inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -11763,22 +11758,90 @@ div#notebook {
         // we use CSS to left justify single line equations in code cells.
         displayAlign: 'center',
         "HTML-CSS": {
+            availableFonts: ["TeX"],
+            preferredFont: "TeX",
             styles: {'.MathJax_Display': {"margin": 0}},
             linebreaks: { automatic: true }
         }
     });
     </script>
-    <!-- End of mathjax configuration --></head>
+<link href="../../../custom.css" rel="stylesheet"/>
+<style>
+        p {
+            text-align: justify !important;
+            text-justify: inter-word !important;
+        }
+    </style>
+<!-- End of mathjax configuration --></head>
 <body>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
+<!-- uncomment to add back menu
+<div style="text-align:center !important; padding-top:58px;">
 
+				<a href="../../../index.html" style="font-family: inherit; font-weight: 200; letter-spacing: 1.5px; color: #222; font-size: 97%;">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../about.html" style="font-family: inherit; font-weight: 200; letter-spacing: 1.5px; color: #222; font-size: 97%;">ABOUT</a>
+		
+
+</div> -->
+<br/><br/><br/>
+<!-- share buttons -->
+<div style="width: 53%; margin:auto;">
+<div id="1" style="width: 75%; float:left;">
+<span style="color:black; font-family:'lato', sans-serif; font-size: 18px;">code</span>
+<div style="width: 95px; border-bottom: solid 1px; border-color:black;">
+<div class="logo-share"></div>
+<div class="logo-share"></div>
+<div class="logo-share">
+<!-- github -->
+<a href="https://github.com/jermwatt/mlrefined/blob/master/blog_posts/Supervised_Learning/Two_views_of_mathematical_functions.ipynb" target="_blank">
+<img height="28" onmouseout="this.src='../../../demo_images/github.png';" onmouseover="this.src='../../../demo_images/github_filled.png';" src="../../../demo_images/github.png" width="28"/>
+</a>
+</div>
+</div>
+</div>
+<div id="2" style="width: 25%; float:left;">
+<span style="color:black; font-family:'lato', sans-serif; font-size: 18px;">share</span>
+<div style="width: 210px; border-bottom: solid 1px; border-color:black;">
+<div class="logo-share"></div>
+<div class="logo-share"></div>
+<div class="logo-share">
+<!-- linkedin -->
+<a href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2Fblog_posts%2FSupervised_Learning%2FTwo_views_of_mathematical_functions.html" target="_blank">
+<img height="28" onmouseout="this.src='../../../demo_images/linkedin.png';" onmouseover="this.src='../../../demo_images/linkedin_filled.png';" src="../../../demo_images/linkedin.png" width="28"/>
+</a>
+</div>
+<div class="logo-share"></div>
+<div class="logo-share">
+<!-- twitter -->
+<a href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fjermwatt.github.io%2Fblog_posts%2FSupervised_Learning%2FTwo_views_of_mathematical_functions.html" target="_blank">
+<img height="28" onmouseout="this.src='../../../demo_images/twitter.png';" onmouseover="this.src='../../../demo_images/twitter_filled.png';" src="../../../demo_images/twitter.png" width="28"/>
+</a>
+</div>
+<div class="logo-share"></div>
+<div class="logo-share">
+<!-- facebook -->
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjermwatt.github.io%2Fblog_posts%2FSupervised_Learning%2FTwo_views_of_mathematical_functions.html" target="_blank">
+<img height="28" onmouseout="this.src='../../../demo_images/facebook.png';" onmouseover="this.src='../../../demo_images/facebook_filled.png';" src="../../../demo_images/facebook.png" width="28"/>
+</a>
+</div>
+</div>
+</div>
+</div>
+<br/><br/>
+<div class="page-title" style="text-align: center !important;">
+<span style="color: #333; font-size: 40%; letter-spacing: 3px;">
+<span style="font-size: 80%;">► </span><a href="../../../Supervised_Learning.html" style="color: black; cursor: pointer; text-transform: uppercase; font-weight:bold;">Nonlinear supervised learning series</a>
+</span>
+<br/><br/>
+<mark style="padding: 0px; background-color: #f9f3c2;">Two views of mathematical functions</mark>
+</div>
+<br/>
+<div class="border-box-sizing" id="notebook" tabindex="-1">
+<div class="container" id="notebook-container">
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Nonlinear-supervised-learning-series">Nonlinear supervised learning series<a class="anchor-link" href="#Nonlinear-supervised-learning-series">&#182;</a></h2>
+
 </div>
 </div>
 </div>
@@ -11787,16 +11850,15 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Two-views-of-mathematical-functions">Two views of mathematical functions<a class="anchor-link" href="#Two-views-of-mathematical-functions">&#182;</a></h1><p>In this notebook we start off on our journey towards understanding the fundamentals of nonlinear supervised learning, and the main tools used to tackle such problems. In part 1 of the nonlinear supervised learning series we focus on flushing out two basic ways of viewing a mathematical function, and how these views relate fundamentally to the problem of nonlinear supervised learning. This understanding helps frame and motivate the use of <b>function approximators</b> - that is kernels, neural networks, and decision trees - introduced in the notebook following this one.</p>
-
+<p>In this notebook we start off on our journey towards understanding the fundamentals of nonlinear supervised learning, and the main tools used to tackle such problems. In part 1 of the nonlinear supervised learning series we focus on flushing out two basic ways of viewing a mathematical function, and how these views relate fundamentally to the problem of nonlinear supervised learning. This understanding helps frame and motivate the use of <b>function approximators</b> - that is kernels, neural networks, and decision trees - introduced in the notebook following this one.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In [20]:</div>
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># run this cell to import all necessary libraries for the notebook experiments</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -11804,19 +11866,7 @@ div#notebook {
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">gridspec</span>
 </pre></div>
-
 </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="1.--Mathematical-functions">1.  Mathematical functions<a class="anchor-link" href="#1.--Mathematical-functions">&#182;</a></h1><p>Here we discuss a number of fundamental concepts regarding mathematical functions that will be very useful in our future discussions of nonlinear supervised learning. This includes two common ways of viewing mathematical functions: as an algebraic equation or formula, and as a table of values (or collection of data).</p>
-
 </div>
 </div>
 </div>
@@ -11825,19 +11875,27 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.1--The-equation-view">1.1  The equation view<a class="anchor-link" href="#1.1--The-equation-view">&#182;</a></h2><p>In secondary school math classes you learn about all sorts of mathematical functions: lines, parabolas, polynomials, sine waves, etc. A function is just a rule for transforming inputs into an associated set of outputs - like a recipe which tells you how to transform ingredients into a useful product.
+<h1 id="1.--Mathematical-functions">1.  Mathematical functions<a class="anchor-link" href="#1.--Mathematical-functions">¶</a></h1><p>Here we discuss a number of fundamental concepts regarding mathematical functions that will be very useful in our future discussions of nonlinear supervised learning. This includes two common ways of viewing mathematical functions: as an algebraic equation or formula, and as a table of values (or collection of data).</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="1.1--The-equation-view">1.1  The equation view<a class="anchor-link" href="#1.1--The-equation-view">¶</a></h2><p>In secondary school math classes you learn about all sorts of mathematical functions: lines, parabolas, polynomials, sine waves, etc. A function is just a rule for transforming inputs into an associated set of outputs - like a recipe which tells you how to transform ingredients into a useful product.
 One of the primary ways we are taught to think about mathematical functions is via their <strong>equation</strong> or <strong>formula</strong>. For example, take the commonly taught equation of a line</p>
 <p>$$ y = w_0 + w_1x$$</p><p>This is an explicitly written rule for taking an input $x$ and transforming it into an associated output $y$ . Given a specific input $x$ how do we transform it to get its associated output? According to the equation of the line, we simply multiply the input by the weight $w_1$ and add the weight $w_0$.</p>
 <p>In the next cell we plot a picture of this equation/rule. Here we have set  $w_0=−3$  and  $w_1=2$  to create one instance of a line shown in red, plotted over the input range (values of $x$) from $-5$ to $5$.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In [29]:</div>
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># specify range of input for our function</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
 
@@ -11852,42 +11910,35 @@ One of the primary ways we are taught to think about mathematical functions is v
 <span class="n">line_table</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  
 
 <span class="c1"># plot the line</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">'ggplot'</span><span class="p">)</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 
 <span class="c1"># create subplot with 3 panels, plot input function in center plot</span>
 <span class="n">gs</span> <span class="o">=</span> <span class="n">gridspec</span><span class="o">.</span><span class="n">GridSpec</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">width_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> 
 <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
 <span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
 
 <span class="c1"># plot input function</span>
 <span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">line_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">line_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># plot x and y axes, and clean up</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x$&#39;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$y$&#39;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span><span class="n">rotation</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">'both'</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'$x$'</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'$y$'</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span><span class="n">rotation</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
 <div class="prompt"></div>
-
-
-
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAs4AAAEPCAYAAABSsEKgAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3Xl8VPWh/vFnlqxkm0mAmBBEtiuoiFzQn7jVEmmrVqla
@@ -12105,15 +12156,11 @@ EMD27dunNWvW6P7779d9992njz/+WHv27DE7FgCEJYozAASoL774QkuXLtWNN96oq666Sn379tUF
 F1ygjRs3mh0NAMISxRkAApDH41FBQYEGDBigW2+99fj2m2++WSUlJSdc1xkA0DG4qgYAAADQApxx
 BgAAAFqA4gwAAAC0AMUZAAAAaAGKMwAAANACFGcAAACgBSjOAAAAQAtQnAEAAIAWoDgDAAAALfD/
 AVJ3uy1zvmFHAAAAAElFTkSuQmCC
-"
->
-</div>
-
-</div>
-
+"/>
 </div>
 </div>
-
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -12122,15 +12169,14 @@ AVJ3uy1zvmFHAAAAAElFTkSuQmCC
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Another common function we learn about in secondary school is the <strong>parabola</strong>. To get a parabola we just square the input $x$, mutilply it by a weight $w_2$, and add it to the line above</p>
 <p>$$y = w_0 + w_1x + w_2x^2$$</p><p>Again we can plot a parabola with explicit values for the weights $w_0$, $w_1$, and $w_2$. In the next cell we set $w_0=−3$, $w_1=2$, and $w_2=1$, and plot the parabola over the same input range (values of $x$) as the line.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># specify range of input for our function</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
 
@@ -12148,35 +12194,28 @@ AVJ3uy1zvmFHAAAAAElFTkSuQmCC
 <span class="c1"># plot the parabola</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>   <span class="c1"># add empty panel to center plot</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>   <span class="c1"># add empty panel to center plot</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">parabola_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">parabola_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">parabola_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">parabola_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># plot x and y axes, and clean up</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">'both'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">35</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
 <div class="prompt"></div>
-
-
-
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA6oAAAD8CAYAAAB+Q1lpAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3Xl0VPXB//HPnZkkk0nIOgFKBC1CS7VQG0HUiojE5QBS
@@ -12381,15 +12420,11 @@ uXKl5s2bFxXdoVBIt956q+bMmaOsrCzdc889mjZtmrp27Wo6rUVs29bSpUuVmpqqCRMmmM45bh98
 Rc1IlaQdO3aopKRE3bp101133SVJGjt2rPLy8gyXAQBiGUdUAQAAAAARhav+AgAAAAAiCkMVAAAA
 ABBRGKoAAAAAgIjCUAUAAAAARBSGKgAAAAAgojBUAQAAAAARhaEKAAAAAIgo/x8YzTKZORqllQAA
 AABJRU5ErkJggg==
-"
->
-</div>
-
-</div>
-
+"/>
 </div>
 </div>
-
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -12397,7 +12432,6 @@ AABJRU5ErkJggg==
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Writing down the equation of the line, parabola, or any other function gives us its rule - its recipe for transforming inputs into outputs. This is what we call the equation view of a mathematical function.</p>
-
 </div>
 </div>
 </div>
@@ -12408,7 +12442,6 @@ AABJRU5ErkJggg==
 <div class="text_cell_render border-box-sizing rendered_html">
 <blockquote><p>One valid way to think about a function is through its equation, that is, its explicitly defined rule for transforming inputs into outputs. We call this <strong>the equation view</strong> of a mathematical function.</p>
 </blockquote>
-
 </div>
 </div>
 </div>
@@ -12417,78 +12450,77 @@ AABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.2--The-table-view">1.2  The table view<a class="anchor-link" href="#1.2--The-table-view">&#182;</a></h2><p>Another way to think about a function is to view it as the actual set of input/output pairs defined by its equation, or in other words, as a table of values. This is how we actually graph functions like the ones above: we plug in various input values into the function's equation, find their corresponding output values and print the results.</p>
+<h2 id="1.2--The-table-view">1.2  The table view<a class="anchor-link" href="#1.2--The-table-view">¶</a></h2><p>Another way to think about a function is to view it as the actual set of input/output pairs defined by its equation, or in other words, as a table of values. This is how we actually graph functions like the ones above: we plug in various input values into the function's equation, find their corresponding output values and print the results.</p>
 <p>For example, for the line</p>
 <p>$$y = w_0 + w_1x$$</p><p>that we plotted previously with $w_0=−3$ and $w_1=2$, this table of values looks like</p>
-<p><br></p>
-<p><table>
-    <thead style="background-color: #eee;">
-        <tr>
-            <th>input: &nbsp;$x$</th>
-            <th>output: &nbsp;$y$</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="centered">$0$</td>
-            <td class="centered">$-3$</td>
-        </tr>
-        <tr>
-            <td class="centered">$-0.4$</td>
-            <td class="centered">$-3.8$</td>
-        </tr>
-        <tr>
-            <td class="centered">$2.8$</td>
-            <td class="centered">$2.6$</td>
-        </tr>
-        <tr>
-            <td class="centered">$-1$</td>
-            <td class="centered">$5$</td>
-        </tr>
-        <tr>
-            <td class="centered">$\vdots$</td>
-            <td class="centered">$\vdots$</td>
-        </tr>
-    </tbody>
+<p><br/></p>
+<p></p><table>
+<thead style="background-color: #eee;">
+<tr>
+<th>input:  $x$</th>
+<th>output:  $y$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="centered">$0$</td>
+<td class="centered">$-3$</td>
+</tr>
+<tr>
+<td class="centered">$-0.4$</td>
+<td class="centered">$-3.8$</td>
+</tr>
+<tr>
+<td class="centered">$2.8$</td>
+<td class="centered">$2.6$</td>
+</tr>
+<tr>
+<td class="centered">$-1$</td>
+<td class="centered">$5$</td>
+</tr>
+<tr>
+<td class="centered">$\vdots$</td>
+<td class="centered">$\vdots$</td>
+</tr>
+</tbody>
 </table>
-<br></p>
+<br/>
 <p>The vertical dots in each colunm indicate that we could keep on listing off input and output pairs (in no particular order). So in theory, we can find - somewhere on this infinitely long table - the corresponding output value for any input number we can think of.</p>
 <p>When we take the table view of a function we view it as a (possibly infinitely long) listing of explicit input/output pairs, not as its equation. In other words, we think of the function as a collection of input/output data points.</p>
 <p>As with the line, we can also view a parabola either as its equation (equation view) or as its associated table of values (table view). For the choice of weights we used previously, the table view of our parabola looks like</p>
-<p><br></p>
-<p><table>
-    <thead style="background-color: #eee;">
-        <tr>
-            <th>input: &nbsp;$x$</th>
-            <th>output: &nbsp;$y$</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="centered">$0$</td>
-            <td class="centered">$-3$</td>
-        </tr>
-        <tr>
-            <td class="centered">$-0.4$</td>
-            <td class="centered">$-1.56$</td>
-        </tr>
-        <tr>
-            <td class="centered">$2.8$</td>
-            <td class="centered">$10.44$</td>
-        </tr>
-        <tr>
-            <td class="centered">$-1$</td>
-            <td class="centered">$-4$</td>
-        </tr>
-        <tr>
-            <td class="centered">$\vdots$</td>
-            <td class="centered">$\vdots$</td>
-        </tr>
-    </tbody>
+<p><br/></p>
+<p></p><table>
+<thead style="background-color: #eee;">
+<tr>
+<th>input:  $x$</th>
+<th>output:  $y$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="centered">$0$</td>
+<td class="centered">$-3$</td>
+</tr>
+<tr>
+<td class="centered">$-0.4$</td>
+<td class="centered">$-1.56$</td>
+</tr>
+<tr>
+<td class="centered">$2.8$</td>
+<td class="centered">$10.44$</td>
+</tr>
+<tr>
+<td class="centered">$-1$</td>
+<td class="centered">$-4$</td>
+</tr>
+<tr>
+<td class="centered">$\vdots$</td>
+<td class="centered">$\vdots$</td>
+</tr>
+</tbody>
 </table>
-<br></p>
+<br/>
 <p>Once again the three vertical dots in each column indicate that this list is infinitely long. Any input value we can think of will be found at some point on this table, along with its associated output.</p>
-
 </div>
 </div>
 </div>
@@ -12499,7 +12531,6 @@ AABJRU5ErkJggg==
 <div class="text_cell_render border-box-sizing rendered_html">
 <blockquote><p>Another way to think about a function is as an infinitely long table of explicit input/output values. We call this <strong>the table view</strong> of a mathematical function.</p>
 </blockquote>
-
 </div>
 </div>
 </div>
@@ -12509,15 +12540,14 @@ AABJRU5ErkJggg==
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Using a subset of these table values we can visualize functions with one or two inputs by plotting their graphs. Notice that the plots produced this way (and shown previously) are not <em>continuous</em>, although they appear so. Those plots we made above are actually kind of a trick - an optical illusion. If you look closely you can see that we only <em>sampled</em> input/output data points for each function's table. That is, we did not plot all infinitely many, just a small subset of them. The plots however <em>look</em> continuous - the way we might draw them using pencil and paper - because we used the <code>plot</code> function from Python's matplotlib library which interpolates smoothly between points it plots. If we use <code>scatter</code> to plot the data instead you can really see all the input/output points we defined individually. We do this in the next Python cell.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># specify range of input for our functions</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>    
 
@@ -12537,31 +12567,24 @@ AABJRU5ErkJggg==
 <span class="c1"># plot the functions </span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">);</span> <span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">);</span> 
-<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">line_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">line_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">parabola_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">parabola_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">line_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">line_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">parabola_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">parabola_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 
 <span class="c1"># plot x and y axes, and clean up</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">),</span> <span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">'both'</span><span class="p">),</span> <span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">'both'</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">]);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">35</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
 <div class="prompt"></div>
-
-
-
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA3MAAAD8CAYAAADdR/3qAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3XtwVPX5x/HPZhdlSQwkLIXJEmpjcKw0aCOgMKWobJWJ
@@ -12734,65 +12757,60 @@ QzNNV1eXampqlJWVpQULFpgdjuXs27dPW7ZscV2nLrgDY+Q3GCO/wRiZiDGyb24dI1lmibRbv369
 YrGYKisrJUljx47VwoULTY4q/bxer+666y6tWrVK8Xhc11xzjasHKUnav3+/GhoaNGbMGC1ZskSS
 NGfOHBUXF5scGQCkB2PkNxgjEzFGojfMzAEAAACADdHNEgAAAABsiGIOAAAAAGyIYg4AAAAAbIhi
 DgAAAABsiGIOAAAAAGyIYg4AAAAAbIhiDgAAAABs6P8BmMfP+DgtKZgAAAAASUVORK5CYII=
-"
->
-</div>
-
-</div>
-
+"/>
 </div>
 </div>
-
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.3--Higher-dimensions:-same-deal">1.3  Higher dimensions: same deal<a class="anchor-link" href="#1.3--Higher-dimensions:-same-deal">&#182;</a></h2><p>The duality of viewing a function via its equation or its table of values, holds regardless of how many inputs our function has. For example, a line that takes in two inputs ($x_1$ and $x_2$ instead of just $x$) is usually called a <em>plane</em> or <em>hyperplane</em>, and its equation generally takes the form</p>
+<h2 id="1.3--Higher-dimensions:-same-deal">1.3  Higher dimensions: same deal<a class="anchor-link" href="#1.3--Higher-dimensions:-same-deal">¶</a></h2><p>The duality of viewing a function via its equation or its table of values, holds regardless of how many inputs our function has. For example, a line that takes in two inputs ($x_1$ and $x_2$ instead of just $x$) is usually called a <em>plane</em> or <em>hyperplane</em>, and its equation generally takes the form</p>
 <p>$$w_0 + w_1x_1 + w_2x_2 = y$$</p><p>where $w_0$ , $w_1$, and $w_2$ are tunable weights. For any particular set of weights we can write out a table of values, and plot it (this time in 3d). For example, if we set $w_0=3$, $w_1=−2$, and $w_2=0.5$, we can create a table of values like this</p>
-<p><br></p>
-<p><table>
-    <thead style="background-color: #eee;">
-        <tr>
-            <th>input: &nbsp;$(x_1,x_2)$</th>
-            <th>output: &nbsp;$y$</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="centered">$(0,0)$</td>
-            <td class="centered">$3$</td>
-        </tr>
-        <tr>
-            <td class="centered">$(1,2)$</td>
-            <td class="centered">$2$</td>
-        </tr>
-        <tr>
-            <td class="centered">$(3.14,1.6)$</td>
-            <td class="centered">$4.88$</td>
-        </tr>
-        <tr>
-            <td class="centered">$(-1,1)$</td>
-            <td class="centered">$-4$</td>
-        </tr>
-        <tr>
-            <td class="centered">$\vdots$</td>
-            <td class="centered">$\vdots$</td>
-        </tr>
-    </tbody>
+<p><br/></p>
+<p></p><table>
+<thead style="background-color: #eee;">
+<tr>
+<th>input:  $(x_1,x_2)$</th>
+<th>output:  $y$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="centered">$(0,0)$</td>
+<td class="centered">$3$</td>
+</tr>
+<tr>
+<td class="centered">$(1,2)$</td>
+<td class="centered">$2$</td>
+</tr>
+<tr>
+<td class="centered">$(3.14,1.6)$</td>
+<td class="centered">$4.88$</td>
+</tr>
+<tr>
+<td class="centered">$(-1,1)$</td>
+<td class="centered">$-4$</td>
+</tr>
+<tr>
+<td class="centered">$\vdots$</td>
+<td class="centered">$\vdots$</td>
+</tr>
+</tbody>
 </table>
-<br></p>
+<br/>
 <p>or plot a shortened list of its table of values as in the next Python cell.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># specify range of input for for x1 and x2</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>                  
 <span class="n">x_1</span><span class="p">,</span> <span class="n">x_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
@@ -12812,31 +12830,24 @@ DgAAAABsiGIOAAAAAGyIYg4AAAAAbIhiDgAAAABs6P8BmMfP+DgtKZgAAAAASUVORK5CYII=
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">rcParamsDefault</span><span class="p">)</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>              <span class="c1"># add empty panel to center plot</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>              <span class="c1"># add empty panel to center plot</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">,</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">line_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">line_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">line_table</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">,</span><span class="n">projection</span><span class="o">=</span><span class="s1">'3d'</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">line_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">line_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">line_table</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">)</span>
 
 <span class="c1"># clean up plot and set viewing angle</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">'both'</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
 <div class="prompt"></div>
-
-
-
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABMkAAAFlCAYAAADxtr+mAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAAPYQAAD2EBqD+naQAAIABJREFUeJzs3duPZel91//386zzXqfqw7Rn2vaMPTNKnDAGggkIAo6T
@@ -13975,15 +13986,11 @@ JAMAAABgT5IBAAAAsCfJAAAAANiTZAAAAADsSTIAAAAA9iQZAAAAAHuSDAAAAIA9SQYAAADAniQD
 AAAAYE+SAQAAALAnyQAAAADYk2QAAAAA7EkyAAAAAPYkGQAAAAB7kgwAAACAPUkGAAAAwJ4kAwAA
 AGBPkgEAAACwJ8kAAAAA2JNkAAAAAOxJMgAAAAD2JBkAAAAAewE6YVY4FqoJRgAAAABJRU5ErkJg
 gg==
-"
->
-</div>
-
-</div>
-
+"/>
 </div>
 </div>
-
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -13992,15 +13999,14 @@ gg==
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>A higher dimensional parabola works analagously. The general equation with 2 inputs takes the form</p>
 <p>$$y = w_0 + w_1x_1 + w_2x_2 + w_3x_1x_2 + w_4x_1^2 + w_5x_2^2$$</p><p>For any weight setting we can write out a table of values, or plot a small section of the table as in the next Python cell, where we have set $w_0=3$, $w_1=−2$, $w_2=0.5$, $w_3=1.3$, $w_4=−0.3$, and  $w_5=4$.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#specify range of input for for x1 and x2</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>                 
 <span class="n">x_1</span><span class="p">,</span> <span class="n">x_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
@@ -14022,31 +14028,24 @@ gg==
 <span class="c1"># plot the 2d parabola</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>              <span class="c1"># add empty panel to center plot</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>              <span class="c1"># add empty panel to center plot</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">,</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span> 
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">line_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">line_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">line_table</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">,</span><span class="n">projection</span><span class="o">=</span><span class="s1">'3d'</span><span class="p">)</span> 
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">line_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">line_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">line_table</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">'r'</span><span class="p">)</span>
 
 <span class="c1"># clean up plot and set viewing angle</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">'both'</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
 <div class="prompt"></div>
-
-
-
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABMkAAAFlCAYAAADxtr+mAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAAPYQAAD2EBqD+naQAAIABJREFUeJzs3WuMXPd93vHvuc59hrtLShQlU2IsyZIdWUlcOFYSB7Zh
@@ -15190,99 +15189,87 @@ ERERERERkfOeQjIRERERERERETnvKSQTEREREREREZHznkIyERERERERERE57ykkExERERERERGR
 hREAAADsSTIAAAAA9iQZAAAAAHuSDAAAAIA9SQYAAADAniQDAAAAYE+SAQAAALAnyQAAAADYk2QA
 AAAA7EkyAAAAAPYkGQAAAAB7kgwAAACAPUkGAAAAwJ4kAwAAAGBPkgEAAACwJ8kAAAAA2JNkAAAA
 AOxJMgAAAAD2JBkAAAAAe5IMAAAAgL0AqsefEMQSwikAAAAASUVORK5CYII=
-"
->
-</div>
-
-</div>
-
+"/>
 </div>
 </div>
-
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.4--Which-view-of-a-function-is-best?">1.4  Which view of a function is best?<a class="anchor-link" href="#1.4--Which-view-of-a-function-is-best?">&#182;</a></h2><p>If we could only choose one, which would we rather have: the equation of a function or a table consisting of all its input/output pairs?</p>
+<h2 id="1.4--Which-view-of-a-function-is-best?">1.4  Which view of a function is best?<a class="anchor-link" href="#1.4--Which-view-of-a-function-is-best?">¶</a></h2><p>If we could only choose one, which would we rather have: the equation of a function or a table consisting of all its input/output pairs?</p>
 <p>Well, if we had the equation we could always generate its associated table of input/output values. So that is a big plus to having the equation - if we have it we can get the table for free. How about the reverse? If we had a table of values, could we intuit its equation easily? In other words, if we have the table do we get the equation for free?</p>
 <p>Well, by just examining a function's raw table it is not exactly obvious how to draw conclusions vis-a-vis its associated equation. That is, just eye-balling a raw table like this one</p>
-<p><br></p>
-<p><table>
-    <thead style="background-color: #eee;">
-        <tr>
-            <th>input: &nbsp;$x$</th>
-            <th>output: &nbsp;$y$</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="centered">$0$</td>
-            <td class="centered">$-3$</td>
-        </tr>
-        <tr>
-            <td class="centered">$-0.4$</td>
-            <td class="centered">$-1.56$</td>
-        </tr>
-        <tr>
-            <td class="centered">$2.8$</td>
-            <td class="centered">$10.44$</td>
-        </tr>
-        <tr>
-            <td class="centered">$-1$</td>
-            <td class="centered">$-4$</td>
-        </tr>
-        <tr>
-            <td class="centered">$\vdots$</td>
-            <td class="centered">$\vdots$</td>
-        </tr>
-    </tbody>
+<p><br/></p>
+<p></p><table>
+<thead style="background-color: #eee;">
+<tr>
+<th>input:  $x$</th>
+<th>output:  $y$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="centered">$0$</td>
+<td class="centered">$-3$</td>
+</tr>
+<tr>
+<td class="centered">$-0.4$</td>
+<td class="centered">$-1.56$</td>
+</tr>
+<tr>
+<td class="centered">$2.8$</td>
+<td class="centered">$10.44$</td>
+</tr>
+<tr>
+<td class="centered">$-1$</td>
+<td class="centered">$-4$</td>
+</tr>
+<tr>
+<td class="centered">$\vdots$</td>
+<td class="centered">$\vdots$</td>
+</tr>
+</tbody>
 </table>
-<br></p>
+<br/>
 <p>might not lead us to any useful conclusions regarding an equation.</p>
 <p>But we could plot the table of values, or some portion of it, as we have been doing so far. Using the plot we could then try to determine the equation 'by eye'. That would probably be much easier than just looking at a table of numbers. Let's plot a few examples and see if this is do-able. See if you can guess the equation associated with each. After you have made your guess you can scroll down a bit to see the associated equations.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In [12]:</div>
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># load in table of values for two functions</span>
-<span class="n">first_table</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;../../../demo_datasets/guess_this_1.txt&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
-<span class="n">second_table</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;../../../demo_datasets/guess_this_2.txt&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">first_table</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">'../../../demo_datasets/guess_this_1.txt'</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">)</span>
+<span class="n">second_table</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">'../../../demo_datasets/guess_this_2.txt'</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">)</span>
 
 <span class="c1"># plot these functions</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">'ggplot'</span><span class="p">)</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">);</span> <span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">);</span> 
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">first_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">first_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">second_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">second_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">first_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">first_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">second_table</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">second_table</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># plot x axis and clean up</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">),</span><span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">'both'</span><span class="p">),</span><span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">'both'</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">]);</span> 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
 <div class="prompt"></div>
-
-
-
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABNUAAAFjCAYAAAAafT3dAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAAPYQAAD2EBqD+naQAAIABJREFUeJzs3Xd8VFX+//HXnZZM6oS2AVGKYEMQrKirovgVXSurq2tj
@@ -15962,15 +15949,11 @@ VNL/fs7QP1gDfZ490OfZA32e9dHn2QN9nvVFs89zGJx/CAAAAAAAAJhiqzXVAAAAAAAAACtgqAYA
 AAAAAACYxFANAAAAAAAAMImhGgAAAAAAAGASQzUAAAAAAADAJIZqAAAAAAAAgEkM1QAAAAAAAACT
 GKoBAAAAAAAAJjFUAwAAAAAAAExiqAYAAAAAAACYxFANAAAAAAAAMImhGgAAAAAAAGDS/wGhQgKO
 EDSyDwAAAABJRU5ErkJggg==
-"
->
-</div>
-
-</div>
-
+"/>
 </div>
 </div>
-
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -15983,7 +15966,6 @@ EDSyDwAAAABJRU5ErkJggg==
 <p>$$y = e^{3x}\frac{\text{sin}(3\pi^2 (x-0.5))}{3{\pi}^2(x-0.5)}$$</p><p>then you definitely deserve a pat on the back! Regardless, wouldn't you agree that this one is much harder?</p>
 <p>The point here is that even when we only have a <em>single</em> input, identifying a function's equation by plotting its table of values is very difficult to do 'by eye'. And it is worth emphasizing again that we could only even attempt this for functions of one or two inputs, since we can't meaningfully visualize functions that take in three or more inputs - they are too high dimensional!</p>
 <p>So in general we can't just look at a table of values - whether in the raw or by graphing it - and hope to accurately guess at the associated equation. Is there another way to accurately estimate the equation of a table? There is, and it is the basis for all nonlinear machine learning. It is called <strong>function approximation</strong>, a topic we investigate at length starting in the next notebook.</p>
-
 </div>
 </div>
 </div>
@@ -15994,7 +15976,6 @@ EDSyDwAAAABJRU5ErkJggg==
 <div class="text_cell_render border-box-sizing rendered_html">
 <blockquote><p>If we have a function's equation we can always generate its associated table of values effortlessly, however the reverse is not so straight forward. That is, given a table of values it is not yet clear how, in general, we can infer an associated equation. In this important sense, the equation view of a function outstrips the table view, and is superior.</p>
 </blockquote>
-
 </div>
 </div>
 </div>
@@ -16003,8 +15984,7 @@ EDSyDwAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.5--What-does-all-this-have-to-do-with-supervised-learning?">1.5  What does all this have to do with supervised learning?<a class="anchor-link" href="#1.5--What-does-all-this-have-to-do-with-supervised-learning?">&#182;</a></h2><p>We can describe supervised learning, that is regression and classification, directly in terms of our two views of functions: the aim of supervised learning is to recover the equation of a function based on noisy samples of its table of values.</p>
-
+<h2 id="1.5--What-does-all-this-have-to-do-with-supervised-learning?">1.5  What does all this have to do with supervised learning?<a class="anchor-link" href="#1.5--What-does-all-this-have-to-do-with-supervised-learning?">¶</a></h2><p>We can describe supervised learning, that is regression and classification, directly in terms of our two views of functions: the aim of supervised learning is to recover the equation of a function based on noisy samples of its table of values.</p>
 </div>
 </div>
 </div>
@@ -16015,7 +15995,6 @@ EDSyDwAAAABJRU5ErkJggg==
 <div class="text_cell_render border-box-sizing rendered_html">
 <blockquote><p>In terms of our two views of functions, the aim of supervised learning is to recover the equation of a function based on <em>noisy</em> samples of its table of values.</p>
 </blockquote>
-
 </div>
 </div>
 </div>
@@ -16025,13 +16004,12 @@ EDSyDwAAAABJRU5ErkJggg==
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In other words, with supervised learning we have a table of values representing a function. But the values we are given are (likely) noisy, and we have a limited supply of them. This factoid is illustrated figuratively in the animation below for one particular regression dataset.</p>
-<p><img src="../../../demo_images/regr_to_func_approx.gif" width=300 height=300/></p><p>The GIF begins by illustrating a prototypical nonlinear regression dataset consisting of a small sample of sinusoidal input/output pairs, with noise being added to the output. 'Noise' here means that each point has been nudged a little above, or below, where the true function is.</p>
+<p><img height="300/" src="../../../demo_images/regr_to_func_approx.gif" width="300"/></p><p>The GIF begins by illustrating a prototypical nonlinear regression dataset consisting of a small sample of sinusoidal input/output pairs, with noise being added to the output. 'Noise' here means that each point has been nudged a little above, or below, where the true function is.</p>
 <p>The next slide in the animation then shows the same dataset, only with the noise removed. The points drop down or raise up to the true sinusoidal function. While the regression dataset table of values contained noisy samples of the true function, each of the values in this table are now true input/output pairs. But we still only have a small sample of all such pairs. The final slide in the animation fills out the table completely and shows the true, underlying function table of values.</p>
 <p>Up next, an analagous animation for two-class classification. Everything here is entirely similar to the regression case animated above, shown for one particular nonlinear classification dataset. This is because classification is a regression problem, one where our output <em>is</em> constrained to strictly take on discrete values.</p>
-<p><img src="../../../demo_images/class_to_func_approx_2d_slow.gif" width=350 height=300/></p><p><img src="../../../demo_images/class_to_func_approx_3d.gif" width=400 height=300/></p><p>In the first slide of the animations we see a prototypical classification dataset - a noisy table of values - from both 'above' (in the top GIF) and 'the side' (bottom GIF). Note that with classification a point is 'noisy' if it is mislabeled, that is if its label takes on the wrong discrete value. So, a noisy point here is one that - if on the bottom step, should be on the top - and vice versa.</p>
+<p><img height="300/" src="../../../demo_images/class_to_func_approx_2d_slow.gif" width="350"/></p><p><img height="300/" src="../../../demo_images/class_to_func_approx_3d.gif" width="400"/></p><p>In the first slide of the animations we see a prototypical classification dataset - a noisy table of values - from both 'above' (in the top GIF) and 'the side' (bottom GIF). Note that with classification a point is 'noisy' if it is mislabeled, that is if its label takes on the wrong discrete value. So, a noisy point here is one that - if on the bottom step, should be on the top - and vice versa.</p>
 <p>In the next slide of the animation we remove noise from all points, so every point now lies on its correct level. At this point we have a clean sample of table values for our function, but only a subset of them.</p>
 <p>Finally we transition to the final slide, showing the complete table of values for our desired function. The difference between this and the final slide of the regression GIF, is that with classification we deal with <strong>discontinuous step functions</strong> which can have linear or nonlinear boundaries between their steps.</p>
-
 </div>
 </div>
 </div>
@@ -16040,9 +16018,8 @@ EDSyDwAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.6--What-is-next?">1.6  What is next?<a class="anchor-link" href="#1.6--What-is-next?">&#182;</a></h2><p>Finding the equation of a complete, noise-free table of values is challenging as we discussed in Section 1.4. Supervised learning is just doing this - finding an equation - only our table of values (our data) is finite and much smaller, and is potentially noisy. It then stands to reason that supervised learning must be a harder task. But if don't even know how to tackle the former problem yet (the one that seems easier), how can we hope to tackle the latter?</p>
+<h2 id="1.6--What-is-next?">1.6  What is next?<a class="anchor-link" href="#1.6--What-is-next?">¶</a></h2><p>Finding the equation of a complete, noise-free table of values is challenging as we discussed in Section 1.4. Supervised learning is just doing this - finding an equation - only our table of values (our data) is finite and much smaller, and is potentially noisy. It then stands to reason that supervised learning must be a harder task. But if don't even know how to tackle the former problem yet (the one that seems easier), how can we hope to tackle the latter?</p>
 <p>In the next post we start off by introducing the tools needed to accurately determine the equation of a function given its complete table of values. We will then see, because supervised learning is so similar in concept to this problem, that we can carry over the exact same set of tools to tackle supervised learning. This toolset is called <strong>function approximation</strong>, and is where (perhaps familiar) terms like <strong>kernels</strong>, <strong>neural networks</strong>, and <strong>decision trees</strong> enter the picture.</p>
-
 </div>
 </div>
 </div>
@@ -16056,11 +16033,7 @@ EDSyDwAAAABJRU5ErkJggg==
 </div>
 </div>
 </div>
-    </div>
-  </div>
+</div>
+</div>
 </body>
-
- 
-
-
 </html>
