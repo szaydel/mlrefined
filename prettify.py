@@ -54,7 +54,7 @@ script_1 = '''
 
 			<div class="logo-share">
 				<!-- github -->
-				<a target="_blank" href="https://github.com/jermwatt/mlrefined/blob/master/Jupyter_notebooks/blog_posts/'''+series_url+'''/'''+ name+'''.ipynb">
+				<a target="_blank" href="https://github.com/jermwatt/mlrefined/blob/master/blog_posts/'''+series_url+'''/'''+ name+'''.ipynb">
 					<img src="../../../demo_images/github.png" width=28 height=28 onmouseover="this.src='../../../demo_images/github_filled.png';" onmouseout="this.src='../../../demo_images/github.png';">
 				</a>
 			</div>
@@ -70,7 +70,7 @@ script_1 = '''
 
 			<div class="logo-share">
 				<!-- linkedin -->
-				<a target="_blank" href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2FJupyter_notebooks%2Fblog_posts%2F'''+series_url+'''%2F'''+ name+'''.html">
+				<a target="_blank" href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2Fblog_posts%2F'''+series_url+'''%2F'''+ name+'''.html">
 					<img src="../../../demo_images/linkedin.png" width=28 height=28 onmouseover="this.src='../../../demo_images/linkedin_filled.png';" onmouseout="this.src='../../../demo_images/linkedin.png';">
 				</a>
 			</div>
