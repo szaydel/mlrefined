@@ -27,8 +27,8 @@ if 'reinforcement' in series.lower():
     series_url = 'Reinforcement_Learning'
 
 if 'optimization' in series.lower():
-    series_url = 'Mathematical_Optimization' 
-    
+    series_url = 'Mathematical_Optimization'
+
 
 # This script adds navigation bar + sharing logos + title
 script_1 = '''
@@ -36,7 +36,7 @@ script_1 = '''
 <div style="text-align:center !important; padding-top:58px;">
 
 				<a href="../../../index.html" style="font-family: inherit; font-weight: 200; letter-spacing: 1.5px; color: #222; font-size: 97%;">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../about.html" style="font-family: inherit; font-weight: 200; letter-spacing: 1.5px; color: #222; font-size: 97%;">ABOUT</a>
-		
+
 
 </div> -->
 
@@ -48,7 +48,7 @@ script_1 = '''
 	<div id="1" style="width: 75%; float:left;">
 		<span style="color:black; font-family:'lato', sans-serif; font-size: 18px;">code</span>
 		<div style="width: 95px; border-bottom: solid 1px; border-color:black;">
-		
+
 			<div class="logo-share"></div>
 			<div class="logo-share"></div>
 
@@ -79,16 +79,16 @@ script_1 = '''
 
 			<div class="logo-share">
 				<!-- twitter -->
-				<a target="_blank" href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&tw_p=tweetbutton&url=https%3A%2F%2Fjermwatt.github.io%2Fblog_posts%2F'''+series_url+'''%2F'''+ name+'''.html">
+				<a target="_blank" href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&tw_p=tweetbutton&url=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2Fblog_posts%2F'''+series_url+'''%2F'''+ name+'''.html">
 					<img src="../../pics/twitter.png" width=28 height=28 onmouseover="this.src='../../pics/twitter_filled.png';" onmouseout="this.src='../../pics/twitter.png';">
 				</a>
 			</div>
-	
+
 			<div class="logo-share"></div>
 
 			<div class="logo-share">
 				<!-- facebook -->
-				<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjermwatt.github.io%2Fblog_posts%2F'''+series_url+'''%2F'''+ name+'''.html">
+				<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2Fblog_posts%2F'''+series_url+'''%2F'''+ name+'''.html">
 					<img src="../../pics/facebook.png" width=28 height=28 onmouseover="this.src='../../pics/facebook_filled.png';" onmouseout="this.src='../../pics/facebook.png';">
 				</a>
 			</div>
@@ -101,7 +101,7 @@ script_1 = '''
 
 <div class="page-title" style="text-align: center !important;">
 	<span style="color: #333; font-size: 40%; letter-spacing: 3px;">
-		<span style="font-size: 80%;">&#x25BA; </span><a href="../../../'''+ series_url + '''.html" style="color: black; cursor: pointer; text-transform: uppercase; font-weight:bold;">'''+ series + '''</a>
+		<span style="font-size: 80%;">&#x25BA; </span><a href="../../../mlrefined/'''+ series_url + '''.html" style="color: black; cursor: pointer; text-transform: uppercase; font-weight:bold;">'''+ series + '''</a>
 	</span>
 	<br><br>
 	<mark style="padding: 0px; background-color: #f9f3c2;">'''+ page_title +'''</mark>
@@ -113,13 +113,13 @@ html_1 = BeautifulSoup(script_1,'html.parser')
 
 # insert it as the first element of the body tag, hence [0]
 soup.body.insert(0, html_1)
-    
+
 
 # # This script adds comment section to the bottom of the page
 # script_2 = '''
 # <br><br><br><br><br><br>
-  
-# <!-- comment section -->  
+
+# <!-- comment section -->
 # <div id="disqus_thread" style="width:70%; height:auto; margin:auto;"></div>
 # <script>
 # (function() { // DON'T EDIT BELOW THIS LINE
@@ -129,7 +129,7 @@ soup.body.insert(0, html_1)
 # (d.head || d.body).appendChild(s);
 # })();
 # </script>
-# <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>  
+# <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 # '''
 
 # # parse script as BeautifulSoup object
@@ -141,7 +141,7 @@ soup.body.insert(0, html_1)
 
 # This script changes default LateX font to a prettier version
 script_3 = '''
-    
+
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
@@ -161,16 +161,16 @@ script_3 = '''
         }
     });
     </script>
-    
+
     <link href="../../custom.css" rel="stylesheet"/>
-    
+
     <style>
         p {
             text-align: justify !important;
             text-justify: inter-word !important;
         }
-    </style>  
-    
+    </style>
+
     '''
 # parse script as BeautifulSoup object
 html_3 = BeautifulSoup(script_3, 'html.parser')
@@ -192,6 +192,5 @@ soup.body.find_all('h2')[0].decompose()
 # finish by spiting out modified soup as html
 with open(filename, "wt") as file:
     file.write(str(soup))
-    
-print('Conversion done!')     
 
+print('Conversion done!')
