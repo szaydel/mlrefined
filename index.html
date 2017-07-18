@@ -6,18 +6,31 @@
 		<!-- always use https, not http --> 
 		<script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js'></script>
 		<link rel="stylesheet" href="home.css">
+		<!-- need this for navigation menu --> 
+		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
 		<style>
 			.back-text-color { /* color of text on the back of each card */
 				color: #333;
 			}
 		 </style>	
+		 
 	</head>
+		 
 
 	<body>
+	
+		<!-- Navigation menu -->	
+		<br/><br/><br/>
+		<div class="pure-menu pure-menu-horizontal">
+    		<ul class="pure-menu-list">
+        		<li class="pure-menu-item"><a href="index.html" class="pure-menu-link"><span style="font-size:80%; letter-spacing: 2px;">HOME</span></a></li>
+        		<li class="pure-menu-item"><a href="about.html" class="pure-menu-link"><span style="font-size:80%; letter-spacing: 2px;">ABOUT</span></a></li>
+   			</ul>
+		</div>
+	
 
 		<br/><br/>
 		<p id="title">Machine Learning Refined</p>
-		<br/><br/>
 		<p id="sub-title">
 		This is a blog about machine learning and deep learning fundamentals with tons of careful descriptions and interactive coding widgets!
 		The content here, organized in the following categories, is supplementary material for the textbook <a class="redlink" target="_blank" href="http://mlrefined.com">Machine Learning Refined</a>
@@ -33,15 +46,15 @@
           			<!-- front face -->
           			<div class="front">
             			<div class="box1">
-              				<p>SUPERVISED LEARNING</p>
+              				<p>MATHEMATICAL FUNCTIONS BASICS</p>
             			</div>
           			</div>
           			<!-- back face -->
           			<div class="back">
             			<div class="box2">
               				<br/>
-             	 			<p><code class="back-text-color">Topics include neural networks and deep learning, kernels, trees, and more.</code></p>
-      						<p><code><a href="Supervised_Learning.html">click to read</a></code></p>
+             	 			<p><code class="back-text-color">A refresher on mathematical functions and how they are used in machine learning.</code></p>
+      						<p><code><a href="Mathematical_Functions.html">click to read</a></code></p>
     					</div>
           			</div>	
         		</div>
@@ -72,14 +85,14 @@
         			<!-- front face -->        		
         			<div class="front">
             			<div class="box1">
-              				<p>MATHEMATICAL OPTIMIZATION</p>
+              				<p>VITAL ELEMENTS OF CALCULUS</p>
             			</div>
           			</div>
           			<!-- back face -->   
           			<div class="back">
             			<div class="box2">  
-              				<p><code class="back-text-color">Topics include gradient descent, stochastic gradient descent, Newton and quasi-Newton methods, and more.</code></p>
-              				<p><code><a href="Mathematical_Optimization.html">click to read</a></code></p>
+              				<p><code class="back-text-color">A series of posts on the pivotal role Calculus plays in machine learning.</code></p>
+              				<p><code><a href="Calculus.html">click to read</a></code></p>
             			</div>
           			</div>
         		</div>
@@ -88,9 +101,8 @@
 			<!-- make sure second row appears correctly -->
 		    <div style="padding-top:230px; background-color: white;"></div>
 			
-			
-			
-			<!-- uncomment to  add more cards 
+		
+			<!-- uncomment to  add more cards  
 			
 			<!- - fourth card - ->    
       		<div class="col_third">
@@ -98,19 +110,21 @@
 					<!- - front face - ->  
           			<div class="front">
             			<div class="box1">
-              				<p>BLAH BLAH BLAH</p>
+              				<p>BACKGROUND BOOTCAMP</p>
             			</div>
           			</div>
           			<!- - back face - -> 
           			<div class="back">
             			<div class="box2">      
-              				<p><code class="back-text-color">Topics include blah blah blah</code></p>
-      						<p><code><a href="blah blah blah">click to read</a></code></p>
+              				<p><code class="back-text-color">Topics include Calculus, linear algebra, probability and statistics.</code></p>
+      						<p><code><a href="Background_Bootcamp.html">click to read</a></code></p>
 						</div>
 					</div>
         		</div>
       		</div>
       		 		
+      		
+      			
       					
 			<!- - fifth card - ->    
       		<div class="col_third">
@@ -166,6 +180,7 @@
 					});
 				});
 		</script>
+		
 	
 	</body>
 </html>
