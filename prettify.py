@@ -28,6 +28,12 @@ if 'reinforcement' in series.lower():
 
 if 'optimization' in series.lower():
     series_url = 'Mathematical_Optimization'
+    
+if 'calculus' in series.lower():
+    series_url = 'Vital_Elements_of_Calculus'
+    
+if 'math' in series.lower():
+    series_url = 'Basics_of_Math_functions'        
 
 
 # This script adds navigation bar + sharing logos + title
