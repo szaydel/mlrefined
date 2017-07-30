@@ -291,12 +291,12 @@ pre { /* comments */
 .highlight .s { color: var(--MyBlue);} /* Literal.String */
 .highlight .na { color: } /* Name.Attribute */
 .highlight .nb { color: var(--MyRed); } /* Name.Builtin */
-.highlight .nc { color: ; font-weight: bold } /* Name.Class */
+.highlight .nc { color: var(--MyWhite); font-weight: bold } /* Name.Class */
 .highlight .no { color:  } /* Name.Constant */
 .highlight .nd { color:  } /* Name.Decorator */
 .highlight .ni { color: ; font-weight: bold } /* Name.Entity */
 .highlight .ne { color: ; font-weight: bold } /* Name.Exception */
-.highlight .nf { color:} /* Name.Function */
+.highlight .nf { color: var(--MyWhite); } /* Name.Function */
 .highlight .nl { color:  } /* Name.Label */
 .highlight .nn { color: var(--MyWhite); font-weight: normal } /* Name.Namespace */
 .highlight .nt { color: var(--MyRed); font-weight: bold } /* Name.Tag */
