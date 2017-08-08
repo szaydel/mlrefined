@@ -12007,21 +12007,13 @@ f(4) = 4 \times 3 \times 2 \times 1 = 24\\
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Here the 'if n &gt; 1' branch of the factorial definition defines the recursion, calling the function itself.  To see why this defines the factorial follow this branch for several steps with a given input value for $n$, say $n = 4$.</p>
 <p>Given the stated logic the definition returns a call to itself <code>4*factorial(3)</code>.  In other words</p>
-<pre><code>                   factorial(4) = 4*factorial(3)
-
-</code></pre>
+<pre><code>factorial(4) = 4*factorial(3)</code></pre>
 <p>Now in the next call to factorial here <code>factorial(3)</code> the input $3$ being greater than $1$ will also trigger the 'n &gt; 1' branch, and will return <code>3*factorial(2)</code>.  In other words</p>
-<pre><code>                    factorial(3) = 3*factorial(2)
-
-</code></pre>
+<pre><code>factorial(3) = 3*factorial(2)</code></pre>
 <p>Continuing the call to <code>factorial[2]</code> returns <code>2*factorial[1]</code> or</p>
-<pre><code>                    factorial(2) = 2*factorial(1)
-
-</code></pre>
+<pre><code>factorial(2) = 2*factorial(1)</code></pre>
 <p>And finally the call to <code>factorial[1]</code> finally activates the other branch 'n &lt;=1' and returns <code>1</code>.  Reverse substituting back up to <code>factorial[3]</code> we then can write</p>
-<pre><code>                    factorial[4] = 4*3*2*1
-
-</code></pre>
+<pre><code>factorial[4] = 4*3*2*1</code></pre>
 <p>which is correct.  And this process holds more generally as well.</p>
 </div>
 </div>
@@ -12088,7 +12080,7 @@ $$[?, ?, ?, 18, ?, ?, ?, ?]$$<p>At this point it is not important where other el
 <p>Two questions: (1) how difficult is it to code such a sub-routine? and (2) Having coded one, how will it help us sort the enire list?</p>
 <p>Let's answer the first question first: notice all our sub-routine needs to do is place all elements of $a$ that are smaller (or equal to) $a[0]$ before $a[0]$, and those greater than $a[0]$ after it, as in the following list</p>
 $$\left[\begin{array}{ccc}
-\text{all elements of }a\textbf{ smaller } \text{than or equal to }a\left[0\right], &amp; a\left[0\right], &amp; \text{all elements of }a \textbf{ greater } \text{than }a\left[0\right]\end{array}\right]$$<p>Take a moment to verify that the simple sub-routine below does exactly that.</p>
+\text{elements of }a\textbf{ smaller } \text{than or equal to }a\left[0\right], &amp; a\left[0\right], &amp; \text{elements of }a \textbf{ greater } \text{than }a\left[0\right]\end{array}\right]$$<p>Take a moment to verify that the simple sub-routine below does exactly that.</p>
 </div>
 </div>
 </div>

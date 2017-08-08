@@ -16545,9 +16545,7 @@ IiIi0mP/HxRczD5hoKrFAAAAAElFTkSuQmCC
 $$
 g(w) = \text{sin}(w) + w
 $$<p>we use the somewhat clunky Python notation</p>
-<pre><code>                    add(sin(w),w)
-
-</code></pre>
+<pre><code>add(sin(w),w)</code></pre>
 <p>to invoke the summation derivative rule, and compute the derivative of the function.  In this subsection we briefly discuss how one can <em>overload operators</em> in Python to make the call above look more similar to the algebraic form of the function.</p>
 </div>
 </div>
@@ -16557,9 +16555,7 @@ $$<p>we use the somewhat clunky Python notation</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Python reserves symbols like <code>+</code> and <code>*</code> to denote a Python functions that perform standard addition and multiplication <em>on floating point objects</em>.  This means that if we try to use one of these symbols on our <em>MyTuple</em> object directly we will receive an error like</p>
-<pre><code>unsupported operand type(s) for +: 'MyTuple' and 'MyTuple'
-
-</code></pre>
+<pre><code>unsupported operand type(s) for +: 'MyTuple' and 'MyTuple'</code></pre>
 <p>because our objects differ from the intended input to Python's default addition function, the one assigned to the <code>+</code> operator.  We try this in the next Python cell, and indeed we provoke an error.</p>
 </div>
 </div>
@@ -16634,14 +16630,10 @@ def __add__(self,a,b):
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Note we also overload the operator <code>__radd__</code> above as well, because in Python different functions can be assigned to <code>+</code> depending on the ordering of the two elements being operated on.  i.e., we can assign different functions to <code>+</code> for each scenario</p>
-<pre><code>                __add__: assigns operation to a + b
-               __radd__: assigns operation to b + a
-
-</code></pre>
+<pre><code>__add__: assigns operation to a + b
+__radd__: assigns operation to b + a</code></pre>
 <p>if we so desired.  Of course we want Python to interpret <code>+</code> with our objects so that these two are equal</p>
-<pre><code>                a + b = b + a
-
-</code></pre>
+<pre><code>a + b = b + a</code></pre>
 <p>Since we want to treat both the same way, and so overload <code>__radd__</code> with our <code>add</code> function as well.</p>
 </div>
 </div>
@@ -16729,11 +16721,9 @@ def __add__(self,a,b):
 $$
 g(w) = \text{sin}(w)w^2
 $$<p>which we first had to write as</p>
-<pre><code>                multiply(sin(w),power(w,2))
-
-</code></pre>
+<pre><code>multiply(sin(w),power(w,2))</code></pre>
 <p>Now we can write this derivative calculation much more naturally as</p>
-<pre><code>                sin(w)*w**2</code></pre>
+<pre><code>sin(w)*w**2</code></pre>
 </div>
 </div>
 </div>
