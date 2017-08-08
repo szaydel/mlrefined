@@ -11854,7 +11854,121 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In the previous post we learned about elementary functions like polynomials, reciprocal functions, trigonometric functions, exponential and log functions as well as step and ramp functions. We  also learned about elementary operations applied to these functions like addition/multiplcation, Max/min, composition, etc. In this post we an algorithm for combining these elementary functions and operations to construct new functions of arbitrary complexity.   Using the same thinking also allows us to deconstruct generic functions into their elementary functions / operations in a consistent manner.  This basic idea arises throughout machine learning: from the design Automatic Differentiation algorithms to the design of novel neural network architectures.</p>
+<p>In the previous post we learned about elementary functions like polynomials, reciprocal functions, trigonometric functions, and more, shown in Table 1 below for easy reference.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center>
+<caption>Table 1: Elementary functions</caption>
+</center><table>
+<col width="180"/>
+<col width="100"/>
+<thead>
+<tr>
+<th>elementary function</th>
+<th>equation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>constant</td>
+<td>$c$</td>
+</tr>
+<tr>
+<td>monomial (degree $p\neq 0$)</td>
+<td>$x^p$</td>
+</tr>
+<tr>
+<td>sine</td>
+<td>$\text{sin}(x)$</td>
+</tr>
+<tr>
+<td>cosine</td>
+<td>$\text{cos}(x)$</td>
+</tr>
+<tr>
+<td>exponential</td>
+<td>$e^x$</td>
+</tr>
+<tr>
+<td>logarithm</td>
+<td>$\text{log}(x)$</td>
+</tr>
+<tr>
+<td>hyperbloic tangent</td>
+<td>$\text{tanh}(x)$</td>
+</tr>
+<tr>
+<td>rectified linear unit (ReLU) </td>
+<td>$\text{max}\left(0,x\right)$</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We also learned about basic operations such as addition, multiplcation, max/min, composition, etc., which we summarize here in Table 2.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center>
+<caption>Table 2: Elementary operations</caption>
+</center><table>
+<col width="350"/>
+<col width="120"/>
+<thead>
+<tr>
+<th>operation</th>
+<th>equation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> addition of a constant $c$ to the function $f(x)$ </td>
+<td> $c + f(x)$</td>
+</tr>
+<tr>
+<td> multiplication of the function $f(x)$ by a constant $c$ </td>
+<td> $c\,f(x)$</td>
+</tr>
+<tr>
+<td>addition of the functions $f(x)$ and $g(x)$</td>
+<td> $f(x) + g(x)$ </td>
+</tr>
+<tr>
+<td> multiplication of the functions $f(x)$ and $g(x)$ </td>
+<td> $f(x)\, g(x)$ </td>
+</tr>
+<tr>
+<td> maximum of the functions $f(x)$ and $g(x)$</td>
+<td> $\text{max}\left(f(x),g(x)\right)$ </td>
+</tr>
+<tr>
+<td> composition of the function $f(x)$ with the function $g(x)$</td>
+<td> $f(g(x))$ </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Introducing the idea of a computation graph, in this post we combine functions and operations listed in these two Tables in order to construct new functions of arbitrary complexity. The same thinking also allows us to deconstruct generic functions into their elementary functions and operations in a consistent manner.  This basic idea arises throughout machine learning: from the design Automatic Differentiation algorithms to the design of novel neural network architectures.</p>
 </div>
 </div>
 </div>
@@ -11887,9 +12001,10 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>How do you compute the numerical value of</p>
-$$ (5*2)^3 + 1 $$<p>There is a lot going on here, with four mathematical operations for numbers present - multiplication, exponentiation, parentheses, and addition - how do we know which to perform first, second, etc.,?  If we perform the exponentiation first, then multiply, then add we get</p>
-$$ 5^3*2^3 + 1 = 125*8 + 1 = 134$$<p>But if we multiply first, then exponentiate, then add we get</p>
-$$ 10^3 + 1 = 1000 + 1 = 1001$$<p>In other words, depending on the order in which we employ operations we can end up with different results.  In secondary school you learn the conventional order for evaluating arithmetic expressions: parenthesis first, then exponentiation, multiplication, division, addition, and finally subtraction. With this conventional order of operations our second result above is correct.</p>
+$$ 5*2^3 + 1 $$<p>There is a lot going on here, with three mathematical operations for numbers present - multiplication, exponentiation, and addition - how do we know which to perform first, second, and third?  If we perform the multoplication first, then exponentiation, and then addition we get</p>
+$$ 5*2^3 + 1 = \left(\left(5*2\right)^3\right)+1 = \left(10^3\right)+1 = 1000 + 1 = 1001$$<p>But if we exponentiate first, then multiply, then add we get</p>
+$$ 5*2^3 + 1 = \left(5*\left(2^3\right)\right)+1 = \left(5*8\right)+1 = 40 + 1 = 41$$<p>Performing Exponentiation first, followed by addition and then multplication gives yet another result</p>
+$$ 5*2^3 + 1 = 5*\left(\left(2^3\right)+1\right) = 5*\left(8+1\right) = 5 * 9 = 45$$<p>In other words, depending on the order in which we employ operations we can end up with different results.  In secondary school you learn the conventional order for evaluating arithmetic expressions: parenthesis first, then exponentiation, then multiplication/division, and finally addition/subtraction. With this conventional order of operations our second result above is correct.</p>
 <p>The way these operations are performed computationally - i.e., either when we perform the calculation by hand or when we let a computer handle it - can be expressed visually using a <em>computational graph</em>.  This is an often employed tool that visualizes all sorts of computational algorithms - in particular basic arithmetic - and is used throughout machine learning to help visualize computation.</p>
 </div>
 </div>
@@ -11914,7 +12029,7 @@ $$ 10^3 + 1 = 1000 + 1 = 1001$$<p>In other words, depending on the order in whic
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Example.---A-computation-graph-for-$2\times3-+-5$-vs-$2\times-(3-+-5)$"><span style="color:#a50e3e;">Example. </span>  A computation graph for $2\times3 + 5$ vs $2\times (3 + 5)$<a class="anchor-link" href="#Example.---A-computation-graph-for-$2\times3-+-5$-vs-$2\times-(3-+-5)$">¶</a></h4>
+<h4 id="Example.---Building-a-computation-graph-for-$2\times3-+-5$"><span style="color:#a50e3e;">Example. </span>  Building a computation graph for $2\times3 + 5$<a class="anchor-link" href="#Example.---Building-a-computation-graph-for-$2\times3-+-5$">¶</a></h4>
 </div>
 </div>
 </div>
@@ -11922,25 +12037,25 @@ $$ 10^3 + 1 = 1000 + 1 = 1001$$<p>In other words, depending on the order in whic
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Following the order of operations we can break apart the expression $2\times3 + 5$ operation-by-operation into two equations which constitute its computation graph</p>
+<p>Following the order of operations we can break apart the expression $2\times3 + 5$ operation-by-operation. Because multiplication takes precedence to addition we first perform multiplication to get</p>
+\begin{array}
+\
+a = 2\times 3 \\
+\end{array}<p></p>
+<p>Then we add 5 to this product (stored in the variable $a$)</p>
+\begin{array}
+\
+b = a + 5  \\
+\end{array}<p></p>
+<p>All together we have</p>
 \begin{array}
 \
 a = 2\times 3 \\
 b = a + 5  \\
 \end{array}<p></p>
-<p>With the first (top) equation in this list we - following the order of operations correctly - multiply the first two elements 2 and 3 together.  Finally, with the second equation, we add 5 to this product.  All together then the final equation $b$ represents the desired arithmetic completely</p>
-$$
-b = a + 5 = 2\times 3 + 5
-$$<p>Plotting the list of equations above as a graph - as shown below in the left panel - displays these two equations / operations visually and gives us a different graphical perspective on the computation.</p>
-<p><img height="auto" src="../../mlrefined_images/basics_images/numbers_graph_1.png" width="75%"/></p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr/>
+<p>where $b$ represents the desired arithmetic $2\times3 + 5$ completely.</p>
+<p>We can plot this set of equations as the graph shown below which gives us a visual perspective on the computation.</p>
+<p><img height="auto" src="../../mlrefined_images/basics_images/numbers_graph_1.png" width="25%"/></p>
 </div>
 </div>
 </div>
@@ -11952,8 +12067,8 @@ $$<p>Plotting the list of equations above as a graph - as shown below in the lef
 <blockquote><p>When visualizing the computation graphs circles containing inputs, operations, or functions are referred as <em>nodes</em> with directed arrows called <em>edges</em>.</p>
 </blockquote>
 <p>Those nodes containing operations correspond one-to-one with the equation view of the graph shown above, with the letter denoting each equation shown above its corresponding node on the graph.</p>
-<p>To further describe the local topology of a computation graphs in words the terms <em>parent</em> and <em>child</em> node are used to describe adjacent hierarchical relationships, or in other words two nodes connected in a graph by a single edge.  The parent node is the one taking in the other node as input, or where the arrow points too.  The child node is the input of the parent, or where the arrow originates.  Because these terms / relationships are defined locally a particular node can be both a parent and a child with respect to other nodes in the graph.</p>
-<blockquote><p>To further describe the local topology of a computation graphs in words the terms <em>parent</em> and <em>child</em> node are used to describe adjacent hierarchical relationships, or in other words two nodes connected in a graph by a single edge.  The parent node is the one taking in the other node as input, or where the arrow points too.  The child node is the input of the parent, or where the arrow originates.  Because these terms / relationships are defined locally a particular node can be both a parent and a child with respect to other nodes in the graph.</p>
+<p>To further describe the local topology of a computation graphs in words the terms <em>parent</em> and <em>child</em> node are used to describe adjacent hierarchical relationships, or in other words two nodes connected in a graph by a single edge.  The parent node is the one taking in the other node as input, or where the arrow points to.  The child node is the input of the parent, or where the arrow originates.  Because these terms / relationships are defined locally a particular node can be both a parent and a child with respect to other nodes in the graph.</p>
+<blockquote><p>To further describe the local topology of a computation graphs in words the terms <em>parent</em> and <em>child</em> node are used to describe adjacent hierarchical relationships, or in other words two nodes connected in a graph by a single edge.  The parent node is the one taking in the other node as input, or where the arrow points to.  The child node is the input of the parent, or where the arrow originates.  Because these terms / relationships are defined locally a particular node can be both a parent and a child with respect to other nodes in the graph.</p>
 </blockquote>
 </div>
 </div>
@@ -11962,60 +12077,7 @@ $$<p>Plotting the list of equations above as a graph - as shown below in the lef
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr/>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Lets use this computation graph vocabulary to describe what is going on in the computation graph for $2\times3 + 5$.   Examining the graph we can see how $a$ takes in both $2$ and $3$, and so in each instance $a$ is the parent node to the children $2$ and $3$.  Examining how $a$ and $b$ are related we can see that $a$ is a child node here, with $b$ being its parent as well as the parent of $5$.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Next - what about the expression $2\times (3 + 5)$?  We can deconstruct this expression into two equations once more, although these equations differ from the previous example due to the presence of the parentheses.</p>
-\begin{array}
-\
-a = 3 + 5 \\
-b = 2 \times a \\
-\end{array}<p></p>
-<p>With the parenthesis we must now perform the addition first, this is the first equation.  Afterwards we multiply that sum by 2 giving</p>
-$$
-b = 2 \times a = 2 \times (3 + 5)
-$$<p>Drawing the associated computation graph - shown above in the right panel - we can see that the slight but important difference between this example and the previous one is also reflected clearly in the graph structure.  The node referred to as $a$ is now a parent to both $3$ and $5$, with $b$ being the parent of $a$ and $2$.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Example.---Constructing-expressions-using-a-computation-graph-mindset"><span style="color:#a50e3e;">Example. </span>  Constructing expressions using a computation graph mindset<a class="anchor-link" href="#Example.---Constructing-expressions-using-a-computation-graph-mindset">¶</a></h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Given an arithmetic expression we can - as shown in the previous example - deconstruct it into a sequence of simple equations.  Here we show how to do the opposite, that is given a set of numerical values how we can construct a more complex arithmetic expression using the computation graph mindset.</p>
-<p>Suppose we decide to form an arithmetic expression using the values 2,3,5, and 6.  We can construct an expression using these values in a  wide variety of ways, but suppose we decided on the following graphical structure.</p>
-<p><img height="auto" src="../../mlrefined_images/basics_images/numbers_graph_2.png" width="45%"/></p><p>What is the expression associated with this structure?  Examining the graph carefully we can translate its parent/child relations into the list of equations.</p>
-\begin{array}
-\
-a = 2 + 3 \\
-b = 5 \times 6 \\
-c = \frac{1}{b} \\
-d = a \times c \\
-\end{array}<p>Making the correct substitutions sequentially we can see that the graph / this list of equations represents the expression $ \frac{2 + 3}{5 \times 6}$ since</p>
-$$
-d = a\times c = (2 + 3) \times \frac{1}{b} = (2 + 3) \times \frac{1}{5 \times 6} = \frac{2 + 3}{5 \times 6}
-$$<p>This was just one way we could combine our four initial values, driven visually by arranging them in a computation graph.</p>
+<p>Lets use this computation graph vocabulary to describe what is going on in the computation graph shown above for $2\times3 + 5$. Examining the graph we can see how $a$ takes in both $2$ and $3$, and so $a$ is the parent node to the children $2$ and $3$. Examining how $a$ and $b$ are related we can see that $a$ is a child node here, with $b$ being its parent as well as the parent of $5$.</p>
 </div>
 </div>
 </div>
@@ -12024,14 +12086,6 @@ $$<p>This was just one way we could combine our four initial values, driven visu
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr/>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We treat arithmetic expressions containing function evaluation(s) with the same order of operations - treating each function evaluation as a parenthesis applying the same operation rules inside them before simplifying the rest of the arithmetic.  Lets look at a few computation graphs of expressions containing function evaluations.</p>
 </div>
 </div>
 </div>
@@ -12047,7 +12101,8 @@ $$<p>This was just one way we could combine our four initial values, driven visu
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Following the order of operations we can break apart the expression operation-by-operation into the list of equations capturing the parent/child relations as</p>
+<p>In this example we have an arithmetic expression that contains function evaluations as well. We treat arithmetic expressions containing function evaluation(s) with the same order of operations - treating each function evaluation as a parenthesis applying the same operation rules inside them before simplifying the rest of the arithmetic.</p>
+<p>Following the order of operations we can break apart the expression $\text{tanh}(1.5)\text{cos}(1.5) + \text{log}(1.5)$ operation-by-operation into the list of equations capturing the parent/child relations as</p>
 \begin{array}
 \
 a = \text{tanh}(1.5) \\
@@ -12056,7 +12111,7 @@ c = \text{log}(1.5) \\
 d = a\times b \\
 e = d + c \\
 \end{array}<p></p>
-<p>Note now that the parent-child relations are becoming more complicated, we cannot just read down the list equations to understand the structure of the computation graph as the equations are no longer listed in child-parent-child-parent order.  With this level of complexity and beyond the visual graph therefore becomes a much better way to organize the praent-child relationships present in the expression.</p>
+<p>which corresponds to the following computation graph.</p>
 </div>
 </div>
 </div>
@@ -12064,7 +12119,7 @@ e = d + c \\
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img height="auto" src="../../mlrefined_images/basics_images/equation_eval_graph_2.png" width="55%"/></p>
+<p><img height="auto" src="../../mlrefined_images/basics_images/graph_eval.png" width="80%"/></p>
 </div>
 </div>
 </div>
@@ -12072,10 +12127,47 @@ e = d + c \\
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Substituting backwards beginning with the final equation we have</p>
+<p>Take a moment to verify that the computation graph above indeed represents the expression $\text{tanh}(1.5)\text{cos}(1.5) + \text{log}(1.5)$. Again every node (except the input node in gray) contains an operation: the nodes $d$ and $e$ contain the operations multiplication and addition, while the nodes $a$, $b$, and $c$ contain composition with $\text{tanh}$, $\text{cos}$, and $\text{log}$, repectively. In general, when any of the elementary functions appear in a node, that node represents the composition of that elementary function with its input.</p>
+<p>We can now use the computation graph to evaluate the expression $\text{tanh}(1.5)\text{cos}(1.5) + \text{log}(1.5)$. To do so, we start from the input node (shown in gray) on the left and wiggle our way to the rightmost node $e$.</p>
+<p>With the first parent-child equation we have $a = \text{tanh}(1.5) = 0.905$, which can be shown on the computation graph as follows</p>
+<p><img height="auto" src="../../mlrefined_images/basics_images/graph_a.png" width="80%"/></p><p>where the parent and child nodes are highlighted in red and blue, respectively.</p>
+<p>Moving on to the second equation we have $b = \text{cos}(1.5) = 0.701$</p>
+<p><img height="auto" src="../../mlrefined_images/basics_images/graph_b.png" width="80%"/></p><p>The third and last parent of the input node is the node $c$ whose value is found as $c = \text{log}(1.5)\approx 0.176$</p>
+<p><img height="auto" src="../../mlrefined_images/basics_images/graph_c.png" width="80%"/></p><p>Continuning our evaluation, next we get to the node $d$ that has two children: nodes $a$ and $b$, whose values are already found. Therefore we have $d = a \times b \ = 0.905 \times 0.701 = 0.634$</p>
+<p><img height="auto" src="../../mlrefined_images/basics_images/graph_d.png" width="80%"/></p><p>Finally, the node $e$ can be evaluated using the values of its children, nodes $c$ and $d$, as $e=d+c= 0.634+0.176=0.810$.</p>
+<p><img height="auto" src="../../mlrefined_images/basics_images/graph_e.png" width="80%"/></p><p>As you see here in this example, the final value of a mathematical expression is found by moving forward (from left to right) through the computation graph.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Example.---Deriving-a-mathematical-expression-from-its-computation-graph"><span style="color:#a50e3e;">Example. </span>  Deriving a mathematical expression from its computation graph<a class="anchor-link" href="#Example.---Deriving-a-mathematical-expression-from-its-computation-graph">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So far in our examples we always started with a mathematical expression and built its computation graph. We can also do the reverse, that is, start with a computational graph and form the mathematical expression it represents. Take the computation graph below for example.</p>
+<p><img height="auto" src="../../mlrefined_images/basics_images/reverse_0.png" width="70%"/></p><p>Once again starting at the first input node (containing the number $1.5$) and moving forward through the graph we can build up the mathematical expression step by step. This progression is visually depicted in the series of figures below.</p>
+<p><img height="auto" src="../../mlrefined_images/basics_images/reverse_1.png" width="70%"/></p><hr/>
+<p><img height="auto" src="../../mlrefined_images/basics_images/reverse_2.png" width="70%"/></p><hr/>
+<p><img height="auto" src="../../mlrefined_images/basics_images/reverse_3.png" width="70%"/></p><hr/>
+<p><img height="auto" src="../../mlrefined_images/basics_images/reverse_4.png" width="70%"/></p><hr/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Hence our computation graph represents the expression 
 $$
-e = d + c = a \times b + \text{log}(1.5) = \text{tanh}(1.5)\text{cos}(1.5) + \text{log}(1.5)
-$$
+\text{cos}\left(\left(1.5\right)^2 + \left(-1\right)^2\right) 
+$$</p>
 </div>
 </div>
 </div>
@@ -12083,34 +12175,7 @@ $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Example.---Reverse-engineering-an-expression-from-a-computation-graph"><span style="color:#a50e3e;">Example. </span>  Reverse engineering an expression from a computation graph<a class="anchor-link" href="#Example.---Reverse-engineering-an-expression-from-a-computation-graph">¶</a></h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Say we began with two values, 1.5 and -1, and built the following computation graph using these as our initial child nodes.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img height="auto" src="../../mlrefined_images/basics_images/equation_eval_graph_3.png" width="55%"/></p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>What is the complete expression we this graph represents?  Examining the graph we can write out the final result as</p>
-$$
-e = \text{cos}(c) = \text{cos}(a + b) = \text{cos}((1.5)^2 + (-1)^2) 
-$$
+<p>Every mathematical expression has a corresponding computation graph and vice versa.</p>
 </div>
 </div>
 </div>
@@ -12187,7 +12252,7 @@ $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Example.--Deconstructing---$f(x)-=-\text{tanh}(x)\text{cos}(x)-+-\text{log}(x)$-via-a-computation-graph"><span style="color:#a50e3e;">Example. </span> Deconstructing   $f(x) = \text{tanh}(x)\text{cos}(x) + \text{log}(x)$ via a computation graph<a class="anchor-link" href="#Example.--Deconstructing---$f(x)-=-\text{tanh}(x)\text{cos}(x)-+-\text{log}(x)$-via-a-computation-graph">¶</a></h4>
+<h4 id="Example.--Building-a-computation-graph-for---$f(x)-=-\text{tanh}(x)\text{cos}(x)-+-\text{log}(x)$"><span style="color:#a50e3e;">Example. </span> Building a computation graph for   $f(x) = \text{tanh}(x)\text{cos}(x) + \text{log}(x)$<a class="anchor-link" href="#Example.--Building-a-computation-graph-for---$f(x)-=-\text{tanh}(x)\text{cos}(x)-+-\text{log}(x)$">¶</a></h4>
 </div>
 </div>
 </div>
@@ -12195,19 +12260,16 @@ $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In the previous Section we saw a numerical example mirroring this one, and broke it down using a computation graph which we can essentially copy and paste here. Visualizing this graph we have</p>
-<p><img height="auto" src="../../mlrefined_images/basics_images/equation_graph_2.png" width="55%"/></p><p>The only difference is that now our input $x$ is a variable instead of a particular numerical value, and so each equation in the computation graph takes in a variable as input.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Starting with the last parent node on the far right $e(c,d) = g(w)$ and working backwards we have</p>
-$$ e(c,d) = d(a,b) + c(x) = a(x) \cdot b(x) + \text{log}(x) = \text{tanh}(x)\cdot\text{cos}(x) + \text{log}(x) $$<p>Note in terms of the fundamental operations one can perform on a function, that this final equation is a nested composition of its parent-child equations.  This is true in general.</p>
-<blockquote><p>Any function can be represented as a nested <em>composition</em> of parent-child equations defined by its computation graph.</p>
-</blockquote>
+<p>In the previous Section we saw a numerical example mirroring this one. Therefore the computation graph takes the following simliar form</p>
+<p><img height="auto" src="../../mlrefined_images/basics_images/equation_graph_2.png" width="40%"/></p><p>with the only difference being that now our input node contains the variable $x$ instead of a particular numerical value. The parent-child equations can be written similarly as</p>
+\begin{array}
+\
+a = \text{tanh}(x) \\
+b = \text{cos}(x) \\
+c = \text{log}(x) \\
+d = a\times b \\
+e = d + c \\
+\end{array}<p></p>
 </div>
 </div>
 </div>
@@ -12556,458 +12618,7 @@ KgURAACAjYIIAABApSACAACwURABAACo6g8sWYc5vVRaKAAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Example.---Constructing-a-new-function-out-of-elementary-parts"><span style="color:#a50e3e;">Example. </span>  Constructing a new function out of elementary parts<a class="anchor-link" href="#Example.---Constructing-a-new-function-out-of-elementary-parts">¶</a></h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>What can we build using a short list of elementary parts - including addition / subtraction / multiplication / division, and a few elementary functions?  We have a great number of choices with how to start, but lets begin by defining two child nodes and go from there.</p>
-<p>We start with multiplication by a constant</p>
-$$
-a(x) = 20\times x
-$$<p>and another child node that creating that squares the input as</p>
-$$
-b(x) = x^2
-$$<p>Now we have two child nodes, both transformations of the input $x$.  Next, lets shove $a$ through a cosine function, and add 1 to $b$ giving two parent nodes</p>
-$$
-c(a) = \text{cos}(a)\\
-d(b) = b + 1 \\
-$$<p>Finally lets make a division parent for $d$, and multiply the result by $c$ as</p>
-$$
-e(d) = \frac{1}{d} \\
-f(c,e) = c\times e \\
-$$<p>giving the final parent node $f$.  All together then, we have made a set of parent-child equations (note here we will leave off the parentheses on the left side denoting input for readability purposes since the associated input of each equation is clear from the right hand side of each equation)</p>
-\begin{array}
-\
-a = 20 \times x \\
-b = x^2 \\
-c = \text{cos}(a)\\
-d = b + 1 \\
-e = \frac{1}{d} \\
-f = c\times e \\
-\end{array}<p>Of course this is an inferior way of detailing these parent-child relationships, which are better expressed by visualizing the graph
-as shown below.</p>
-<p><img height="auto" src="../../mlrefined_images/basics_images/equation_graph_1.png" width="65%"/></p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>What is the equation of the complete function we have just constructed?  Working backwards through the list of parent-child equations and working through the nested composition we can compute the full equation</p>
-$$
-f = c \times e = \text{cos}(a)\times \frac{1}{d} = \text{cos}(20\times x)\times \frac{1}{b+1} = \text{cos}(20\times x)\times \frac{1}{x^2 + 1}
-$$
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>So in short the full equation we have defined can be written as</p>
-$$
-g(x) = \frac{\text{cos}(20x)}{x^2 + 1}
-$$<p>We plot this function in the next Python cell.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [3]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># specify range of input for our function</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
-
-<span class="c1"># form the equation</span>
-<span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-
-<span class="c1"># make a table of values for our function</span>
-<span class="n">table1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">g</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  
-
-<span class="c1"># use custom plotter to display function</span>
-<span class="n">baslib</span><span class="o">.</span><span class="n">basics_plotter</span><span class="o">.</span><span class="n">single_plot</span><span class="p">(</span><span class="n">table</span> <span class="o">=</span> <span class="n">table1</span><span class="p">,</span><span class="n">xlabel</span> <span class="o">=</span> <span class="s1">'$x$'</span><span class="p">,</span><span class="n">ylabel</span> <span class="o">=</span> <span class="s1">'g'</span><span class="p">,</span><span class="n">rotate_ylabel</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAssAAAEPCAYAAAC0mYnkAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
-AAALEgAACxIB0t1+/AAAIABJREFUeJzt3Xl4HNWZLvC3lm61NkuWZEve8R7MbgQGD8YEjNmyeBJi
-IAk3DGEIw4QAz2UGnGFJ8AC+LIFhHgJJWCbbJQNJIDcLxDhsGTBgsI1jDNhi8S7L2mVJrV6q7h9d
-p7q6VaeqWpbV3fL7e548VnfpuI8W4lefvvqOYpqmCSIiIiIiGkTN9waIiIiIiAoVwzIRERERkQTD
-MhERERGRBMMyEREREZEEwzIRERERkQTDMhERERGRBMMyEREREZEEwzIRERERkQTDMhERERGRBMMy
-EREREZGEnu8NEI20PXv25HsLnurq6tDa2prvbeSkGPcMFOe+J02ahN27d+d7Gzkpxs8zUJz7LoY9
-T5w4Md9bIMoJK8tERERERBIMy0REREREEgzLREREREQSDMtERERERBIMy0REREREEgzLREREREQS
-DMtERERERBIMy0REREREEgzLREREREQSDMtERERERBIMy0REREREEgzLREREREQSDMtERERERBIM
-y0REREREEgzLREREREQSDMtERERERBIMy0REREREEgzLREREREQSDMtERERERBIMy0REREREEgzL
-REREREQSDMtERERERBIMy0REREREEgzLREREREQSDMtERERERBIMy0REREREEgzLREREREQSDMtE
-RERERBIMy0REREREEgzLREREREQSDMtERERERBJ6vjdA5OaHP/wh1q9fj6qqKtx3332DrpumiSee
-eAIbNmxASUkJrr76asyYMSMPOyUiIqLRjJVlKkhnnHEGvvvd70qvb9iwAc3NzXjwwQdx5ZVX4tFH
-Hx3B3REREdHhgmGZCtK8efNQUVEhvf7222/j9NNPh6IomDNnDnp7e9HR0TGCOyQaYaaJkhdewAXW
-20RENDLYhkFFqb29HXV1dfbj2tpatLe3Y+zYsYPed82aNVizZg0AYNWqVRnrCpGu6wW/x2zFuGeg
-uPatrF2L0GWX4Q8A4k1NME89Nd9bCqyYPs9OxbjvYtwzUaFjWKZRb8mSJViyZIn9uLW1NY+78VdX
-V1fwe8xWjHsGimvfZW+8gWrr7d4330Tf7Nl53U8uiunz7FSM+y6GPU+cODHfWyDKCdswqCjV1NRk
-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
-mpoatLW12Y/b2tpQU1NzsNsiIiIiGoSj46jozJw5E3v37kVLSwsSiQRef/11NDY25ntbRERENAox
-LFNBeeutt3DVVVdh69atWLVqFe644w4AqT7lu+66CwCgaRouv/xy3HHHHbj++utx6qmnYgpPLSMi
-IqJDgG0YVFBOPvlknHzyyYOer6mpwYoVK+zH8+fPx/z580dya0RERHQYYmWZiIiIiEiCYZmIiIiI
-SIJhmYiIiIhIgmGZiIiIiEiCYZmIiIiISIJhmYiIiIhIgmGZiIiIiEiCYZmIiIiISIJhmYiIiIhI
-gmGZiIiIiEiCYZmIiIiISIJhmYiIiIhIgmGZiIiIiEiCYZmIiIiISIJhmYiIiIhIgmGZiIiIiEiC
-YZmIiIiISIJhmYiIiIhIgmGZiIiIiEiCYZmIiIiISIJhmYiIiIhIgmGZiIiIiEiCYZmIiIiISIJh
-mYiIiIhIgmGZiIiIiEiCYZmIiIiISIJhmYiIiIhIgmGZiIiIiEhCMU3TzPcmiIiIiIgKESvLRAXm
-pptuyvcWclaMewaKc9/c88gpxn0X456JCh3DMhERERGRBMMyEREREZGE9r3vfe97+d4EEWWaMWNG
-vreQs2LcM1Cc++aeR04x7rsY90xUyHiDHxERERGRBNswiIiIiIgkGJaJiIiIiCT0fG+AiDL96le/
-wttvvw1FUVBVVYWrr74aNTU1+d6Wr5///Od45513oOs66uvrcfXVV6O8vDzf2/K0du1aPP3009i9
-ezfuvPNOzJw5M99bktq4cSOeeOIJGIaBs846C8uWLcv3lnz98Ic/xPr161FVVYX77rsv39sJpLW1
-FQ899BA6OzuhKAqWLFmC888/P9/b8hWLxXDbbbchkUggmUzilFNOwfLly/O9LaJRgT3LRAWmr68P
-ZWVlAIA//elP2LVrF6688so878rfu+++i6OPPhqapuEXv/gFAODrX/96nnflbdeuXVBVFT/+8Y9x
-6aWXFmxYNgwD1157LW6++WbU1tZixYoVuPbaazF58uR8b83Tli1bEIlE8NBDDxVNWO7o6EBHRwdm
-zJiB/v5+3HTTTfiXf/mXgv9cm6aJgYEBRCIRJBIJ3HrrrbjsssswZ86cfG+NqOixDYOowIigDAAD
-AwNQFCWPuwnuuOOOg6ZpAIA5c+agvb09zzvyN3nyZEycODHf2/DV1NSEhoYG1NfXQ9d1LFy4EOvW
-rcv3tnzNmzcPFRUV+d5GTsaOHWtPkygtLcWkSZOK4ntZURREIhEAQDKZRDKZLJr/7yAqdGzDICpA
-Tz75JF599VWUlZXhtttuy/d2cvbiiy9i4cKF+d7GqNHe3o7a2lr7cW1tLbZt25bHHR0eWlpa8Mkn
-n2DWrFn53koghmHgxhtvRHNzM8455xzMnj0731siGhUYlonyYOXKlejs7Bz0/MUXX4yTTjoJl1xy
-CS655BI888wzeP755wum99Bv3wDw29/+FpqmYdGiRSO9PVdB9kyULRqN4r777sNll12W8dueQqaq
-Ku655x709vbi3nvvxY4dOzB16tR8b4uo6DEsE+XBLbfcEuj9Fi1ahLvuuqtgwrLfvl9++WW88847
-uPXWWwvmV8BBP9eFrKamBm1tbfbjtra2orjps1glEgncd999WLRoERYsWJDv7eSsvLwcRx11FDZu
-3MiwTDQM2LNMVGD27t1rv71u3bqi6KkFUtMafve73+HGG29ESUlJvrczqsycORN79+5FS0sLEokE
-Xn/9dTQ2NuZ7W6OSaZp45JFHMGnSJHzuc5/L93YC6+7uRm9vL4DUZIxNmzZh0qRJed4V0ejAaRhE
-Bebee+/F3r17oSgK6urqcOWVVxZFFfGaa65BIpGwb+iaPXt2wU/xeOutt/D444+ju7sb5eXlOOKI
-I/Bv//Zv+d6Wq/Xr1+OnP/0pDMPAZz/7WXzpS1/K95Z8PfDAA9iyZQt6enpQVVWF5cuX48wzz8z3
-tjx98MEHuPXWWzF16lT7tyOXXHIJ5s+fn+ededu+fTseeughGIYB0zRx6qmn4sILL8z3tohGBYZl
-IiIiIiIJtmEQEREREUkwLBMRERERSTAsExERERFJMCwTEREREUkwLBMRERERSTAsExERERFJMCwT
-EREREUkwLBMRERERSTAsExEVsC1btmD58uVYv369/VxLSwuuuOIKPP7443ncGRHR4YFhmYiogM2b
-Nw9HHXUUnnnmGQBAX18fVq1ahVmzZuGyyy7L7+aIiA4DDMtERAVu+fLl+PDDD/Huu+/i/vvvh6Zp
-uO6666Cq/L9wIqJDTTFN08z3JoiIyNvKlSuxdetWlJWV4c4770RtbW2+t0REdFhgWYKIqAg0NDRg
-YGAAy5cvZ1AmIhpBDMtERAVuzZo1eOmllzBt2jS8+OKL+d4OEdFhhWGZiKiAbdq0CY899hi+9a1v
-4R//8R+xbds2bNiwId/bIiI6bDAsExEVqJ07d+IHP/gBvvjFL2Lx4sWYM2cOjjnmGDz99NP53hoR
-0WGDYZmIqAB1dXVh1apVOPbYY3HRRRfZz3/5y19GU1NTxtxlIiI6dDgNg4iIiIhIgpVlIiIiIiIJ
-hmUiIiIiIgmGZSIiIiIiCYZlIiIiIiIJhmUiIiIiIgmGZSIiIiIiCYZlIiIiIiIJhmUiIiIiIon/
-D8zYzOUJ/ur3AAAAAElFTkSuQmCC
-"/>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Example.--Reverse-engineering-an-equation-from-its-computation-graph"><span style="color:#a50e3e;">Example. </span> Reverse engineering an equation from its computation graph<a class="anchor-link" href="#Example.--Reverse-engineering-an-equation-from-its-computation-graph">¶</a></h4>
+<h4 id="Example.--Deriving-a-function's-equation-from-its-computation-graph"><span style="color:#a50e3e;">Example. </span> Deriving a function's equation from its computation graph<a class="anchor-link" href="#Example.--Deriving-a-function's-equation-from-its-computation-graph">¶</a></h4>
 </div>
 </div>
 </div>
@@ -13023,7 +12634,7 @@ D8zYzOUJ/ur3AAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img height="auto" src="../../mlrefined_images/basics_images/equation_graph_3.png" width="55%"/></p>
+<p><img height="auto" src="../../mlrefined_images/basics_images/reverse_func_0.png" width="80%"/></p>
 </div>
 </div>
 </div>
@@ -13031,11 +12642,11 @@ D8zYzOUJ/ur3AAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>we can easily reverse engineer the complete equation it represents.</p>
-<p>Starting with the final parent node and substituting in going backwards through the nested composition we have</p>
-$$
-e = \text{cos}(d) = \text{cos}(a + b) = \text{cos}(x_1^2 + x_2^2)
-$$
+<p>we can easily complete the equation it represents by navigating the graph forward, starting from the input node $x_1$.</p>
+<p><img height="auto" src="../../mlrefined_images/basics_images/reverse_func_1.png" width="80%"/></p><hr/>
+<p><img height="auto" src="../../mlrefined_images/basics_images/reverse_func_2.png" width="80%"/></p><hr/>
+<p><img height="auto" src="../../mlrefined_images/basics_images/reverse_func_3.png" width="80%"/></p><hr/>
+<p><img height="auto" src="../../mlrefined_images/basics_images/reverse_func_4.png" width="80%"/></p>
 </div>
 </div>
 </div>
@@ -13052,7 +12663,7 @@ $$<p>which we plot in the next Python cell.  Note that the default viewing angle
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># what function should we play with?  Defined in the next line.</span>
@@ -13915,6 +13526,444 @@ DodzbuADi8PhnBv4wOJwOOeG/wc2Pyvz7JegNgAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Example.---Constructing-a-new-function-out-of-elementary-parts"><span style="color:#a50e3e;">Example. </span>  Constructing a new function out of elementary parts<a class="anchor-link" href="#Example.---Constructing-a-new-function-out-of-elementary-parts">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What can we build using a short list of elementary parts - including addition / subtraction / multiplication / division, and a few elementary functions?  We have a great number of choices with how to start, but lets begin by defining two child nodes and go from there.</p>
+<p>We start with multiplication by a constant</p>
+$$
+a(x) = 20\times x
+$$<p><img height="auto" src="../../mlrefined_images/basics_images/construct_a.png" width="80%"/></p><p>and another child node that creating that squares the input as</p>
+$$
+b(x) = x^2
+$$<p><img height="auto" src="../../mlrefined_images/basics_images/construct_b.png" width="80%"/></p><p>Now we have two child nodes, both transformations of the input $x$.  Next, lets shove $a$ through a cosine function, and add 1 to $b$ giving two parent nodes</p>
+$$
+c(a) = \text{cos}(a)\\
+d(b) = b + 1 \\
+$$<p><img height="auto" src="../../mlrefined_images/basics_images/construct_c_d.png" width="80%"/></p><p>Finally lets make a division parent for $d$, and multiply the result by $c$ as</p>
+$$
+e(d) = \frac{1}{d} \\
+f(c,e) = c\times e \\
+$$<p><img height="auto" src="../../mlrefined_images/basics_images/construct_e_f.png" width="80%"/></p><p>giving the final parent node $f$.  All together then, we have made a set of parent-child equations (note here we will leave off the parentheses on the left side denoting input for readability purposes since the associated input of each equation is clear from the right hand side of each equation)</p>
+\begin{array}
+\
+a = 20 \times x \\
+b = x^2 \\
+c = \text{cos}(a)\\
+d = b + 1 \\
+e = \frac{1}{d} \\
+f = c\times e \\
+\end{array}<p>Of course this is an inferior way of detailing these parent-child relationships, which are better expressed by visualizing the graph as shown above.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We plot the full function</p>
+$$
+g(x) = \frac{\text{cos}(20x)}{x^2 + 1}
+$$<p>in the next Python cell.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># specify range of input for our function</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># form the equation</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># make a table of values for our function</span>
+<span class="n">table1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">g</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  
+
+<span class="c1"># use custom plotter to display function</span>
+<span class="n">baslib</span><span class="o">.</span><span class="n">basics_plotter</span><span class="o">.</span><span class="n">single_plot</span><span class="p">(</span><span class="n">table</span> <span class="o">=</span> <span class="n">table1</span><span class="p">,</span><span class="n">xlabel</span> <span class="o">=</span> <span class="s1">'$x$'</span><span class="p">,</span><span class="n">ylabel</span> <span class="o">=</span> <span class="s1">'g'</span><span class="p">,</span><span class="n">rotate_ylabel</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAssAAAEPCAYAAAC0mYnkAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+AAALEgAACxIB0t1+/AAAIABJREFUeJzt3Xl4HNWZLvC3lm61NkuWZEve8R7MbgQGD8YEjNmyeBJi
+IAk3DGEIw4QAz2UGnGFJ8AC+LIFhHgJJWCbbJQNJIDcLxDhsGTBgsI1jDNhi8S7L2mVJrV6q7h9d
+p7q6VaeqWpbV3fL7e548VnfpuI8W4lefvvqOYpqmCSIiIiIiGkTN9waIiIiIiAoVwzIRERERkQTD
+MhERERGRBMMyEREREZEEwzIRERERkQTDMhERERGRBMMyEREREZEEwzIRERERkQTDMhERERGRBMMy
+EREREZGEnu8NEI20PXv25HsLnurq6tDa2prvbeSkGPcMFOe+J02ahN27d+d7Gzkpxs8zUJz7LoY9
+T5w4Md9bIMoJK8tERERERBIMy0REREREEgzLREREREQSDMtERERERBIMy0REREREEgzLREREREQS
+DMtERERERBIMy0REREREEgzLREREREQSDMtERERERBIMy0REREREEgzLREREREQSDMtERERERBIM
+y0REREREEgzLREREREQSDMtERERERBIMy0REREREEgzLREREREQSDMtERERERBIMy0REREREEgzL
+REREREQSDMtERERERBIMy0REREREEgzLREREREQSDMtERERERBIMy0REREREEgzLREREREQSDMtE
+RERERBIMy0REREREEgzLREREREQSDMtERERERBJ6vjdA5OaHP/wh1q9fj6qqKtx3332DrpumiSee
+eAIbNmxASUkJrr76asyYMSMPOyUiIqLRjJVlKkhnnHEGvvvd70qvb9iwAc3NzXjwwQdx5ZVX4tFH
+Hx3B3REREdHhgmGZCtK8efNQUVEhvf7222/j9NNPh6IomDNnDnp7e9HR0TGCOyQaYaaJkhdewAXW
+20RENDLYhkFFqb29HXV1dfbj2tpatLe3Y+zYsYPed82aNVizZg0AYNWqVRnrCpGu6wW/x2zFuGeg
+uPatrF2L0GWX4Q8A4k1NME89Nd9bCqyYPs9OxbjvYtwzUaFjWKZRb8mSJViyZIn9uLW1NY+78VdX
+V1fwe8xWjHsGimvfZW+8gWrr7d4330Tf7Nl53U8uiunz7FSM+y6GPU+cODHfWyDKCdswqCjV1NRk
+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
+mpoatLW12Y/b2tpQU1NzsNsiIiIiGoSj46jozJw5E3v37kVLSwsSiQRef/11NDY25ntbRERENAox
+LFNBeeutt3DVVVdh69atWLVqFe644w4AqT7lu+66CwCgaRouv/xy3HHHHbj++utx6qmnYgpPLSMi
+IqJDgG0YVFBOPvlknHzyyYOer6mpwYoVK+zH8+fPx/z580dya0RERHQYYmWZiIiIiEiCYZmIiIiI
+SIJhmYiIiIhIgmGZiIiIiEiCYZmIiIiISIJhmYiIiIhIgmGZiIiIiEiCYZmIiIiISIJhmYiIiIhI
+gmGZiIiIiEiCYZmIiIiISIJhmYiIiIhIgmGZiIiIiEiCYZmIiIiISIJhmYiIiIhIgmGZiIiIiEiC
+YZmIiIiISIJhmYiIiIhIgmGZiIiIiEiCYZmIiIiISIJhmYiIiIhIgmGZiIiIiEiCYZmIiIiISIJh
+mYiIiIhIgmGZiIiIiEiCYZmIiIiISIJhmYiIiIhIgmGZiIiIiEhCMU3TzPcmiIiIiIgKESvLRAXm
+pptuyvcWclaMewaKc9/c88gpxn0X456JCh3DMhERERGRBMMyEREREZGE9r3vfe97+d4EEWWaMWNG
+vreQs2LcM1Cc++aeR04x7rsY90xUyHiDHxERERGRBNswiIiIiIgkGJaJiIiIiCT0fG+AiDL96le/
+wttvvw1FUVBVVYWrr74aNTU1+d6Wr5///Od45513oOs66uvrcfXVV6O8vDzf2/K0du1aPP3009i9
+ezfuvPNOzJw5M99bktq4cSOeeOIJGIaBs846C8uWLcv3lnz98Ic/xPr161FVVYX77rsv39sJpLW1
+FQ899BA6OzuhKAqWLFmC888/P9/b8hWLxXDbbbchkUggmUzilFNOwfLly/O9LaJRgT3LRAWmr68P
+ZWVlAIA//elP2LVrF6688so878rfu+++i6OPPhqapuEXv/gFAODrX/96nnflbdeuXVBVFT/+8Y9x
+6aWXFmxYNgwD1157LW6++WbU1tZixYoVuPbaazF58uR8b83Tli1bEIlE8NBDDxVNWO7o6EBHRwdm
+zJiB/v5+3HTTTfiXf/mXgv9cm6aJgYEBRCIRJBIJ3HrrrbjsssswZ86cfG+NqOixDYOowIigDAAD
+AwNQFCWPuwnuuOOOg6ZpAIA5c+agvb09zzvyN3nyZEycODHf2/DV1NSEhoYG1NfXQ9d1LFy4EOvW
+rcv3tnzNmzcPFRUV+d5GTsaOHWtPkygtLcWkSZOK4ntZURREIhEAQDKZRDKZLJr/7yAqdGzDICpA
+Tz75JF599VWUlZXhtttuy/d2cvbiiy9i4cKF+d7GqNHe3o7a2lr7cW1tLbZt25bHHR0eWlpa8Mkn
+n2DWrFn53koghmHgxhtvRHNzM8455xzMnj0731siGhUYlonyYOXKlejs7Bz0/MUXX4yTTjoJl1xy
+CS655BI888wzeP755wum99Bv3wDw29/+FpqmYdGiRSO9PVdB9kyULRqN4r777sNll12W8dueQqaq
+Ku655x709vbi3nvvxY4dOzB16tR8b4uo6DEsE+XBLbfcEuj9Fi1ahLvuuqtgwrLfvl9++WW88847
+uPXWWwvmV8BBP9eFrKamBm1tbfbjtra2orjps1glEgncd999WLRoERYsWJDv7eSsvLwcRx11FDZu
+3MiwTDQM2LNMVGD27t1rv71u3bqi6KkFUtMafve73+HGG29ESUlJvrczqsycORN79+5FS0sLEokE
+Xn/9dTQ2NuZ7W6OSaZp45JFHMGnSJHzuc5/L93YC6+7uRm9vL4DUZIxNmzZh0qRJed4V0ejAaRhE
+Bebee+/F3r17oSgK6urqcOWVVxZFFfGaa65BIpGwb+iaPXt2wU/xeOutt/D444+ju7sb5eXlOOKI
+I/Bv//Zv+d6Wq/Xr1+OnP/0pDMPAZz/7WXzpS1/K95Z8PfDAA9iyZQt6enpQVVWF5cuX48wzz8z3
+tjx98MEHuPXWWzF16lT7tyOXXHIJ5s+fn+ededu+fTseeughGIYB0zRx6qmn4sILL8z3tohGBYZl
+IiIiIiIJtmEQEREREUkwLBMRERERSTAsExERERFJMCwTEREREUkwLBMRERERSTAsExERERFJMCwT
+EREREUkwLBMRERERSTAsExEVsC1btmD58uVYv369/VxLSwuuuOIKPP7443ncGRHR4YFhmYiogM2b
+Nw9HHXUUnnnmGQBAX18fVq1ahVmzZuGyyy7L7+aIiA4DDMtERAVu+fLl+PDDD/Huu+/i/vvvh6Zp
+uO6666Cq/L9wIqJDTTFN08z3JoiIyNvKlSuxdetWlJWV4c4770RtbW2+t0REdFhgWYKIqAg0NDRg
+YGAAy5cvZ1AmIhpBDMtERAVuzZo1eOmllzBt2jS8+OKL+d4OEdFhhWGZiKiAbdq0CY899hi+9a1v
+4R//8R+xbds2bNiwId/bIiI6bDAsExEVqJ07d+IHP/gBvvjFL2Lx4sWYM2cOjjnmGDz99NP53hoR
+0WGDYZmIqAB1dXVh1apVOPbYY3HRRRfZz3/5y19GU1NTxtxlIiI6dDgNg4iIiIhIgpVlIiIiIiIJ
+hmUiIiIiIgmGZSIiIiIiCYZlIiIiIiIJhmUiIiIiIgmGZSIiIiIiCYZlIiIiIiIJhmUiIiIiIon/
+D8zYzOUJ/ur3AAAAAElFTkSuQmCC
+"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="2.2-Section-summary">2.2 Section summary<a class="anchor-link" href="#2.2-Section-summary">¶</a></h2>
 </div>
 </div>
@@ -13931,6 +13980,6 @@ DodzbuADi8PhnBv4wOJwOOeG/wc2Pyvz7JegNgAAAABJRU5ErkJggg==
 </div>
 </body>
 <script type="application/vnd.jupyter.widget-state+json">
-{"version_minor": 0, "state": {}, "version_major": 1}
+{"version_major": 1, "state": {}, "version_minor": 0}
 </script>
 </html>
