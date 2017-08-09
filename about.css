@@ -6,6 +6,26 @@
     opacity:0;
 }
 
+
+
+			.paragraph {
+  			text-align: justify !important;
+  			text-justify: inter-word !important;
+  			padding: 0px 300px 0px 300px;
+			}
+
+
+
+			.cento-header{
+				padding-top: 70px !important;
+				padding-bottom: 60px !important;
+				text-align: right;
+				background-color: #fff;
+			}
+
+
+
+
 /* responsive team grid */ 
 .at-grid {
   display: -webkit-box;
