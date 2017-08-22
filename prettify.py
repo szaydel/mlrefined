@@ -33,7 +33,10 @@ if 'calculus' in series.lower():
     series_url = 'Vital_Elements_of_Calculus'
     
 if 'math' in series.lower():
-    series_url = 'Basics_of_Math_functions'        
+    series_url = 'Basics_of_Math_functions'      
+    
+if 'algebra' in series.lower():
+    series_url = 'Linear_Algebra'       
 
 
 # This script adds navigation bar + sharing logos + title
