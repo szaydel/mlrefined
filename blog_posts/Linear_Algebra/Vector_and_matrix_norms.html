@@ -11854,7 +11854,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In this post we discuss popular vector and mtrix norms that will arise frequently in our study of machine learning and deep learning. A norm is a kind of function that measures the length of real vectors and matrices. The notion of length is extremely useful as it enables us to define distance - or similarity - between any two vectors (or matrices) living in the same space.</p>
+<p>In this post we discuss popular vector and matrix norms that will arise frequently in our study of machine learning and deep learning. A norm is a kind of function that measures the length of real vectors and matrices. The notion of length is extremely useful as it enables us to define distance - or similarity - between any two vectors (or matrices) living in the same space.</p>
 </div>
 </div>
 </div>
@@ -11893,7 +11893,7 @@ and $\mathbf{y}$.</p>
 <h3 id="1.2-The-$\ell_{1}$-norm">1.2 The $\ell_{1}$ norm<a class="anchor-link" href="#1.2-The-$\ell_{1}$-norm">¶</a></h3><p>The $\ell_{1}$ norm of a vector $\mathbf{x}$ is defined as the sum of the absolute values of its entries</p>
 \begin{equation}
 \Vert\mathbf{x}\Vert_{1}=\sum_{n=1}^{N}\left|x_{n}\right|
-\end{equation}<p>In terms of the $\ell_{1}$ norm the distance between $\mathbf{x}$ and $\mathbf{y}$ is given by $\left\Vert \mathbf{x}-\mathbf{y}\right\Vert _{1}$, which provides a measurement of distance different from the $\ell_{2}$ norm. As illustrated in the figure below the distance defined by the $\ell_{1}$ norm is the length of a path consisting of perpendicular pieces (shown in blue). Because these paths are somewhat akin to how an automobile might travel from $\mathbf{x}$ to $\mathbf{y}$ if they were two locations in a gridded city, having to traverse perpindicular city blocks one after the other, the $\ell_{1}$ norm is sometimes referred to as the taxicab norm, and the distance measured via the $\ell_{1}$ norm, the Manhattan distance.</p>
+\end{equation}<p>In terms of the $\ell_{1}$ norm the distance between $\mathbf{x}$ and $\mathbf{y}$ is given by $\left\Vert \mathbf{x}-\mathbf{y}\right\Vert _{1}$, which provides a measurement of distance different from the $\ell_{2}$ norm. As illustrated in the figure below the distance defined by the $\ell_{1}$ norm is the length of a path consisting of perpendicular pieces (shown in blue). Because these paths are somewhat akin to how an automobile might travel from $\mathbf{x}$ to $\mathbf{y}$ if they were two locations in a gridded city, having to traverse perpendicular city blocks one after the other, the $\ell_{1}$ norm is sometimes referred to as the taxicab norm, and the distance measured via the $\ell_{1}$ norm, the Manhattan distance.</p>
 <p><img height="auto" src="../../mlrefined_images/linear_algebra_images/L1_distance.png" width="70%"/></p><p>In the example above the distance between $\mathbf{x}=\left[\begin{array}{c}
 1\\
 2
@@ -11928,7 +11928,7 @@ and $\mathbf{y}$.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="1.4-What-do-these-vector-norms-have-in-common?">1.4 What do these vector norms have in common?<a class="anchor-link" href="#1.4-What-do-these-vector-norms-have-in-common?">¶</a></h3><p>The $\ell_{2}$, $\ell_{1}$, and $\ell_{\infty}$ norms, by virtue of being vector norms, share a number of useful properties that we detail below. Since these properties hold in general for <em>any</em> norm, we momentarily drop the subscript and represent the norm of $\mathbf{x}$ simply by $\Vert\mathbf{x}\Vert$.</p>
 <ol>
-<li>Norms are always non-negative, that is $\Vert\mathbf{x}\Vert\geq0$. Furthermore, the equality holds only when $\mathbf{x}=\mathbf{0}$. Therefore the norm of any nonzero vector is always greater than zero.
+<li>Norms are always non-negative, that is $\Vert\mathbf{x}\Vert\geq 0$. Furthermore, the equality holds only when $\mathbf{x}=\mathbf{0}$. Therefore the norm of any nonzero vector is always greater than zero.
 <br/><br/></li>
 <li>The norm of $\alpha\mathbf{x}$, that is a scalar multiple of $\mathbf{x}$, can be written in terms of the norm of $\mathbf{x}$, as $\Vert\alpha\mathbf{x}\Vert=\left|\alpha\right|\Vert\mathbf{x}\Vert$. With $\alpha=-1$ for example, we have that $\Vert-\mathbf{x}\Vert=\Vert\mathbf{x}\Vert$. 
 <br/><br/></li>
@@ -11947,24 +11947,19 @@ $\Vert\mathbf{u}\Vert+\Vert\mathbf{v}\Vert\geq\Vert\mathbf{u}+\mathbf{v}\Vert$ f
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="1.5-The-$\ell_{p}$-norm-balls">1.5 The $\ell_{p}$ norm balls<a class="anchor-link" href="#1.5-The-$\ell_{p}$-norm-balls">¶</a></h3><p>A norm ball is a set of all vectors $\mathbf{x}$ with same norm value,
-that is, all $\mathbf{x}$such that $\left\Vert \mathbf{x}\right\Vert =c$
-for some constant $c&gt;0$. When $c=1$, this set is called the unit
-norm ball, or simply the unit ball. In the Python cell below we show
-the $\ell_{p}$ unit balls in two dimensions for different values
-of $p$.</p>
-<p>As you can see above, the $\ell_{1}$ unit ball takes the form of
-a dimaond, whose equation is given by</p>
+<h3 id="1.5-The-$\ell_{p}$-norm-balls">1.5 The $\ell_{p}$ norm balls<a class="anchor-link" href="#1.5-The-$\ell_{p}$-norm-balls">¶</a></h3><p>A norm ball is a set of all vectors $\mathbf{x}$ with same norm value, that is, all $\mathbf{x}$such that $\left\Vert \mathbf{x}\right\Vert =c$ for some constant $c&gt;0$. When $c=1$, this set is called the unit norm ball, or simply the unit ball.</p>
+<p>As you can see in the figure below, the $\ell_{1}$ unit ball takes the form of a diamond (in blue), whose equation is given by</p>
 \begin{equation}
 \left|x_{1}\right|+\left|x_{2}\right|=1
-\end{equation}<p>The $\ell_{2}$ unit ball is a cricle defined by</p>
+\end{equation}<p>The $\ell_{2}$ unit ball is a circle (in red) defined by</p>
 \begin{equation}
 x_{1}^{2}+x_{2}^{2}=1
-\end{equation}<p>As $p\longrightarrow\infty$ the unit ball approaches a square characterized
+\end{equation}<p>And finally as $p\longrightarrow\infty$ the unit ball approaches a square (in green) characterized
 by</p>
 \begin{equation}
 \text{max}\left(\left|x_{1}\right|,\left|x_{2}\right|\right)=1
-\end{equation}
+\end{equation}<p><br/></p>
+<p><img height="auto" src="../../mlrefined_images/linear_algebra_images/norm_balls.png" width="80%"/></p>
 </div>
 </div>
 </div>
@@ -11980,14 +11975,14 @@ by</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.1-The-Frobenius-norm">2.1 The Frobenius norm<a class="anchor-link" href="#2.1-The-Frobenius-norm">¶</a></h3><p>Recall that the $\ell_{2}$ norm of a vector is defined as the square root of the sum of the squares of its elements. The Frobenuis norm is the intuitive extension of the $\ell_{2}$ norm for vectors to matrices, defined similarly as the square root of the sum of the squares of all the elements in the matrix. Thus, the Frobenuis norm of an $N\times M$ dimensional matrix $\mathbf{X}$ is calculated as</p>
+<h3 id="2.1-The-Frobenius-norm">2.1 The Frobenius norm<a class="anchor-link" href="#2.1-The-Frobenius-norm">¶</a></h3><p>Recall that the $\ell_{2}$ norm of a vector is defined as the square root of the sum of the squares of its elements. The Frobenius norm is the intuitive extension of the $\ell_{2}$ norm for vectors to matrices, defined similarly as the square root of the sum of the squares of all the elements in the matrix. Thus, the Frobenius norm of an $N\times M$ dimensional matrix $\mathbf{X}$ is calculated as</p>
 \begin{equation}
 \left\Vert \mathbf{X}\right\Vert _{F}=\sqrt{\sum_{n=1}^{N}\sum_{m=1}^{M} x_{n,m}^{2}}
-\end{equation}<p>For example, the Frobenuis norm of the matrix $\mathbf{X}=\left[\begin{array}{cc}
+\end{equation}<p>For example, the Frobenius norm of the matrix $\mathbf{X}=\left[\begin{array}{cc}
 -1 &amp; 2\\
 0 &amp; 5
 \end{array}\right]$ can be found as $\sqrt{\left(-1\right)^{2}+2^{2}+0^{2}+5^{2}}=\sqrt{30}$.</p>
-<p>The connection between the $\ell_{2}$ norm and the Frobenuis norm goes even deeper: collecting all singular values of $\mathbf{X}$ in the vector $\mathbf{s}$ (assuming $N\leq M$)</p>
+<p>The connection between the $\ell_{2}$ norm and the Frobenius norm goes even deeper: collecting all singular values of $\mathbf{X}$ in the vector $\mathbf{s}$ (assuming $N\leq M$)</p>
 \begin{equation}
 \mathbf{s}=\left[\begin{array}{c}
 \sigma_{1}\\
@@ -11995,7 +11990,7 @@ by</p>
 \vdots\\
 \sigma_{N}
 \end{array}\right]
-\end{equation}<p>The Frobenuis norm of $\mathbf{X}$ can be shown to be equal to the $\ell_{2}$ norm of $\mathbf{s}$, i.e.,</p>
+\end{equation}<p>The Frobenius norm of $\mathbf{X}$ can be shown to be equal to the $\ell_{2}$ norm of $\mathbf{s}$, i.e.,</p>
 \begin{equation}
 \left\Vert \mathbf{X}\right\Vert _{F}=\left\Vert \mathbf{s}\right\Vert _{2}
 \end{equation}
@@ -12006,7 +12001,7 @@ by</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.1-The-spectral-and-nuclear-norms">2.1 The spectral and nuclear norms<a class="anchor-link" href="#2.1-The-spectral-and-nuclear-norms">¶</a></h3><p>The observation that the $\ell_{2}$ norm of the vector of sigular values of a matrix is identical to its Frobenuis norm motivates the use of other $\ell_{p}$ norms on the vector $\mathbf{s}$. In particular the $\ell_{1}$ norm of $\mathbf{s}$ defines the nuclear norm of $\mathbf{X}$ denoted by $\left\Vert \mathbf{X}\right\Vert _{*}$</p>
+<h3 id="2.1-The-spectral-and-nuclear-norms">2.1 The spectral and nuclear norms<a class="anchor-link" href="#2.1-The-spectral-and-nuclear-norms">¶</a></h3><p>The observation that the $\ell_{2}$ norm of the vector of singular values of a matrix is identical to its Frobenius norm motivates the use of other $\ell_{p}$ norms on the vector $\mathbf{s}$. In particular the $\ell_{1}$ norm of $\mathbf{s}$ defines the nuclear norm of $\mathbf{X}$ denoted by $\left\Vert \mathbf{X}\right\Vert _{*}$</p>
 \begin{equation}
 \left\Vert \mathbf{X}\right\Vert _{*}=\left\Vert \mathbf{s}\right\Vert _{1}
 \end{equation}<p>and the $\ell_{\infty}$ norm of $\mathbf{s}$ defines the spectral norm of $\mathbf{X}$, denoted by $\left\Vert \mathbf{X}\right\Vert _{2}$</p>
