@@ -32,7 +32,7 @@ if 'optimization' in series.lower():
 if 'calculus' in series.lower():
     series_url = 'Vital_Elements_of_Calculus'
     
-if 'math' in series.lower():
+if 'function' in series.lower():
     series_url = 'Basics_of_Math_functions'      
     
 if 'algebra' in series.lower():
