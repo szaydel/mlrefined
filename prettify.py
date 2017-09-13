@@ -20,8 +20,8 @@ name = soup.html.head.title.string
 soup.html.head.title.string = page_title
 
 # assign series URL
-if 'supervised' in series.lower():
-    series_url = 'Supervised_Learning'
+if 'supervised' in series.lower() and 'linear' in series.lower():
+    series_url = 'Linear_Supervised_Learning'
 
 if 'reinforcement' in series.lower():
     series_url = 'Reinforcement_Learning'
@@ -36,7 +36,8 @@ if 'function' in series.lower():
     series_url = 'Basics_of_Math_functions'      
     
 if 'algebra' in series.lower():
-    series_url = 'Linear_Algebra'       
+    series_url = 'Linear_Algebra'      
+        
 
 
 # This script adds navigation bar + sharing logos + title
