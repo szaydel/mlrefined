@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+	
+	<head>
+		<!-- always use https, not http --> 
+		<script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js'></script>
+		<link rel="stylesheet" href="home.css">
+		
+		<!-- need this for navigation menu --> 
+		<link rel="stylesheet" href="navbar.css">
+		
+		<style>
+			.back-text-color { /* color of text on the back of each card */
+				color: #333;
+			}
+			
+		 </style>	
+		 
+		<!-- subscription -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="subscription.css">
+		 
+	</head>
+		 
+
+	<body>
+	
+		<!-- Navigation menu -->	
+		<br/><br/><br/>
+		<div>
+    		<ul>
+        		<li class="menu-item"><a href="index.html"><span class="menu-item">HOME</span></a></li>
+        		<li class="menu-item active"><a href="presentations.html"><span class="menu-item">PRESENTATIONS</span></a></li>
+        		<li class="menu-item"><a href="gallery.html"><span class="menu-item">GALLERY</span></a></li>
+        		<li class="menu-item"><a href="about.html"><span class="menu-item">ABOUT</span></a></li>
+   			</ul>
+		</div>
+		
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		
+		<center style="font-size:120%; color:#666">coming soon!</center>
+
+
+		<script>
+			$(document).ready(function(){
+				$('.hover').hover(function(){
+					$(this).addClass('flip');
+					},function(){
+						$(this).removeClass('flip');
+					});
+				});
+		</script>
+		
+	
+	</body>
+</html>
