@@ -154,6 +154,7 @@ script_3 = '''
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
+    	TeX: { equationNumbers: { autoNumber: "AMS" } },
         tex2jax: {
             inlineMath: [ ['$','$'], ["\\\(","\\\)"] ],
             displayMath: [ ['$$','$$'], ["\\\[","\\\]"] ],
