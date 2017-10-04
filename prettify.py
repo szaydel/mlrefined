@@ -22,6 +22,9 @@ soup.html.head.title.string = page_title
 # assign series URL
 if 'supervised' in series.lower() and 'linear' in series.lower():
     series_url = 'Linear_Supervised_Learning'
+    
+if 'unsupervised' in series.lower():
+    series_url = 'Unsupervised_Learning'       
 
 if 'reinforcement' in series.lower():
     series_url = 'Reinforcement_Learning'
