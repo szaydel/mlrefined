@@ -11764,7 +11764,7 @@ div#notebook {
         }
     });
     </script>
-<link href="../../custom.css" rel="stylesheet"/>
+<link href="../../html/CSS/custom.css" rel="stylesheet"/>
 <style>
         p {
             text-align: justify !important;
@@ -11790,8 +11790,8 @@ div#notebook {
 <div class="logo-share"></div>
 <div class="logo-share">
 <!-- github -->
-<a href="https://github.com/jermwatt/mlrefined/blob/master/blog_posts/Linear_Supervised_Learning/Part_6_multiclass_classification.ipynb" target="_blank">
-<img height="28" onmouseout="this.src='../../pics/github.png';" onmouseover="this.src='../../pics/github_filled.png';" src="../../pics/github.png" width="28"/>
+<a href="https://github.com/jermwatt/mlrefined/blob/gh-pages/blog_posts/Linear_Supervised_Learning/Part_6_multiclass_classification.ipynb" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/github.png';" onmouseover="this.src='../../html/pics/github_filled.png';" src="../../html/pics/github.png" width="28"/>
 </a>
 </div>
 </div>
@@ -11804,21 +11804,21 @@ div#notebook {
 <div class="logo-share">
 <!-- linkedin -->
 <a href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2Fblog_posts%2FLinear_Supervised_Learning%2FPart_6_multiclass_classification.html" target="_blank">
-<img height="28" onmouseout="this.src='../../pics/linkedin.png';" onmouseover="this.src='../../pics/linkedin_filled.png';" src="../../pics/linkedin.png" width="28"/>
+<img height="28" onmouseout="this.src='../../html/pics/linkedin.png';" onmouseover="this.src='../../html/pics/linkedin_filled.png';" src="../../html/pics/linkedin.png" width="28"/>
 </a>
 </div>
 <div class="logo-share"></div>
 <div class="logo-share">
 <!-- twitter -->
 <a href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2Fblog_posts%2FLinear_Supervised_Learning%2FPart_6_multiclass_classification.html" target="_blank">
-<img height="28" onmouseout="this.src='../../pics/twitter.png';" onmouseover="this.src='../../pics/twitter_filled.png';" src="../../pics/twitter.png" width="28"/>
+<img height="28" onmouseout="this.src='../../html/pics/twitter.png';" onmouseover="this.src='../../html/pics/twitter_filled.png';" src="../../html/pics/twitter.png" width="28"/>
 </a>
 </div>
 <div class="logo-share"></div>
 <div class="logo-share">
 <!-- facebook -->
 <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2Fblog_posts%2FLinear_Supervised_Learning%2FPart_6_multiclass_classification.html" target="_blank">
-<img height="28" onmouseout="this.src='../../pics/facebook.png';" onmouseover="this.src='../../pics/facebook_filled.png';" src="../../pics/facebook.png" width="28"/>
+<img height="28" onmouseout="this.src='../../html/pics/facebook.png';" onmouseover="this.src='../../html/pics/facebook_filled.png';" src="../../html/pics/facebook.png" width="28"/>
 </a>
 </div>
 </div>
@@ -11827,7 +11827,7 @@ div#notebook {
 <br/><br/>
 <div class="page-title" style="text-align: center !important;">
 <span style="color: #333; font-size: 40%; letter-spacing: 3px;">
-<span style="font-size: 80%;">► </span><a href="../../../mlrefined/Linear_Supervised_Learning.html" style="color: black; cursor: pointer; text-transform: uppercase; font-weight:bold;">Linear Supervised Learning Series</a>
+<span style="font-size: 80%;">► </span><a href="../../../mlrefined/html/pages/topics/Linear_Supervised_Learning.html" style="color: black; cursor: pointer; text-transform: uppercase; font-weight:bold;">Linear Supervised Learning Series</a>
 </span>
 <br/><br/>
 <mark style="padding: 0px; background-color: #f9f3c2;">Part 6: Linear multi-class classification</mark>
@@ -11861,7 +11861,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [17]:</div>
+<div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># imports from custom library</span>
@@ -11877,25 +11877,13 @@ div#notebook {
 
 <span class="o">%</span><span class="k">matplotlib</span> notebook
 
-<span class="c1"># this is needed to compensate for %matplotlib notebook's tendancy to blow up images when plotted inline</span>
+<span class="c1"># this is needed to compensate for matplotlib notebook's tendancy to blow up images when plotted inline</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">rcParams</span>
 <span class="n">rcParams</span><span class="p">[</span><span class="s1">'figure.autolayout'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="o">%</span><span class="k">load_ext</span> autoreload
 <span class="o">%</span><span class="k">autoreload</span> 2
 </pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>The autoreload extension is already loaded. To reload it, use:
-  %reload_ext autoreload
-</pre>
-</div>
 </div>
 </div>
 </div>
@@ -12051,10 +12039,10 @@ g\left(w_0^{(1)},\,\mathbf{w}_{\mathstrut}^{(1)},...,w_0^{(C)},\,\mathbf{w}_{\ma
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="db51c400-c399-452c-b976-688f82e4e880"></div>
+<div id="c974f865-5752-4138-98ec-270b23bbd9cf"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#db51c400-c399-452c-b976-688f82e4e880');
+var element = $('#c974f865-5752-4138-98ec-270b23bbd9cf');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -12946,10 +12934,10 @@ w_{0}^{(1)} &amp; w_{0}^{(2)} &amp; \cdots &amp; w_{0}^{(C)}\\
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="25b19d0f-6a43-4f2e-a6e0-8c16063f8982"></div>
+<div id="ec6baa28-c0a4-475e-a103-5be757977744"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#25b19d0f-6a43-4f2e-a6e0-8c16063f8982');
+var element = $('#ec6baa28-c0a4-475e-a103-5be757977744');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -13908,10 +13896,10 @@ g\left(w_0^{(1)},\,\mathbf{w}_{\mathstrut}^{(1)},...,w_0^{(C)},\,\mathbf{w}_{\ma
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="2814c50c-2298-4cbb-bd17-fae09264b803"></div>
+<div id="2c9cad1e-2a05-47b7-bcb3-62ccd882e359"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#2814c50c-2298-4cbb-bd17-fae09264b803');
+var element = $('#2c9cad1e-2a05-47b7-bcb3-62ccd882e359');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -14738,10 +14726,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="a7c6cfc1-1b98-4632-abb8-73382c807ca4"></div>
+<div id="83a8ea2a-44fb-49de-a058-ef8c574d444d"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#a7c6cfc1-1b98-4632-abb8-73382c807ca4');
+var element = $('#83a8ea2a-44fb-49de-a058-ef8c574d444d');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15553,10 +15541,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="dc0fbfb3-68b0-4ee4-aa64-b8453c42f9a7"></div>
+<div id="10c5ea72-353a-4a7e-8cdd-4b4856a2661e"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#dc0fbfb3-68b0-4ee4-aa64-b8453c42f9a7');
+var element = $('#10c5ea72-353a-4a7e-8cdd-4b4856a2661e');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 

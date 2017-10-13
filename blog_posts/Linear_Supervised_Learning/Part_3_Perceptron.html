@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"/>
-<title>Part 3: The perceptron</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Part 3: The perceptron</title><script src="https://unpkg.com/jupyter-js-widgets@2.0.*/dist/embed.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <style type="text/css">
     /*!
@@ -11764,7 +11764,7 @@ div#notebook {
         }
     });
     </script>
-<link href="../../custom.css" rel="stylesheet"/>
+<link href="../../html/CSS/custom.css" rel="stylesheet"/>
 <style>
         p {
             text-align: justify !important;
@@ -11790,8 +11790,8 @@ div#notebook {
 <div class="logo-share"></div>
 <div class="logo-share">
 <!-- github -->
-<a href="https://github.com/jermwatt/mlrefined/blob/master/blog_posts/Linear_Supervised_Learning/Part_3_Perceptron.ipynb" target="_blank">
-<img height="28" onmouseout="this.src='../../pics/github.png';" onmouseover="this.src='../../pics/github_filled.png';" src="../../pics/github.png" width="28"/>
+<a href="https://github.com/jermwatt/mlrefined/blob/gh-pages/blog_posts/Linear_Supervised_Learning/Part_3_Perceptron.ipynb" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/github.png';" onmouseover="this.src='../../html/pics/github_filled.png';" src="../../html/pics/github.png" width="28"/>
 </a>
 </div>
 </div>
@@ -11804,21 +11804,21 @@ div#notebook {
 <div class="logo-share">
 <!-- linkedin -->
 <a href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2Fblog_posts%2FLinear_Supervised_Learning%2FPart_3_Perceptron.html" target="_blank">
-<img height="28" onmouseout="this.src='../../pics/linkedin.png';" onmouseover="this.src='../../pics/linkedin_filled.png';" src="../../pics/linkedin.png" width="28"/>
+<img height="28" onmouseout="this.src='../../html/pics/linkedin.png';" onmouseover="this.src='../../html/pics/linkedin_filled.png';" src="../../html/pics/linkedin.png" width="28"/>
 </a>
 </div>
 <div class="logo-share"></div>
 <div class="logo-share">
 <!-- twitter -->
 <a href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2Fblog_posts%2FLinear_Supervised_Learning%2FPart_3_Perceptron.html" target="_blank">
-<img height="28" onmouseout="this.src='../../pics/twitter.png';" onmouseover="this.src='../../pics/twitter_filled.png';" src="../../pics/twitter.png" width="28"/>
+<img height="28" onmouseout="this.src='../../html/pics/twitter.png';" onmouseover="this.src='../../html/pics/twitter_filled.png';" src="../../html/pics/twitter.png" width="28"/>
 </a>
 </div>
 <div class="logo-share"></div>
 <div class="logo-share">
 <!-- facebook -->
 <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2Fblog_posts%2FLinear_Supervised_Learning%2FPart_3_Perceptron.html" target="_blank">
-<img height="28" onmouseout="this.src='../../pics/facebook.png';" onmouseover="this.src='../../pics/facebook_filled.png';" src="../../pics/facebook.png" width="28"/>
+<img height="28" onmouseout="this.src='../../html/pics/facebook.png';" onmouseover="this.src='../../html/pics/facebook_filled.png';" src="../../html/pics/facebook.png" width="28"/>
 </a>
 </div>
 </div>
@@ -11827,7 +11827,7 @@ div#notebook {
 <br/><br/>
 <div class="page-title" style="text-align: center !important;">
 <span style="color: #333; font-size: 40%; letter-spacing: 3px;">
-<span style="font-size: 80%;">► </span><a href="../../../mlrefined/Linear_Supervised_Learning.html" style="color: black; cursor: pointer; text-transform: uppercase; font-weight:bold;">Linear Supervised Learning Series</a>
+<span style="font-size: 80%;">► </span><a href="../../../mlrefined/html/pages/topics/Linear_Supervised_Learning.html" style="color: black; cursor: pointer; text-transform: uppercase; font-weight:bold;">Linear Supervised Learning Series</a>
 </span>
 <br/><br/>
 <mark style="padding: 0px; background-color: #f9f3c2;">Part 3: The perceptron</mark>
@@ -11864,7 +11864,7 @@ div#notebook {
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># imports from custom library</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#imports from custom library</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'../../'</span><span class="p">)</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -12147,10 +12147,10 @@ $ in the Python cell below. Although we focused exclusively on learning the deci
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="6bc9b883-3fe1-4a5e-bc31-54c0d226e88c"></div>
+<div id="81b2c2f1-f6c5-4c2b-95d6-b47d3033e17a"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#6bc9b883-3fe1-4a5e-bc31-54c0d226e88c');
+var element = $('#81b2c2f1-f6c5-4c2b-95d6-b47d3033e17a');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -13054,4 +13054,7 @@ g\left(w_0,\mathbf{w}\right)=\underset{p=1}{\overset{P}{\sum}}\text{log}\left(1 
 </div>
 </div>
 </body>
+<script type="application/vnd.jupyter.widget-state+json">
+{"version_major": 1, "state": {}, "version_minor": 0}
+</script>
 </html>
