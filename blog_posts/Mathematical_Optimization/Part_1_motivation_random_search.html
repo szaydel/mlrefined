@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"/>
-<title>Part 1: Motivation and primitive methods</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Part 1: Motivation and primitive methods</title><script src="https://unpkg.com/jupyter-js-widgets@2.0.*/dist/embed.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <style type="text/css">
     /*!
@@ -11746,6 +11746,7 @@ div#notebook {
 <!-- MathJax configuration -->
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
+    	TeX: { equationNumbers: { autoNumber: "AMS" } },
         tex2jax: {
             inlineMath: [ ['$','$'], ["\\(","\\)"] ],
             displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
@@ -11763,7 +11764,7 @@ div#notebook {
         }
     });
     </script>
-<link href="../../custom.css" rel="stylesheet"/>
+<link href="../../html/CSS/custom.css" rel="stylesheet"/>
 <style>
         p {
             text-align: justify !important;
@@ -11789,8 +11790,8 @@ div#notebook {
 <div class="logo-share"></div>
 <div class="logo-share">
 <!-- github -->
-<a href="https://github.com/jermwatt/mlrefined/blob/master/blog_posts/Basics_of_Math_functions/Part_1_motivation_random_search.ipynb" target="_blank">
-<img height="28" onmouseout="this.src='../../pics/github.png';" onmouseover="this.src='../../pics/github_filled.png';" src="../../pics/github.png" width="28"/>
+<a href="https://github.com/jermwatt/mlrefined/blob/gh-pages/blog_posts/Computational_Mathematics/Part_1_motivation_random_search.ipynb" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/github.png';" onmouseover="this.src='../../html/pics/github_filled.png';" src="../../html/pics/github.png" width="28"/>
 </a>
 </div>
 </div>
@@ -11802,22 +11803,22 @@ div#notebook {
 <div class="logo-share"></div>
 <div class="logo-share">
 <!-- linkedin -->
-<a href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2Fblog_posts%2FBasics_of_Math_functions%2FPart_1_motivation_random_search.html" target="_blank">
-<img height="28" onmouseout="this.src='../../pics/linkedin.png';" onmouseover="this.src='../../pics/linkedin_filled.png';" src="../../pics/linkedin.png" width="28"/>
+<a href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2Fblog_posts%2FComputational_Mathematics%2FPart_1_motivation_random_search.html" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/linkedin.png';" onmouseover="this.src='../../html/pics/linkedin_filled.png';" src="../../html/pics/linkedin.png" width="28"/>
 </a>
 </div>
 <div class="logo-share"></div>
 <div class="logo-share">
 <!-- twitter -->
-<a href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2Fblog_posts%2FBasics_of_Math_functions%2FPart_1_motivation_random_search.html" target="_blank">
-<img height="28" onmouseout="this.src='../../pics/twitter.png';" onmouseover="this.src='../../pics/twitter_filled.png';" src="../../pics/twitter.png" width="28"/>
+<a href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2Fblog_posts%2FComputational_Mathematics%2FPart_1_motivation_random_search.html" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/twitter.png';" onmouseover="this.src='../../html/pics/twitter_filled.png';" src="../../html/pics/twitter.png" width="28"/>
 </a>
 </div>
 <div class="logo-share"></div>
 <div class="logo-share">
 <!-- facebook -->
-<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2Fblog_posts%2FBasics_of_Math_functions%2FPart_1_motivation_random_search.html" target="_blank">
-<img height="28" onmouseout="this.src='../../pics/facebook.png';" onmouseover="this.src='../../pics/facebook_filled.png';" src="../../pics/facebook.png" width="28"/>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2Fblog_posts%2FComputational_Mathematics%2FPart_1_motivation_random_search.html" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/facebook.png';" onmouseover="this.src='../../html/pics/facebook_filled.png';" src="../../html/pics/facebook.png" width="28"/>
 </a>
 </div>
 </div>
@@ -11826,7 +11827,7 @@ div#notebook {
 <br/><br/>
 <div class="page-title" style="text-align: center !important;">
 <span style="color: #333; font-size: 40%; letter-spacing: 3px;">
-<span style="font-size: 80%;">► </span><a href="../../../mlrefined/Mathematical_Optimization.html" style="color: black; cursor: pointer; text-transform: uppercase; font-weight:bold;">Mathematical Optimization Series</a>
+<span style="font-size: 80%;">► </span><a href="../../../mlrefined/html/pages/topics/Computational_Mathematics.html" style="color: black; cursor: pointer; text-transform: uppercase; font-weight:bold;">Mathematical Optimization Series</a>
 </span>
 <br/><br/>
 <mark style="padding: 0px; background-color: #f9f3c2;">Part 1: Motivation and primitive methods</mark>
@@ -11875,7 +11876,7 @@ div#notebook {
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="o">%</span><span class="k">matplotlib</span> notebook
 
-<span class="c1"># this is needed to compensate for %matplotlib notebook's tendancy to blow up images when plotted inline</span>
+<span class="c1"># this is needed to compensate for matplotlib notebook's tendancy to blow up images when plotted inline</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">rcParams</span>
 <span class="n">rcParams</span><span class="p">[</span><span class="s1">'figure.autolayout'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
 
@@ -12017,10 +12018,10 @@ g(w_1,w_2) = w_1^2 + w_2^2 + 0.2
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="8775da83-2808-44a9-ac97-8515253c05dd"></div>
+<div id="3675241b-840e-4be3-8d14-ee7ff8a5170b"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#8775da83-2808-44a9-ac97-8515253c05dd');
+var element = $('#3675241b-840e-4be3-8d14-ee7ff8a5170b');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -12829,10 +12830,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="94510df9-7f75-41dc-864b-6f16e0a63656"></div>
+<div id="fa66c24c-f4a2-4186-be96-346aeaad2029"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#94510df9-7f75-41dc-864b-6f16e0a63656');
+var element = $('#fa66c24c-f4a2-4186-be96-346aeaad2029');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -13695,10 +13696,10 @@ $$<p>whose minimum is always $g(\mathbf{0}_{N\times 1}) = 0$ regardless of the i
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="07782f50-d7c3-4b00-998c-dd2b325e8021"></div>
+<div id="f7aab119-a231-45a9-b6af-ecbb919697ed"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#07782f50-d7c3-4b00-998c-dd2b325e8021');
+var element = $('#f7aab119-a231-45a9-b6af-ecbb919697ed');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -14716,10 +14717,10 @@ $$<p>The output of the cell shows the function in three-dimensions on the left, 
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="c0bb6941-13a1-430b-a7dc-00f30a512ce0"></div>
+<div id="d934c8df-c61c-4b07-9c54-85a7fc418ff2"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#c0bb6941-13a1-430b-a7dc-00f30a512ce0');
+var element = $('#d934c8df-c61c-4b07-9c54-85a7fc418ff2');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15538,10 +15539,10 @@ $$<p>using random local search again setting $P = 10$ and a maximum of 5 iterati
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="f0554c4d-c47f-417c-bb9e-3f219872dd88"></div>
+<div id="6abdf28d-b67f-459d-a926-08e74d69bba7"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#f0554c4d-c47f-417c-bb9e-3f219872dd88');
+var element = $('#6abdf28d-b67f-459d-a926-08e74d69bba7');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -16447,10 +16448,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="874dfa81-77bf-4072-8290-c8573637de97"></div>
+<div id="842f873b-0e57-496f-a408-a1039f4f3d3e"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#874dfa81-77bf-4072-8290-c8573637de97');
+var element = $('#842f873b-0e57-496f-a408-a1039f4f3d3e');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -17313,10 +17314,10 @@ $$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="2972cd9f-de66-40e8-809c-4aa50f350d39"></div>
+<div id="c28a69a4-940f-4492-b172-81431816391b"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#2972cd9f-de66-40e8-809c-4aa50f350d39');
+var element = $('#c28a69a4-940f-4492-b172-81431816391b');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -18124,10 +18125,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="0b97dda5-45a3-446e-a4ca-28ba9c3f7734"></div>
+<div id="71a00aae-a12f-43b8-9b95-4a090005bc3b"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#0b97dda5-45a3-446e-a4ca-28ba9c3f7734');
+var element = $('#71a00aae-a12f-43b8-9b95-4a090005bc3b');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -18953,10 +18954,10 @@ $$<p>we initialize two runs - at $w^0 = 4.5$ and $w^0 = -1.5$.  For both runs we
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="ef91c535-79f1-424d-a7e1-80cdb0679467"></div>
+<div id="0bd640ae-9f1a-4b35-96a5-71734cf17fca"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#ef91c535-79f1-424d-a7e1-80cdb0679467');
+var element = $('#0bd640ae-9f1a-4b35-96a5-71734cf17fca');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -19799,10 +19800,10 @@ $$<p>The beauty of this choice of stepsize is that</p>
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="1cef1dd1-4123-4197-883c-7d8825ac3106"></div>
+<div id="a3f8a72a-704b-4dd4-9752-e9e9da2f87ba"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#1cef1dd1-4123-4197-883c-7d8825ac3106');
+var element = $('#a3f8a72a-704b-4dd4-9752-e9e9da2f87ba');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -20610,10 +20611,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="c0796179-ae52-4873-a52f-07badc14f139"></div>
+<div id="8d59e7ad-28ce-43dd-b111-d9cd4a244740"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#c0796179-ae52-4873-a52f-07badc14f139');
+var element = $('#8d59e7ad-28ce-43dd-b111-d9cd4a244740');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -21539,10 +21540,10 @@ $$\text{descent probability}&lt;\frac{1}{2}\cdot\frac{\text{surface area of enco
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="84be6df3-2a41-4f3a-9c5e-077765b62a3f"></div>
+<div id="98333f60-090f-4de5-9a97-d3fa1be50ec4"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#84be6df3-2a41-4f3a-9c5e-077765b62a3f');
+var element = $('#98333f60-090f-4de5-9a97-d3fa1be50ec4');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -22358,4 +22359,7 @@ if (IPython.notebook.kernel != null) {
 </div>
 </div>
 </body>
+<script type="application/vnd.jupyter.widget-state+json">
+{"version_minor": 0, "state": {}, "version_major": 1}
+</script>
 </html>
