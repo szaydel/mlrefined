@@ -6,14 +6,14 @@ unstaged_files=$(git diff --name-only 2>&1)
 untracked_files=$(git ls-files --other --exclude-standard 2>&1)
 
 for file in $unstaged_files $untracked_files; do 
-	# blog_post files: ipynb files excluding lectures and checkpoints 
-	if [[ $file == *"ipynb"* ]] && [[ $file != *"checkpoint"* ]]; then
+	# blog_post files: ipynb and NOT Lecture and NOT checkpoint 
+	if [[ $file == *"ipynb"* ]] && [[ $file != *"Lecture"* ]] && [[ $file != *"checkpoint"* ]]; then
   		# convert to raw html
   		eval "jupyter nbconvert --to html" $file
   		# make it pretty!
   		eval "python html/prettify.py" ${file/.ipynb/.html}
   	fi  		
-  	# lecture files: ipynb + lecture but no checkpoints 	
+  	# lecture files: ipynb and Lecture and NOT checkpoint 	
   	if [[ $file == *"ipynb"* ]] && [[ $file == *"Lecture"* ]] && [[ $file != *"checkpoint"* ]]; then
   		# convert to html
   		eval "jupyter nbconvert --to slides --reveal-prefix=revealjs" $file
