@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"/>
-<title>Part 11: The Hessian and multi-input Taylor Series</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Part 11: The Hessian and multi-input Taylor Series</title><script src="https://unpkg.com/jupyter-js-widgets@2.0.*/dist/embed.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <style type="text/css">
     /*!
@@ -11764,7 +11764,7 @@ div#notebook {
         }
     });
     </script>
-<link href="../../custom.css" rel="stylesheet"/>
+<link href="../../html/CSS/custom.css" rel="stylesheet"/>
 <style>
         p {
             text-align: justify !important;
@@ -11790,8 +11790,8 @@ div#notebook {
 <div class="logo-share"></div>
 <div class="logo-share">
 <!-- github -->
-<a href="https://github.com/jermwatt/mlrefined/blob/master/blog_posts/Computational_Calculus/Part_11_hessian_multi_taylor_series.ipynb" target="_blank">
-<img height="28" onmouseout="this.src='../../pics/github.png';" onmouseover="this.src='../../pics/github_filled.png';" src="../../pics/github.png" width="28"/>
+<a href="https://github.com/jermwatt/mlrefined/blob/gh-pages/blog_posts/Computational_Calculus/Part_11_hessian_multi_taylor_series.ipynb" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/github.png';" onmouseover="this.src='../../html/pics/github_filled.png';" src="../../html/pics/github.png" width="28"/>
 </a>
 </div>
 </div>
@@ -11804,21 +11804,21 @@ div#notebook {
 <div class="logo-share">
 <!-- linkedin -->
 <a href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2Fblog_posts%2FComputational_Calculus%2FPart_11_hessian_multi_taylor_series.html" target="_blank">
-<img height="28" onmouseout="this.src='../../pics/linkedin.png';" onmouseover="this.src='../../pics/linkedin_filled.png';" src="../../pics/linkedin.png" width="28"/>
+<img height="28" onmouseout="this.src='../../html/pics/linkedin.png';" onmouseover="this.src='../../html/pics/linkedin_filled.png';" src="../../html/pics/linkedin.png" width="28"/>
 </a>
 </div>
 <div class="logo-share"></div>
 <div class="logo-share">
 <!-- twitter -->
 <a href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2Fblog_posts%2FComputational_Calculus%2FPart_11_hessian_multi_taylor_series.html" target="_blank">
-<img height="28" onmouseout="this.src='../../pics/twitter.png';" onmouseover="this.src='../../pics/twitter_filled.png';" src="../../pics/twitter.png" width="28"/>
+<img height="28" onmouseout="this.src='../../html/pics/twitter.png';" onmouseover="this.src='../../html/pics/twitter_filled.png';" src="../../html/pics/twitter.png" width="28"/>
 </a>
 </div>
 <div class="logo-share"></div>
 <div class="logo-share">
 <!-- facebook -->
 <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2Fblog_posts%2FComputational_Calculus%2FPart_11_hessian_multi_taylor_series.html" target="_blank">
-<img height="28" onmouseout="this.src='../../pics/facebook.png';" onmouseover="this.src='../../pics/facebook_filled.png';" src="../../pics/facebook.png" width="28"/>
+<img height="28" onmouseout="this.src='../../html/pics/facebook.png';" onmouseover="this.src='../../html/pics/facebook_filled.png';" src="../../html/pics/facebook.png" width="28"/>
 </a>
 </div>
 </div>
@@ -11827,7 +11827,7 @@ div#notebook {
 <br/><br/>
 <div class="page-title" style="text-align: center !important;">
 <span style="color: #333; font-size: 40%; letter-spacing: 3px;">
-<span style="font-size: 80%;">► </span><a href="../../../mlrefined/Computational_Calculus.html" style="color: black; cursor: pointer; text-transform: uppercase; font-weight:bold;">Computational Calculus Series</a>
+<span style="font-size: 80%;">► </span><a href="../../../mlrefined/html/pages/topics/Computational_Calculus.html" style="color: black; cursor: pointer; text-transform: uppercase; font-weight:bold;">Computational Calculus Series</a>
 </span>
 <br/><br/>
 <mark style="padding: 0px; background-color: #f9f3c2;">Part 11: The Hessian and multi-input Taylor Series</mark>
@@ -11872,7 +11872,7 @@ div#notebook {
 <span class="kn">from</span> <span class="nn">mlrefined_libraries</span> <span class="k">import</span> <span class="n">calculus_library</span> <span class="k">as</span> <span class="n">callib</span>
 <span class="kn">import</span> <span class="nn">autograd.numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="c1"># this is needed to compensate for %matplotlib notebook's tendancy to blow up images when plotted inline</span>
+<span class="c1"># this is needed to compensate for matplotlib notebook's tendancy to blow up images when plotted inline</span>
 <span class="o">%</span><span class="k">matplotlib</span> notebook
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">rcParams</span>
 <span class="n">rcParams</span><span class="p">[</span><span class="s1">'figure.autolayout'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
@@ -12003,10 +12003,10 @@ $\frac{\partial}{\partial w_m} \frac{\partial}{\partial w_n}g = \frac{\partial}{
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="04421f3c-ecc5-4fd4-9dcb-65ce9143048e"></div>
+<div id="b81dd533-e96b-451e-8d13-fbe74f05ab24"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#04421f3c-ecc5-4fd4-9dcb-65ce9143048e');
+var element = $('#b81dd533-e96b-451e-8d13-fbe74f05ab24');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -12916,10 +12916,10 @@ h(\mathbf{w}^0) = g(\mathbf{w}^0) + \nabla g(\mathbf{w}^0)^T(\mathbf{w} - \mathb
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="39871609-3a36-4e25-a6dd-935da9cbfbd4"></div>
+<div id="dee8d7c4-ceee-4a77-b19d-842244ff70f2"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#39871609-3a36-4e25-a6dd-935da9cbfbd4');
+var element = $('#dee8d7c4-ceee-4a77-b19d-842244ff70f2');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -13768,10 +13768,10 @@ g(\mathbf{w}) = a + \mathbf{b}^T \left(\mathbf{w} - \mathbf{w}^0\right) + \left(
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="ba11fd9e-3d9b-4a14-a672-60fbf1caf7b8"></div>
+<div id="d668b194-82fe-4af6-b0e2-d99df3e3df0e"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#ba11fd9e-3d9b-4a14-a672-60fbf1caf7b8');
+var element = $('#d668b194-82fe-4af6-b0e2-d99df3e3df0e');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -14571,4 +14571,7 @@ if (IPython.notebook.kernel != null) {
 </div>
 </div>
 </body>
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {}, "version_major": 1, "version_minor": 0}
+</script>
 </html>
