@@ -35,7 +35,7 @@ if 'optimization' in series.lower():
 if 'calculus' in series.lower():
     series_url = 'Computational_Calculus'
     
-if 'mathematic' in series.lower():
+if 'mathematics' in series.lower() and 'computation' in series.lower():
     series_url = 'Computational_Mathematics'      
     
 if 'algebra' in series.lower():
