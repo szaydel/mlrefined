@@ -11835,8 +11835,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In this post we discuss <em>coordinate descent</em>, sometimes referred to as <em>alternating descent</em>.  Coordinate descent is perhaps the first optimization algorithm one would think of after learning about the <a href="https://jermwatt.github.io/mlrefined/blog_posts/Computational_Calculus/Part_13_unconstrained_optimality_conditions.html">first order condition for optimality</a> provided by calculus.  The first order condition gives us a system of (potentially nonlinear) equations to solve whose solutions are  stationary points of a cost function, and among these are of course the global minima we are seeking.</p>
-<p>Solving systems of (nonlinear) equations <em>simulatneously</em> is in general no simple matter.  Coordinate descent takes a lazy work-around to this problem: instead of trying to solve the system <em>simulatenously</em> we solve each individual equation <em>separately</em>.  If performed properly this coordinate decent is an excellent optimization method - particularly for convex cost functions.</p>
+<p>In this post we discuss <em>coordinate descent</em>, sometimes referred to as <em>alternating descent</em>.  At a high level the concept is simple: thus far we have discussed ways of minimizing a cost function $g\left(w_1,w_2,...,w_N\right)$ with respect to all of its parameters <em>simultaneously</em>.  With coordinate descent we attempt to minimize such a function with respect to one weight at a time - or one subset of weights at a time - keeping all the others fixed.</p>
+<p>Coordinate descent is a simple heuristic, but a powerful one.  Indeed in its simplest form coordinate descent is perhaps the first optimization algorithm one would think of after learning about the <a href="https://jermwatt.github.io/mlrefined/blog_posts/Computational_Calculus/Part_13_unconstrained_optimality_conditions.html">first order condition for optimality</a> provided by calculus.  However with the addition of the hallmark tools of mathematical optimization - gradient descent and Newton's method - this simple idea can be extended in a variety of useful ways that are extremely popular in machine learning.  Coordinate descent (and variations on it) is a widely used optimization method for a number of machine learning problems including boosting methods for nonlinear supervised learning, K-Means clustering, nonnegative matrix factorization problems, recommender systems and general matrix factorization problems.</p>
 </div>
 </div>
 </div>
@@ -11879,19 +11879,13 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The first order condition for optimality is a powerful calculus-based way of characterizing the minima of a function.  Remember that <a href="https://jermwatt.github.io/mlrefined/blog_posts/Computational_Calculus/Part_13_unconstrained_optimality_conditions.html">the first order condition</a> tells us that - for a given cost function $g\left(\mathbf{w}\right)$ taking in $N$ dimensional input - that the stationary points of this function are those satisfying the system of equations</p>
+<p>So far we have examined ways of minimizing a cost function $g\left(w_1,w_2,...,w_N\right)$ with respect to all of its input variables <em>simultaneously</em> which - if implemented correctly - can provide us with the minimum defining weights for $g$.  When implemented correctly these methods produce a series of simultaneous weight updates $\left(w_1^{k}\,,w_2^{k}\,...\,,w_N^{k}\right)$ which converge to the global minimum of a function i.e., that solve</p>
 \begin{equation}
-\nabla g\left(\mathbf{v}\right)=\mathbf{0}_{N\times1}
-\end{equation}<p>or written out one equation at-a-time as</p>
+\underset{w_1,w_2,...,w_N}{\text{minimize}}\,\,\,g\left(w_1,w_2,w_3,...,w_N\right).
+\end{equation}<p>Denoting the weights that (at least approximately) solve this problem $\left(w_1^{\star}\,,w_2^{\star}\,,...,w_N^{\star}\right)$ note that we may write them equivalently as</p>
 \begin{equation}
-\begin{array}
-\
-\frac{\partial}{\partial w_{1}}g(\mathbf{v})=0\\
-\frac{\partial}{\partial w_{2}}g(\mathbf{v})=0\\
-\,\,\,\,\,\,\,\,\,\,\vdots \\
-\frac{\partial}{\partial w_{N}}g(\mathbf{v})=0.
-\end{array}
-\end{equation}<p>However rarely can we use it in practice to actually solve the first order systems of equations simulatneously 'by hand'.   Even solving a system of $N$ simultaneous linear equations 'by hand' is infeasible - we need an algorithm to make such computations in a timely manner (coordinate descent is actually one such algorithm for solving systems of linear equations).</p>
+w_1^{\star}\,,w_2^{\star}\,,...,w_N^{\star} = \underset{w_1\,,w_2\,,...,w_N}{\text{argmin}}\,\,\,g\left(w_1,w_2,...,w_N\right).
+\end{equation}
 </div>
 </div>
 </div>
@@ -11900,11 +11894,86 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Here we describe a heuristic mathematical optimization algorithm called <em>coordinate descent</em> - that is specifically designed to deal with the <em>simultaneous</em> problem.  It is perhaps the first thing one might try in order to salvage the first order condition as a way of directly finding local minima of large first order systems consisting of relatively simple equations.  Essentially we do something very lazy: instead of trying to solve the equations <em>simultaneously</em> in every input at once, we solve it <em>sequentially</em>, one equation and one input at a time.  That is, we cycle through the first order equations solving the $n^{th}$ equation</p>
+<p>Coordinate descent is takes a more heuristic approach to solving the minimization problem - instead of minimizing over all weights simultaneously, we do so one weight at a time.</p>
+<p>Beginning at an initial point $\left(w_1^{0}\,,w_2^{0}\,...\,,w_N^{0}\right)$ we first minimize $g$ with respect to $w_1$ alone, keeping all other weights fixed at their initial values.  This gives us our first update $w_1^1$ which is the minimum of $g$ along $w_1$ alone</p>
 \begin{equation}
-\frac{\partial}{\partial w_n}g(\mathbf{w}) = 0
-\end{equation}<p>for the $n^{th}$ variable $w_n$ alone, keeping all other variables $w_j$ fixed.  If we cannot solve this single equation for $w_n$ we can use Newton's method (i.e., the single-variable second order Taylor Series approximation to the function in $w_n$ alone) in order to approximately solve it.  Cycling through the first order equations a number of times - solving each individual equation independently - produces a solution that matches solutions of the simulatenous system suprisingly often.</p>
-<p>The general pseudo-code for coordinate descent is given below - afterwards we walk through a number of examples employing the algorithm.  Note that the initial point often chosen in practice for this algorithm $\mathbf{w}^0$ is simply the zero vector.  Also note that as with other optimization methods one can choose from a variety of stopping conditions for coordinate descent.  In the pseudo-code we use the 'maximum iterations reached' stopping condition but others - like halting when the method stops providing descent above a certain tolerance - are often used in practice as well.  The same holds for what one desires returned from the method - here we show the return of the best set of weights (in terms of those providing the lowest evaluation of the input cost function), but one can also e.g., record the weights at each inner / outer loop and return an entire weight history for analysis.</p>
+\underset{w_1}{\text{minimize}}\,\,\,g\left(w_1^{\,},w_2^0,w_3^0,...,w_N^0\right).
+\end{equation}<p>The minimizer (or approximate minimizer depending on how the minimization is performed) we call $w_1^1$, and since this is the argument of the minimizer we can express it equivalently as</p>
+\begin{equation}
+w_1^{1} = \underset{w_1}{\text{argmin}}\,\,\,g\left(w_1^{\,},w_2^0,w_3^0,...,w_N^0\right).
+\end{equation}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Replacing the initial value of $w_1$ with its update $w_1^0 \longleftarrow w_1^1$ we then cycle through the inputs - updating $w_2$ next in precisely the same fashion, that is we solve</p>
+\begin{equation}
+\underset{w_2}{\text{minimize}}\,\,\,g\left(w_1^1,w_2^{\,},w_3^0,...,w_N^0\right).
+\end{equation}<p>whose argument here we call $w_2^1$.  Again we can express this equivalently as</p>
+\begin{equation}
+w_2^{1} = \underset{w_2}{\text{argmin}}\,\,\,g\left(w_1^1,w_2^{\,},w_3^0,...,w_N^0\right).
+\end{equation}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And we keep going - updating the $n^{th}$ weight by minimizing with respect to $w_n$ alone (fixing all other weights at their current values), giving the update</p>
+\begin{equation}
+w_n^{1} = \underset{w_n}{\text{argmin}}\,\,\,g\left(w_1^1,w_2^{1},w_3^1,...,w_{n-1}^1,w_n^{\,},w_{n+1}^{0},...,w_N^0\right).
+\end{equation}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We continue these updates reaching the final weight $w_N$, which we update accordingly</p>
+\begin{equation}
+w_N^{1} = \underset{w_N}{\text{argmin}}\,\,\,g\left(w_1^1,w_2^{1},w_3^1,...,w_{N-1}^{1},w_N^{\,}\right).
+\end{equation}<p>With this update we have finished one complete sweep through the weight vector, and our fully updated weights are now $\mathbf{w}^1 = \begin{bmatrix} w_1^1 \\ w_2^1 \\ \vdots \\ w_N^1  \end{bmatrix}$.  This becomes the initialization for our second sweep through the weights, updating them precisely as we have seen above (only now our initialization is $\mathbf{w}^1$).  This second sweep yeilds an update vector $\mathbf{w}^2$ consisting of the second sweep updates, and so forth.</p>
+<p>Depending on the problem several complete sweeps through the weights are performed in order to reach a minimum of $g$.  Hence we can write our individual weight update step in general: at the $k^{th}$ sweep we update $w_n$ as</p>
+\begin{equation}
+w_n^{k} = \underset{w_n}{\text{argmin}}\,\,\,g\left(w_1^{k},w_2^{k},w_3^{k},...,w_{n-1}^{k},w_{n\vphantom{+1}}^{\,},w_{n+1}^{k-1},...,w_N^{k-1}\right).
+\end{equation}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are a number of ways of solving each of these single dimension minimization problems - ranging from (the rare case when) solving the first order equation, gradient descent, and Newton's method.</p>
+<p>Furthermore there are a number of variations on this basic coordinate descent theme that are used in practice, including: updating coordinates in a random order, updating blocks of coordinates at-a-time, and picking only the coordinate that provides maximum decrease in the cost function.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="1.2--General-coordinate-descent-pseudo-code">1.2  General coordinate descent pseudo-code<a class="anchor-link" href="#1.2--General-coordinate-descent-pseudo-code">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The general pseudo-code for coordinate descent is given below.  In the remainder of this Section we will go through a range of examples employing coordinate descent where the individual update step is solved in a variety of ways.</p>
+<p>Note that the initial point often chosen in practice for this algorithm $\mathbf{w}^0$ is simply the zero vector, but a random selection is also commonplace.  Also note that as with other optimization methods one can choose from a variety of stopping conditions for coordinate descent.  In the pseudo-code we use the 'maximum iterations reached' stopping condition but others - like halting when the method stops providing descent above a certain tolerance - are often used in practice as well.  The same holds for what one desires returned from the method - here we show the return of the best set of weights (in terms of those providing the lowest evaluation of the input cost function), but one can also e.g., record the weights at each inner / outer loop and return an entire weight history for analysis.</p>
 </div>
 </div>
 </div>
@@ -11918,11 +11987,12 @@ div#notebook {
 <strong>1:</strong>   <strong>Input:</strong> cost function $g\left(\mathbf{w}\right)$, initial point $\mathbf{w}^0$, maximum number of steps $K$, set $\mathbf{w}_{\text{best}} = \mathbf{w}^0$ <br/>
 <strong>2:</strong>   <code>for</code> $\,\,k = 1...K$<br/>
 <strong>3:</strong>           <code>for</code> $n=1...N$ <br/>
-<strong>4:</strong>                 solve (or approximately solve) $\frac{\partial}{\partial w_n}g(\mathbf{w}) = 0$ in $w_n$ alone setting $w_j = w_j^{k-1}$ for $j\neq n$, giving $w_n^{k}$ <br/>
-<strong>5:</strong>                 update  $w_n^{k-1} \longleftarrow w_n^{k}$ <br/>
+<strong>4:
+</strong>                  $w_n^{k} = \underset{w_n}{\text{argmin}}\,\,\,g\left(w_1^{k},w_2^{k},w_3^{k},...,w_{n-1}^{k},{w}_{n \vphantom{+1}}^{\,},w_{n+1}^{k-1},...,w_N^{k-1}\right)$<br/>
+<strong>5:</strong>                 $\,$ update  $w_n^{k-1} \longleftarrow w_n^{k}$ <br/>
 <strong>6:</strong>           <code> end for</code> <br/>
 <strong>7:</strong>           <code> if </code> $g\left(\mathbf{w}^k\right) &lt; g\left(\mathbf{w}_{\text{best}}\right)$ <code>then</code> <br/>
-<strong>8:</strong>                 update  $\mathbf{w}_{\text{best}} \longleftarrow \mathbf{w}^k$ <br/>
+<strong>8:</strong>                 $\,$ update  $\mathbf{w}_{\text{best}} \longleftarrow \mathbf{w}^k$ <br/>
 <strong>9:</strong>   <code>end for</code><br/>
 <strong>10:</strong>   <strong>output:</strong> $\mathbf{w}^{K}$ <br/>
 </p><hr style="height:1px;border:none;color:#555;background-color:#555;"/>
@@ -11934,7 +12004,73 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As simple as this heuristic is, coordinate descent and simple extensions of it are extremely popular in machine learning, being a widely used optimization method for a number of machine learning problems including boosting methods for nonlinear supervised learning, K-Means clustering, nonnegative matrix factorization problems, recommender systems and general matrix factorization problems.  Some of these simple extensions include: updating coordinates in a random order, updating blocks of coordinates at-a-time, and picking only the coordinate that provides maximum decrease in the cost function.</p>
+<h2 id="1.3-Harnessing-the-first-order-condition-directly">1.3 Harnessing the first order condition directly<a class="anchor-link" href="#1.3-Harnessing-the-first-order-condition-directly">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The first order condition for optimality is a powerful calculus-based way of characterizing the minima of a function.  Remember that <a href="https://jermwatt.github.io/mlrefined/blog_posts/Computational_Calculus/Part_13_unconstrained_optimality_conditions.html">the first order condition</a> tells us that - for a given cost function $g\left(\mathbf{w}\right)$ taking in $N$ dimensional input - that the stationary points of this function are those satisfying the system of equations</p>
+\begin{equation}
+\nabla g\left(\mathbf{v}\right)=\mathbf{0}_{N\times1}
+\end{equation}<p>or written out one equation at-a-time as</p>
+\begin{equation}
+\begin{array}
+\
+\frac{\partial}{\partial w_{1}}g(\mathbf{v})=0\\
+\frac{\partial}{\partial w_{2}}g(\mathbf{v})=0\\
+\,\,\,\,\,\,\,\,\,\,\vdots \\
+\frac{\partial}{\partial w_{N}}g(\mathbf{v})=0.
+\end{array}
+\end{equation}<p>However rarely can we use it in practice to actually solve the first order systems of equations simulatneously 'by hand'.   Even solving a system of $N$ simultaneous linear equations 'by hand' is infeasible - we need an algorithm to make such computations in a timely manner (coordinate descent is actually one such algorithm for solving certain common types of systems of linear equations).</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Solving even just the $n^{th}$ equation in this system for $w_n$ in closed form (algebraically) - keeping all other weights fixed - is often problematic.  However one important exception where this can be done is the general convex quadratic function</p>
+\begin{equation}
+g(\mathbf{w}) = a + \mathbf{b}^T \mathbf{w} + \mathbf{w}^T \mathbf{C} \mathbf{w}
+\end{equation}<p>since fixing every variable but $w_n$ reduces the above to a single-input quadratic function whose minimum can easily be computed (we will do this below).  This fact is important in machine learning because the Least Squares cost function for regression is itself a convex quadratic function whenever we use e.g., linear regression, regression with kernels, and regression with trees (e.g., gradient boosting).</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Hence for a quadratic function we can indeed compute the general update step</p>
+\begin{equation}
+w_n^{k} = \underset{w_n}{\text{argmin}}\,\,\,g\left(w_1^{k},w_2^{k},w_3^{k},...,w_{n-1}^{k},w_{n\vphantom{+1}}^{\,},w_{n+1}^{k-1},...,w_N^{k-1}\right).
+\end{equation}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>by directly solving the equation $n^{th}$ first order equation (keeping all other weights fixed at their most recent respective values) as</p>
+\begin{equation}
+\frac{\partial}{\partial w_{n}}g\left(w_1^{k},w_2^{k},w_3^{k},...,w_{n-1}^{k},w_{n\vphantom{+1}}^{\,},w_{n+1}^{k-1},...,w_N^{k-1}\right)=0.
+\end{equation}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Lets see how this is done.</p>
 </div>
 </div>
 </div>
@@ -11955,7 +12091,7 @@ div#notebook {
 <p>In this example we develop the coordinate descent for minimizing the convex quadratic function</p>
 \begin{equation}
 g\left(\mathbf{w}\right)=a + \mathbf{b}^{T}\mathbf{w} + \mathbf{w}^{T}\mathbf{C}\mathbf{w}
-\end{equation}<p>In practice we almost never care about finding the minimum of a function that dips down to negative infinity, so in keeping with this we will assume that the matrix $\mathbf{C}$ is both symmetric and has all nonnegative eigenvalues (see <a href="https://jermwatt.github.io/mlrefined/blog_posts/Computational_Calculus/Part_10_quadratic_functions.html">our post on general quadratic functions</a> if any of this terminology is unfamiliar).</p>
+\end{equation}<p>In practice we almost never care about finding the minimum of a function that dips down to negative infinity, so in keeping with this we will assume that the quadratic is convex (this means that the matrix $\mathbf{C}$ is both symmetric and has all nonnegative eigenvalues - see <a href="https://jermwatt.github.io/mlrefined/blog_posts/Computational_Calculus/Part_10_quadratic_functions.html">our post on general quadratic functions</a> if any of this terminology is unfamiliar).</p>
 <p>For example - the quadratic with parameters</p>
 \begin{array}
 \
@@ -11989,10 +12125,10 @@ a = 0 \\
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
-<div id="d544d929-66e9-4139-8c04-e82a26535d31"></div>
+<div id="987065e7-021f-4b17-bdf8-19f4464a5eb5"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#d544d929-66e9-4139-8c04-e82a26535d31');
+var element = $('#987065e7-021f-4b17-bdf8-19f4464a5eb5');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -12788,7 +12924,7 @@ if (IPython.notebook.kernel != null) {
 \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\vdots \\
 \frac{\partial}{\partial w_{N}}g(\mathbf{w})=2\left(c_{N1}w_1 + c_{N2}w_2 + c_{N3}w_3 +  \cdots + c_{NN}w_N\right) + b_N = 0
 \end{array}
-\end{equation}<p>Note this system of equations is <em>linear</em>.</p>
+\end{equation}<p>Note that this system is linear in its weights.</p>
 </div>
 </div>
 </div>
@@ -12954,10 +13090,10 @@ w_n^1 = -\frac{c_{n1}^{\,}w_1^1 + c_{n2}^{\,}w_2^1 + \cdots + c_{nN}^{\,}w_N^0 +
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
-<div id="faac373d-4455-4be9-982f-a9529c2bb3d2"></div>
+<div id="483593d5-c047-443f-a6e3-5a6fafd9825a"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#faac373d-4455-4be9-982f-a9529c2bb3d2');
+var element = $('#483593d5-c047-443f-a6e3-5a6fafd9825a');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -13760,10 +13896,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
-<div id="83b47837-e61c-406f-8a8d-17a61f491382"></div>
+<div id="88f89476-c69d-40e0-8cf1-d2e06af4988b"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#83b47837-e61c-406f-8a8d-17a61f491382');
+var element = $('#88f89476-c69d-40e0-8cf1-d2e06af4988b');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -14600,10 +14736,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
-<div id="b104edc5-a5a1-445c-ada5-49fcac6e0dfd"></div>
+<div id="6416433d-0c65-40cb-b189-3ceda62ef59c"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#b104edc5-a5a1-445c-ada5-49fcac6e0dfd');
+var element = $('#6416433d-0c65-40cb-b189-3ceda62ef59c');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15427,7 +15563,38 @@ if (IPython.notebook.kernel != null) {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Example-3:--Using-Newton's-method-in-each-coordinate-direction"><span style="color:#a50e3e;">Example 3:</span>  Using Newton's method in each coordinate direction<a class="anchor-link" href="#Example-3:--Using-Newton's-method-in-each-coordinate-direction">¶</a></h4>
+<h4 id="Example-3:--Minimizing-Least-Squares"><span style="color:#a50e3e;">Example 3:</span>  Minimizing Least Squares<a class="anchor-link" href="#Example-3:--Minimizing-Least-Squares">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Example-4:--Using-Newton's-method-in-each-coordinate-direction"><span style="color:#a50e3e;">Example 4:</span>  Using Newton's method in each coordinate direction<a class="anchor-link" href="#Example-4:--Using-Newton's-method-in-each-coordinate-direction">¶</a></h4>
 </div>
 </div>
 </div>
@@ -15466,10 +15633,10 @@ g\left(\mathbf{w}\right) = \sum_{p=1}^{P}\text{log}\left( 1 +  e^{\,w_1\,b_{p,1}
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
-<div id="833ff174-3322-4b8e-8dbd-ad2dbc4ae139"></div>
+<div id="9e63ba2f-728d-41b1-8247-fd837bf99a1b"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#833ff174-3322-4b8e-8dbd-ad2dbc4ae139');
+var element = $('#9e63ba2f-728d-41b1-8247-fd837bf99a1b');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -16267,6 +16434,6 @@ w_n^{k} = w_n^{k-1} - \frac{\frac{\partial}{\partial w_n} g\left(w_n^{k-1}\right
 </div>
 </body>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {}, "version_minor": 0, "version_major": 1}
+{"version_major": 1, "state": {}, "version_minor": 0}
 </script>
 </html>
