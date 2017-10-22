@@ -195,8 +195,16 @@ class Visualizer:
             num_elements = kwargs['num_elements']
             
         basis = kwargs['basis']
-        
         self.colors = [[1,0,0.4], [ 0, 0.4, 1],[0, 1, 0.5],[1, 0.7, 0.5],[0.7, 0.6, 0.5],'mediumaquamarine']
+        
+        # construct figure
+        fig = plt.figure(figsize = (9,3))
+        artist = fig
+
+        # create subplot with 3 panels, plot input function in center plot
+        gs = gridspec.GridSpec(1, 2, width_ratios=[1,1]) 
+        ax1 = plt.subplot(gs[0]); ax1.axis('off');
+        ax2 = plt.subplot(gs[1]); ax2.axis('off');
         
         # set dials for tanh network and trees
         num_elements = [v+1 for v in num_elements]
@@ -261,8 +269,13 @@ class Visualizer:
             weight_history = [weight_history[ind] for ind  in new_inds]
             weight_history = [weight_history[ind - 2] for ind in num_elements]
             self.predict = self.tree_predict
+            
+            # generate three panels - one to show current basis element being fit
+            gs = gridspec.GridSpec(1, 3, width_ratios=[1,1,1]) 
+            ax = plt.subplot(gs[0]); ax1.axis('off');
+            ax1 = plt.subplot(gs[1]); ax2.axis('off');
+            ax2 = plt.subplot(gs[2]); ax2.axis('off');
 
-        
         # compute cost eval history
         cost_evals = []
         for i in range(len(weight_history)):
@@ -289,15 +302,6 @@ class Visualizer:
         maxc += gapc
 
         ### plot it
-        # construct figure
-        fig = plt.figure(figsize = (8,4))
-        artist = fig
-
-        # create subplot with 3 panels, plot input function in center plot
-        gs = gridspec.GridSpec(1, 2, width_ratios=[1,1]) 
-        ax1 = plt.subplot(gs[0]); ax1.axis('off');
-        ax2 = plt.subplot(gs[1]); ax2.axis('off');
-
         # set viewing range for all 3 panels
         xmax = max(copy.deepcopy(self.x))
         xmin = min(copy.deepcopy(self.x))
@@ -358,8 +362,8 @@ class Visualizer:
 
             # plot approximation and data in panel
             ax1.scatter(self.x,self.y,c = 'k',edgecolor = 'w',s = 50,zorder = 1)
-            ax1.plot(s,t,linewidth = 2.75,color = self.colors[cs],zorder = 3)
-            cs += 1
+            ax1.plot(s,t,linewidth = 2.75,color = self.colors[2],zorder = 3)
+            #cs += 1
 
             # cleanup panel
             ax1.set_xlim([xmin,xmax])
@@ -381,6 +385,41 @@ class Visualizer:
             ax2.set_ylim([minc,maxc])
             ax2.xaxis.set_major_locator(MaxNLocator(integer=True))
             
+            ### if basis == tree, show the most recently added element as well
+            if basis == 'tree':
+                ax.cla()
+                
+                # plot data
+                ax.scatter(self.x,self.y,c = 'k',edgecolor = 'w',s = 50,zorder = 1)
+
+                # plot tree
+                item = min(len(self.y)-1, num_elements[k]-1,len(weight_history)-1)
+                w = 0
+                if k == 0:   # on the first slide just show first stump
+                    w = np.sign(weight_history[item])
+                else:        # show most recently added
+                    w1 = weight_history[item]
+                    w2 = weight_history[item-1]
+                    w = w1 - w2
+                    ind = np.argmax(np.abs(w))
+                    w2 = np.zeros((len(w),1))
+                    w2[ind] = 1
+                    w = w2
+                ax.set_title('best fit tree unit',fontsize = 14)
+                self.predict = self.tree_predict
+                s = np.linspace(xmin,xmax,400)
+                t = [self.predict(np.asarray([v]),w) for v in s]
+                ax.plot(s,t,linewidth = 2.75,color = self.colors[0],zorder = 3)
+                
+                # cleanup panel
+                ax.set_xlim([xmin,xmax])
+                ax.set_ylim([ymin,ymax])
+                ax.set_xlabel(r'$x$', fontsize = 14,labelpad = 10)
+                ax.set_ylabel(r'$y$', rotation = 0,fontsize = 14,labelpad = 10)
+                ax.set_xticks(np.arange(round(xmin), round(xmax)+1, 1.0))
+                ax.set_yticks(np.arange(round(ymin), round(ymax)+1, 1.0))
+                
+                
         anim = animation.FuncAnimation(fig, animate,frames = len(num_elements), interval = len(num_elements), blit=True)
         
         return(anim)
