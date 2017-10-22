@@ -87,7 +87,6 @@ class Visualizer:
         self.dial_settings()
         self.num_elements = len(self.splits)
 
-
         # construct figure
         fig = plt.figure(figsize = (9,5))
         artist = fig

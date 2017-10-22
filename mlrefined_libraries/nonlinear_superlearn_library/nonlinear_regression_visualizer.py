@@ -43,7 +43,7 @@ class Visualizer:
     def static_img(self,w_best,cost,predict,**kwargs):
         # or just take last weights
         self.w = w_best
-        self.center_data()
+        #self.center_data()
 
         # initialize figure
         fig = 0
@@ -52,11 +52,11 @@ class Visualizer:
             fig = plt.figure(figsize = (9,4))
             gs = gridspec.GridSpec(1, 2,width_ratios = [1,1]) 
         else:
-            fig = plt.figure(figsize = (4,4))
-            gs = gridspec.GridSpec(1, 1) 
+            fig = plt.figure(figsize = (9,3))
+            gs = gridspec.GridSpec(1, 3,width_ratios = [1,1,1]) 
 
         # setup current axis
-        ax = plt.subplot(gs[0]);
+        ax = plt.subplot(gs[1]);
 
         #### left plot - data and fit in original space ####
         # scatter original points
