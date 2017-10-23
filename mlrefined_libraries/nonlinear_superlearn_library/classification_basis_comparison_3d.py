@@ -52,20 +52,21 @@ class Visualizer:
 
             # loop over and create all stumps in this dimension of the input
             for p in range(len(self.y) - 1):
-                # determine points on each side of split
-                split = (x_t[p,j] + x_t[p+1,j])/float(2)
-                splits.append(split)
-                dims.append(j)
+                if y_t[p] != y_t[p+1]:
+                    # determine points on each side of split
+                    split = (x_t[p,j] + x_t[p+1,j])/float(2)
+                    splits.append(split)
+                    dims.append(j)
 
-                # gather points to left and right of split
-                pts_left  = [t for t in x_t if t[j] <= split]
-                resid_left = residual[:len(pts_left)]
-                resid_right = residual[len(pts_left):]
+                    # gather points to left and right of split
+                    pts_left  = [t for t in x_t if t[j] <= split]
+                    resid_left = residual[:len(pts_left)]
+                    resid_right = residual[len(pts_left):]
 
-                # compute average on each side
-                ave_left = np.mean(resid_left)
-                ave_right = np.mean(resid_right)
-                levels.append([ave_left,ave_right]) 
+                    # compute average on each side
+                    ave_left = np.mean(resid_left)
+                    ave_right = np.mean(resid_right)
+                    levels.append([ave_left,ave_right]) 
                 
         # randomize splits for this experiment
         self.orig_splits = splits
@@ -166,7 +167,84 @@ class Visualizer:
             else:
                 val += w[i+1]*level[1]
         return val
+    
+    ###### optimizer ######
+    def boosting(self,F,y,its):
+        '''
+        boosting for classification
+        '''
 
+        # settings 
+        N = np.shape(F)[1]                      # length of weights
+        w = np.zeros((N,1))              # initialization
+        epsilon = 10**(-8)
+        w_history = [copy.deepcopy(w)]     # record each weight for plotting
+
+        # pre-computations for more effecient run
+        y_diag = np.diagflat(y)
+        M = np.dot(y_diag,F)
+        F_2 = F**2
+        c = np.dot(M,w)
+
+        # outer loop - each is a sweep through every variable once
+        for i in range(its):
+            # inner loop
+            cost_vals = []
+            w_vals = []
+            for t in range(N):
+                w_temp = copy.deepcopy(w)
+                w_t = copy.deepcopy(w[t])
+
+                # create 'a' vector for this update
+                m_t = M[:,t]
+                m_t.shape = (len(m_t),1)
+                temp_t = m_t*w_t
+                c = c - temp_t
+                a_t = np.exp(-c)
+
+                # create first derivative via components
+                exp_t = np.exp(temp_t)
+                num = a_t*m_t            
+                den = exp_t + a_t     
+                dgdw = - sum([e/r for e,r in zip(num,den)])
+
+                # create second derivative via components
+                f_t = F_2[:,t]
+                f_t.shape = (len(f_t),1)
+                num = a_t*f_t*exp_t
+                den = den**2
+                dgdw2 = sum([e/r for e,r in zip(num,den)])
+
+                # take newton step
+                w_t = w_t - dgdw/(dgdw2 + epsilon)
+
+                # temp history
+                w_temp[t] = w_t
+                val = self.softmax(w_temp)
+                cost_vals.append(val)
+                w_vals.append(w_t)
+
+                # update computation                        
+                temp_t = M[:,t]*w_t
+                temp_t.shape = (len(temp_t),1)
+                c = c + temp_t
+
+            # determine biggest winner
+            ind_win = np.argmin(cost_vals)
+            w_win = w_vals[ind_win]
+            w[ind_win] += copy.deepcopy(w_win)
+
+            # update computation
+            temp_t = M[:,ind_win]*w_win
+            temp_t.shape = (len(temp_t),1)
+            c = c + temp_t
+
+            # record weights at each step for kicks
+            w_history.append(copy.deepcopy(w))
+
+            # update counter and tol measure
+            i+=1
+        return w_history
    
     # least squares
     def softmax(self,w):
@@ -183,10 +261,15 @@ class Visualizer:
         if 'view' in kwargs:
             view = kwargs['view']
 
+        # setup 
         self.num_units = max(num_units)
         self.dial_settings()
         opt = optimimzers.MyOptimizers()
-
+        
+        if basis == 'tree':                   
+            self.F = self.F_tree
+            self.weight_history = self.boosting(self.F,self.y,its = self.num_elements)
+        
         # viewing ranges
         xmin1 = copy.deepcopy(min(self.x[:,0]))
         xmax1 = copy.deepcopy(max(self.x[:,0]))
@@ -258,7 +341,6 @@ class Visualizer:
                     ax1.set_title(title,fontsize = 14)
                     self.predict = self.poly_predict
 
-
                 elif basis == 'net':
                     ax = ax2
                     self.F = self.F_tanh[:,:self.D]
@@ -269,6 +351,7 @@ class Visualizer:
                     # pick self.D stumps!                    
                     # set predictor
                     self.predict = self.tree_predict
+ 
 
                     # fit tree
                     # reset D for stumps 

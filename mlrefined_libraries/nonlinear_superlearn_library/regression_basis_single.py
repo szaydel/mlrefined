@@ -186,7 +186,6 @@ class Visualizer:
             i+=1
         return w_history
     
-    
     ###### fit and compare ######
     def brows_single_fit(self,**kwargs):
         # parse input args

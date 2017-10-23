@@ -242,6 +242,7 @@ class Visualizer:
         # construct figure
         fig = plt.figure(figsize = (9,3))
         artist = fig
+        self.dial_settings()
 
         # create subplot with 3 panels, plot input function in center plot
         gs = gridspec.GridSpec(1, 2, width_ratios=[1,1]) 
@@ -286,7 +287,6 @@ class Visualizer:
             self.predict = self.tanh_predict
 
         if basis == 'tree':
-            self.dial_settings()
             self.predict = self.tree_predict
             self.F = self.F_tree
             weight_history = self.boosting(self.F,self.y,its = self.num_elements)
