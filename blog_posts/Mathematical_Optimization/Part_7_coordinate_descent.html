@@ -11835,7 +11835,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In this post we discuss <em>coordinate descent</em>, sometimes referred to as <em>alternating descent</em>.  At a high level the concept is simple: thus far we have discussed ways of minimizing a cost function $g\left(w_1,w_2,...,w_N\right)$ with respect to all of its parameters <em>simultaneously</em>.  With coordinate descent we attempt to minimize such a function with respect to one weight at a time - or one subset of weights at a time - keeping all the others fixed.</p>
+<p>In this post we discuss <em>coordinate descent</em>, sometimes referred to as <em>alternating descent</em>.  At a high level the concept is simple: thus far we have discussed ways of minimizing a cost function $g\left(w_1,w_2,...,w_N\right)$ with respect to all of its parameters <em>simultaneously</em>.  With coordinate descent we attempt to minimize such a function with respect to one weight at a time - or one subset of weights at a time - keeping all others fixed.</p>
 <p>Coordinate descent is a simple heuristic, but a powerful one.  Indeed in its simplest form coordinate descent is perhaps the first optimization algorithm one would think of after learning about the <a href="https://jermwatt.github.io/mlrefined/blog_posts/Computational_Calculus/Part_13_unconstrained_optimality_conditions.html">first order condition for optimality</a> provided by calculus.  However with the addition of the hallmark tools of mathematical optimization - gradient descent and Newton's method - this simple idea can be extended in a variety of useful ways that are extremely popular in machine learning.  Coordinate descent (and variations on it) is a widely used optimization method for a number of machine learning problems including boosting methods for nonlinear supervised learning, K-Means clustering, nonnegative matrix factorization problems, recommender systems and general matrix factorization problems.</p>
 </div>
 </div>
@@ -11927,7 +11927,7 @@ w_2^{1} = \underset{w_2}{\text{argmin}}\,\,\,g\left(w_1^1,w_2^{\,},w_3^0,...,w_N
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>And we keep going - updating the $n^{th}$ weight by minimizing with respect to $w_n$ alone (fixing all other weights at their current values), giving the update</p>
 \begin{equation}
-w_n^{1} = \underset{w_n}{\text{argmin}}\,\,\,g\left(w_1^1,w_2^{1},w_3^1,...,w_{n-1}^1,w_n^{\,},w_{n+1}^{0},...,w_N^0\right).
+w_n^{1} = \underset{w_n}{\text{argmin}}\,\,\,g\left(w_1^1,w_2^{1},w_3^1,...,w_{n-1}^1,w_{n \phantom{1}}^{\phantom{1}},w_{n+1}^{0},...,w_N^0\right).
 \end{equation}
 </div>
 </div>
@@ -12125,10 +12125,10 @@ a = 0 \\
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
-<div id="a5fbff51-c7e3-4dd4-961a-a67f0733a049"></div>
+<div id="5a8d1c01-1a7d-414f-9e22-2a1b53bc24c7"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#a5fbff51-c7e3-4dd4-961a-a67f0733a049');
+var element = $('#5a8d1c01-1a7d-414f-9e22-2a1b53bc24c7');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -13090,10 +13090,10 @@ w_n^1 = -\frac{c_{n1}^{\,}w_1^1 + c_{n2}^{\,}w_2^1 + \cdots + c_{nN}^{\,}w_N^0 +
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
-<div id="ad686aee-b166-4594-9645-8146b98a984e"></div>
+<div id="4ce3bc99-9806-4a06-a7cc-4ed9772152d9"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#ad686aee-b166-4594-9645-8146b98a984e');
+var element = $('#4ce3bc99-9806-4a06-a7cc-4ed9772152d9');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -13896,10 +13896,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
-<div id="6c014974-6a42-47ff-81c7-defd77a14efd"></div>
+<div id="e2c30183-8d5a-4767-a4a0-817d39597a17"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#6c014974-6a42-47ff-81c7-defd77a14efd');
+var element = $('#e2c30183-8d5a-4767-a4a0-817d39597a17');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -14736,10 +14736,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
-<div id="79f7be74-52ad-489b-a5ef-f3fb25ad0f1f"></div>
+<div id="f3fcf005-9857-4b89-a738-81aed428addf"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#79f7be74-52ad-489b-a5ef-f3fb25ad0f1f');
+var element = $('#f3fcf005-9857-4b89-a738-81aed428addf');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15762,10 +15762,10 @@ w_n^{\,} = w_n^{\text{old}} - \frac{\sum_{p=1}^{P}\left(w_0^{\text{old}} + \math
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
-<div id="d955c9db-0568-4a91-9d38-d3b7619d44dc"></div>
+<div id="c9ab6a6e-35e4-472a-ae82-49dad4a27696"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#d955c9db-0568-4a91-9d38-d3b7619d44dc');
+var element = $('#c9ab6a6e-35e4-472a-ae82-49dad4a27696');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -16598,10 +16598,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
-<div id="53ff8572-0338-46c9-b89f-ca2e3d879463"></div>
+<div id="59a01956-6526-44fb-a97f-fba8a11976ec"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#53ff8572-0338-46c9-b89f-ca2e3d879463');
+var element = $('#59a01956-6526-44fb-a97f-fba8a11976ec');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -17406,10 +17406,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
-<div id="0fce8fc0-780f-41eb-b471-0b7798ef4270"></div>
+<div id="af7bdbaf-463f-4001-867e-a640dedacf09"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#0fce8fc0-780f-41eb-b471-0b7798ef4270');
+var element = $('#af7bdbaf-463f-4001-867e-a640dedacf09');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -18227,10 +18227,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
-<div id="d9896b1f-5c65-49a6-9cee-cbf339bd91d1"></div>
+<div id="e9c7319f-a7bb-44ed-a738-51462768b969"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#d9896b1f-5c65-49a6-9cee-cbf339bd91d1');
+var element = $('#e9c7319f-a7bb-44ed-a738-51462768b969');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -19087,10 +19087,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
-<div id="2c315c93-23a4-41b8-8fc1-6c15ad20a7cd"></div>
+<div id="5c17c6db-73fa-4d24-8b65-07405f0b3353"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#2c315c93-23a4-41b8-8fc1-6c15ad20a7cd');
+var element = $('#5c17c6db-73fa-4d24-8b65-07405f0b3353');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -20048,10 +20048,10 @@ w_n^{\,} = w_n^{\text{old}} - \frac{ -\sum_{p=1}^{P} \frac{ 1 }{1 + e^{y_{p}\mat
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
-<div id="caa8273f-70c3-4ce8-b254-38a89eec5739"></div>
+<div id="7c5b441f-f4bb-4933-b739-ade499b402d2"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#caa8273f-70c3-4ce8-b254-38a89eec5739');
+var element = $('#7c5b441f-f4bb-4933-b739-ade499b402d2');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -20875,10 +20875,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
-<div id="73f46ba2-fc25-4021-adf2-7ce9b946d854"></div>
+<div id="b4ebc8d6-e697-4efa-aa44-1f2ef036dbbe"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#73f46ba2-fc25-4021-adf2-7ce9b946d854');
+var element = $('#b4ebc8d6-e697-4efa-aa44-1f2ef036dbbe');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -21674,10 +21674,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
-<div id="2d20c35f-649f-43d9-a58d-3d7e11093459"></div>
+<div id="fa70233d-a987-4209-b0b6-a2fbf34b642c"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#2d20c35f-649f-43d9-a58d-3d7e11093459');
+var element = $('#fa70233d-a987-4209-b0b6-a2fbf34b642c');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -22480,10 +22480,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
-<div id="aa0bfbba-d3fa-483e-9036-580243c420b0"></div>
+<div id="2bfa78c4-dd7b-4909-a10c-b72357ded3f5"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#aa0bfbba-d3fa-483e-9036-580243c420b0');
+var element = $('#2bfa78c4-dd7b-4909-a10c-b72357ded3f5');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -23286,10 +23286,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
-<div id="00b72c88-722a-4aa4-8372-03297d689062"></div>
+<div id="0a73138a-059c-450f-8579-fe4931e59940"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#00b72c88-722a-4aa4-8372-03297d689062');
+var element = $('#0a73138a-059c-450f-8579-fe4931e59940');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -24114,10 +24114,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
-<div id="75c0429a-f20a-48c0-97a0-c68b6f7111ec"></div>
+<div id="eb686e4c-785d-4a8f-bbb8-cf66ed4b0914"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#75c0429a-f20a-48c0-97a0-c68b6f7111ec');
+var element = $('#eb686e4c-785d-4a8f-bbb8-cf66ed4b0914');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -24894,10 +24894,10 @@ if (IPython.notebook.kernel != null) {
 </div>
 </div>
 <div class="output_area"><div class="prompt"></div>
-<div id="df0cb0bd-414c-408a-b8c2-e3fb669df64f"></div>
+<div id="eb7ee0d7-e159-4c22-80a1-9f2299b1524b"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#df0cb0bd-414c-408a-b8c2-e3fb669df64f');
+var element = $('#eb7ee0d7-e159-4c22-80a1-9f2299b1524b');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -25674,10 +25674,10 @@ if (IPython.notebook.kernel != null) {
 </div>
 </div>
 <div class="output_area"><div class="prompt"></div>
-<div id="39e39540-0d56-423c-9d47-d57ee502f34f"></div>
+<div id="1debc298-fa73-426f-b483-673d502413dc"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#39e39540-0d56-423c-9d47-d57ee502f34f');
+var element = $('#1debc298-fa73-426f-b483-673d502413dc');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -26471,6 +26471,6 @@ if (IPython.notebook.kernel != null) {
 </div>
 </body>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {}, "version_major": 1, "version_minor": 0}
+{"version_minor": 0, "state": {}, "version_major": 1}
 </script>
 </html>
