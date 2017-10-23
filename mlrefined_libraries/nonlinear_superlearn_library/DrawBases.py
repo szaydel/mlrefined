@@ -176,10 +176,12 @@ class Visualizer:
             # choose to plot interesting (non-zero) instance - if zero remake weights
             if np.std(f_m) > 0.01:
                 ax = fig.add_subplot(1,4,m)
-                ax.plot(x.ravel(),f_m.ravel()/max(f_m.ravel()),color = 'k',linewidth = 3)
+                ax.plot(x.ravel(),f_m.ravel()/max(f_m.ravel()),color = 'r',linewidth = 3)
 
-                # clean up plot and show legend 
-                ax.set_title('instance ' + str(m) + ' of $f_1(x)$',fontsize = 12)
+                # clean up plot and show legend
+                ax.set_title('$f_' + str(m) + '(x)$', fontsize = 12)
+                if num_layers >1 :
+                    ax.set_title('$f_' + str(m) + '^{\,(' + str(num_layers) + ')}(x)$', fontsize = 12)
 
                 # clean up plot
                 ax.grid(True, which='both')
