@@ -24,6 +24,16 @@ class Visualizer:
         self.x = data[:,:-1]
         self.y = data[:,-1:]
         
+        # center input
+        mean1 = np.mean(self.x[:,0])
+        mean2 = np.mean(self.x[:,1])
+        std1 = np.std(self.x[:,0])
+        std2 = np.std(self.x[:,1])
+        self.x[:,0] -= mean1
+        self.x[:,0] /= std1
+        self.x[:,1] -= mean2
+        self.x[:,1] /= std2    
+        
     # initialize after animation call
     def create_stumps(self,x,y):
         '''
@@ -168,7 +178,7 @@ class Visualizer:
                 val += w[i+1]*level[1]
         return val
     
-    def booster(self,x,y,its):
+    def booster(self,x,y,alpha,its):
         '''
         Coordinate descent for Least Squares
         x - the Px(N+1) data matrix
@@ -214,7 +224,7 @@ class Visualizer:
 
             # take best 
             ind = np.argmin(cost_vals)
-            w[ind] += w_vals[ind]
+            w[ind] += alpha*w_vals[ind]
 
             # record weights at each step for kicks
             w_history.append(copy.deepcopy(w))
@@ -282,7 +292,7 @@ class Visualizer:
             
             self.predict = self.tree_predict
             self.F = self.tree_feats()
-            weight_history = self.booster(copy.deepcopy(self.F),copy.deepcopy(self.y),its = max(num_elements))
+            weight_history = self.booster(copy.deepcopy(self.F),copy.deepcopy(self.y),alpha = 1,its = max(num_elements))
             self.predict = self.tree_predict
                             
         # compute cost eval history
@@ -310,7 +320,7 @@ class Visualizer:
         # set viewing range for all 3 panels
         xmin1 = min(copy.deepcopy(self.x[:,0]))
         xmax1 = max(copy.deepcopy(self.x[:,0]))
-        xgap1 = (xmax1 - xmin1)*0
+        xgap1 = (xmax1 - xmin1)*0.1
         xmin1 -= xgap1
         xmax1 += xgap1
         ax1.set_xlim([xmin1,xmax1])
@@ -318,7 +328,7 @@ class Visualizer:
 
         xmin2 = min(copy.deepcopy(self.x[:,1]))
         xmax2 = max(copy.deepcopy(self.x[:,1]))
-        xgap2 = (xmax2 - xmin2)*0
+        xgap2 = (xmax2 - xmin2)*0.1
         xmin2 -= xgap2
         xmax2 += xgap2
      
