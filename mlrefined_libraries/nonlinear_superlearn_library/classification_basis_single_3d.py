@@ -68,23 +68,21 @@ class Visualizer:
             x_n = x_n[sorted_inds]
             y_n = y_n[sorted_inds]
             for p in range(P - 1):
-                # determine if we split between consecutive points (if they belong to different classes / have different output)
-                if y_n[p] != y_n[p+1]:
-                    # compute and store split point
-                    split = (x_n[p] + x_n[p+1])/float(2)
-                    splits.append(split)
+                # compute and store split point
+                split = (x_n[p] + x_n[p+1])/float(2)
+                splits.append(split)
 
-                    # gather output points to left and right of split
-                    output_left  = y_n[:p+1] 
-                    output_right = y_n[p+1:]
+                # gather output points to left and right of split
+                output_left  = y_n[:p+1] 
+                output_right = y_n[p+1:]
 
-                    # compute average on each side, assign to levels
-                    ave_left = np.mean(output_left)
-                    ave_right = np.mean(output_right)
-                    levels.append([ave_left,ave_right])
+                # compute average on each side, assign to levels
+                ave_left = np.mean(output_left)
+                ave_right = np.mean(output_right)
+                levels.append([ave_left,ave_right])
 
-                    # remember the dimension this stump is defined along
-                    dims.append(n)
+                # remember the dimension this stump is defined along
+                dims.append(n)
 
         # return items
         return splits,levels,dims
