@@ -23,8 +23,8 @@ class Visualizer:
     # plot regression data
     def plot_regression_data(self,x,y,**kwargs):
         # create figure and plot data
-        fig = plt.figure(figsize = (9,3))
-        gs = gridspec.GridSpec(1, 3,width_ratios = [1,2,1]) 
+        fig = plt.figure(figsize = (9,4))
+        gs = gridspec.GridSpec(1, 3,width_ratios = [1,3,1]) 
 
         # setup current axis
         ax = plt.subplot(gs[1]);
@@ -56,7 +56,7 @@ class Visualizer:
 
             s = np.linspace(xmin,xmax,200)
             t = [predict(np.reshape(v,(1,1)),weights)[0] for v in s];
-            ax.plot(s,t,linewidth = 2.25,zorder = 3)
+            ax.plot(s,t,linewidth = 3,zorder = 3)
         plt.show()
     
     # compare regression cost histories from multiple runs
