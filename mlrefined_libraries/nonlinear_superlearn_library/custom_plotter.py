@@ -85,9 +85,9 @@ class Visualizer:
                 
             # check if a label exists, if so add it to the plot
             if np.size(label) == 0:
-                ax.plot(np.arange(start,len(history),1),history[start:],linewidth = 3*(0.8)**(c)) 
+                ax.plot(np.arange(start,len(history),1),history[start:],linewidth = 1*(0.8)**(c)) 
             else:               
-                ax.plot(np.arange(start,len(history),1),history[start:],linewidth = 3*(0.8)**(c),label = label) 
+                ax.plot(np.arange(start,len(history),1),history[start:],linewidth = 1*(0.8)**(c),label = label) 
 
         # clean up panel
         ax.set_xlabel('iteration',fontsize = 12)
