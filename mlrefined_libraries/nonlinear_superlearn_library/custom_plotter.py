@@ -85,15 +85,15 @@ class Visualizer:
                 
             # check if a label exists, if so add it to the plot
             if np.size(label) == 0:
-                ax.plot(np.arange(start,len(history),1),history[start:],linewidth = 1*(0.8)**(c)) 
+                ax.plot(np.arange(start,len(history),1),history[start:],linewidth = 3*(0.8)**(c)) 
             else:               
-                ax.plot(np.arange(start,len(history),1),history[start:],linewidth = 1*(0.8)**(c),label = label) 
+                ax.plot(np.arange(start,len(history),1),history[start:],linewidth = 3*(0.8)**(c),label = label) 
 
         # clean up panel
         ax.set_xlabel('iteration',fontsize = 12)
         ax.set_ylabel('cost function value',fontsize = 12)
         ax.set_title('cost function value at each step of gradient descent',fontsize = 15)
-        if np.size(label) == 0:
+        if np.size(label) > 0:
             plt.legend(loc='upper right')
         ax.set_xlim([start - 1,len(history)+1])
         plt.show()
@@ -252,8 +252,242 @@ class Visualizer:
         ax2.set_ylabel('cost function value',fontsize = 10)
         ax1.set_title('number of misclassifications',fontsize = 12)
         ax2.set_title('cost function value',fontsize = 12)
-        if np.size(label) == 0:
+        if np.size(label) > 0:
             plt.legend(loc='upper right')
         ax1.set_xlim([start - 1,len(count_histories[0])+1])
         ax2.set_xlim([start - 1,len(count_histories[0])+1])
         plt.show()
+        
+    # a small Python function for plotting the distributions of input features
+    def feature_distributions(self,x,title,**kwargs):
+        # create figure 
+        fig, ax = plt.subplots(1, 1, figsize=(9,3))
+        
+        # create min and max viewing ranges for plot
+        xmin = min(np.min(copy.deepcopy(x),axis = 1))
+        xmax = max(np.max(copy.deepcopy(x),axis = 1))
+        xgap = (xmax - xmin)*0.05
+        xmin -= xgap
+        xmax += xgap
+        xrange = np.linspace(xmin,xmax,200)
+        yrange = np.ones((200,1))
+
+        # loop over input and plot each individual input dimension value
+        N = np.shape(x)[1]    # dimension of input
+        for n in range(N):
+            # scatter data
+            ax.scatter((n+1)*np.ones((len(x),1)),x[:,n],color = 'k',edgecolor = 'w',zorder = 2)
+            
+            # plot visual guide
+            ax.plot((n+1)*yrange,xrange,color = 'r',linewidth = 0.5,zorder = 1)
+
+        # set xtick labels 
+        ticks = np.arange(1,N+1)
+        labels = [r'$x_' + str(n+1) + '$' for n in range(N)]
+        ax.set_xticks(ticks)
+        if 'labels' in kwargs:
+            labels = kwargs['labels']
+        ax.set_xticklabels(labels, minor=False)
+
+        # label axes and title of plot, then show
+        ax.set_xlabel('input dimension / feature')
+        ax.set_title(title)
+        plt.show()
+    
+    # activation function
+    def activation(self,t):
+        # relu activation
+    #     f = np.maximum(0,t)
+
+        # tanh activation
+        f = np.tanh(t)
+        return f
+
+    # fully evaluate our network features using the tensor of weights in omega_inner
+    def compute_activation_distributions(self, x):
+        # copy weights over
+        omega_inner = self.w_init[0] 
+        
+        # container for each activation distribution
+        distributions = [x]
+        
+        # pad input
+        o = np.ones((np.shape(x)[0],1))        
+        a_padded = np.concatenate((o,x),axis = 1)
+
+        # loop through each layer matrix
+        for W in omega_inner:
+            # output of layer activation
+            a = self.activation(np.dot(a_padded,W))
+            
+            # record distribution of activation outputs
+            distributions.append(a)
+
+            #  pad with ones (to compactly take care of bias) for next layer computation
+            o = np.ones((np.shape(a)[0],1))
+            a_padded = np.concatenate((o,a),axis = 1)
+
+        return distributions
+    
+    # a normalization function
+    def normalize(self,data,data_mean,data_std):
+        normalized_data = (data - data_mean)/data_std
+        return normalized_data
+
+    # fully evaluate our network features using the tensor of weights in omega_inner
+    def compute_normalized_activation_distributions(self, x):
+        # copy weights over
+        omega_inner = self.w_init[0] 
+        
+        # compute the mean and standard deviation of our input
+        x_means = np.mean(x,axis = 0)
+        x_stds = np.std(x,axis = 0)
+
+        # normalize data using the function above
+        x_normed = self.normalize(x,x_means,x_stds)
+        
+        # container for each activation distribution
+        distributions = [x_normed]
+        
+        # pad input
+        o = np.ones((np.shape(x_normed)[0],1))        
+        a_padded = np.concatenate((o,x_normed),axis = 1)
+
+        # loop through each layer matrix
+        for W in omega_inner:
+            # output of layer activation
+            a = self.activation(np.dot(a_padded,W))
+            
+            # compute the mean and standard deviation of our input
+            a_means = np.mean(a,axis = 0)
+            a_stds = np.std(a,axis = 0)
+
+            # normalize data using the function above
+            a_normed = self.normalize(a,a_means,a_stds)
+        
+            # record distribution of activation outputs
+            distributions.append(a_normed)
+
+            #  pad with ones (to compactly take care of bias) for next layer computation
+            o = np.ones((np.shape(a_normed)[0],1))
+            a_padded = np.concatenate((o,a_normed),axis = 1)
+
+        return distributions
+        
+    # a small Python function for plotting the distributions deep activation output
+    def activation_distributions(self,x,w_init,**kwargs):
+        self.w_init = w_init
+        kind = 'unnormalized'
+        if 'kind' in kwargs:
+            kind = kwargs['kind']
+        
+        distributions = 0
+        # compute original activation distributions
+        if kind == 'unnormalized':
+            distributions = self.compute_activation_distributions(x)
+        if kind == 'normalized':
+            distributions = self.compute_normalized_activation_distributions(x)
+
+        # create figure 
+        num_layers = len(distributions)
+        fig, axs = plt.subplots(num_layers,1, figsize=(9,2*num_layers))
+        
+        for k in range(len(distributions)):
+            # pick current distribution
+            dist = distributions[k]
+            
+            # create min and max viewing ranges for plot
+            xmin = min(np.min(copy.deepcopy(dist),axis = 1))
+            xmax = max(np.max(copy.deepcopy(dist),axis = 1))
+            xgap = (xmax - xmin)*0.05
+            xmin -= xgap
+            xmax += xgap
+            xrange = np.linspace(xmin,xmax,200)
+            yrange = np.ones((200,1))
+
+            # loop over input and plot each individual input dimension value
+            N = np.shape(dist)[1]    # dimension of input
+            for n in range(N):
+                # scatter data
+                axs[k].scatter((n+1)*np.ones((len(dist),1)),dist[:,n],color = 'k',edgecolor = 'w',zorder = 2)
+
+                # plot visual guide
+                axs[k].plot((n+1)*yrange,xrange,color = 'r',linewidth = 0.5,zorder = 1)
+
+            # set xtick labels 
+            ticks = np.arange(1,N+1)
+            axs[k].set_xticks(ticks)
+
+            labels = 0
+            if k == 0:
+                if n == 0:
+                    labels = [r'$x$']
+                else:
+                    labels = [r'$x_' + str(n+1) + '$' for n in range(N)]
+            else:
+                labels = [r'$a_{' + str(n+1) + '}^{(' + str(k) + ')}$' for n in range(N)]
+                
+            axs[k].set_xticklabels(labels, minor=False)
+
+            # label axes and title of plot, then show
+            if k == 0:
+                axs[k].set_title('input dimension',fontsize = 12)
+            else:
+                axs[k].set_title('layer ' + str(k)  + ' activation outputs',fontsize = 12)
+                            
+        #ax.set_title(title)
+        plt.show()
+        
+    # plot regression data and compare two nonlinear fits
+    def compare_regression_fits(self,x,y,predict1,predict2,weights1,weights2,**kwargs):
+        # check if labels desired
+        title1 ='run 1'
+        title2 = 'run 2'
+        if 'title1' in kwargs:
+            title1 = kwargs['title1']
+        if 'title2' in kwargs:
+            title2 = kwargs['title2']
+            
+        # create figure and plot data
+        fig = plt.figure(figsize = (9,4))
+        gs = gridspec.GridSpec(1, 2,width_ratios = [1,1]) 
+
+        # setup current axis
+        ax = plt.subplot(gs[0]);
+        ax1 = plt.subplot(gs[1]);
+        
+        # scatter regression data
+        ax.scatter(x,y,s = 50,color = 'k',edgecolor = 'w',linewidth = 1.1); 
+        ax1.scatter(x,y,s = 50,color = 'k',edgecolor = 'w',linewidth = 1.1); 
+
+        # cleanup panel / set viewing range
+        xmin = copy.deepcopy(min(x))
+        xmax = copy.deepcopy(max(x))
+        xgap = (xmax - xmin)*0.1
+        xmin -= xgap
+        xmax += xgap 
+
+        ymin = copy.deepcopy(min(y))
+        ymax = copy.deepcopy(max(y))
+        ygap = (ymax - ymin)*0.25
+        ymin -= ygap
+        ymax += ygap
+
+        # set viewing limits
+        ax.set_xlim(xmin,xmax)
+        ax.set_ylim(ymin,ymax)
+        ax1.set_xlim(xmin,xmax)
+        ax1.set_ylim(ymin,ymax)
+        
+        # plot fits
+        s = np.linspace(xmin,xmax,300)
+        t = [predict1(np.reshape(v,(1,1)),weights1)[0] for v in s];
+        ax.plot(s,t,linewidth = 3,zorder = 3)
+        ax.set_title(title1,fontsize = 12)
+        
+        t = [predict2(np.reshape(v,(1,1)),weights2)[0] for v in s];
+        ax1.plot(s,t,linewidth = 3,zorder = 3,color = 'orange')
+        ax1.set_title(title2,fontsize = 12)
+
+        plt.show()
+        
