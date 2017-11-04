@@ -179,9 +179,7 @@ class Visualizer:
                 ax.plot(x.ravel(),f_m.ravel()/max(f_m.ravel()),color = 'r',linewidth = 3)
 
                 # clean up plot and show legend
-                ax.set_title('$f_' + str(m) + '(x)$', fontsize = 12)
-                if num_layers >1 :
-                    ax.set_title('$f_' + str(m) + '^{\,(' + str(num_layers) + ')}(x)$', fontsize = 12)
+                ax.set_title('$f_' + str(m) + '^{\,(' + str(num_layers) + ')}(x)$', fontsize = 12)
 
                 # clean up plot
                 ax.grid(True, which='both')
