@@ -39,9 +39,13 @@ if 'mathematics' in series.lower() and 'computation' in series.lower():
     series_url = 'Computational_Mathematics'      
     
 if 'algebra' in series.lower():
-    series_url = 'Computational_Linear_Algebra'      
-        
-
+    series_url = 'Computational_Linear_Algebra' 
+    
+if 'tree' in series.lower():
+    series_url = 'Tree_Based_Learners'     
+   
+if 'perceptron' in series.lower():
+    series_url = 'Multilayer_Perceptrons' 
 
 # This script adds navigation bar + sharing logos + title
 script_1 = '''
