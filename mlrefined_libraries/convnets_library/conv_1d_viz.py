@@ -12,6 +12,7 @@ from matplotlib import gridspec
 # import other packages
 import numpy as np
 import math
+import pandas as pd
 
 
 class visualizer:
@@ -19,7 +20,18 @@ class visualizer:
     Illustrate convolution/cross-correlation of an input 1d sequence with variable length kernels.
     '''
     def __init__(self,**args):
-        self.y = args['y']                       # input sequence
+        
+        self.data_path = args['path']                       # input sequence
+        
+        # read Trump's job approval data (from http://www.presidency.ucsb.edu/data/popularity.php)
+        df = pd.read_csv(self.data_path, delim_whitespace = True, header=None)
+
+        # extract approval ratings
+        y = np.asarray(df[2])
+
+        # reverse the order of data (to be ascending in time)
+        y = y[::-1]
+        self.y = y
 
         
     def draw_it(self,**kwargs):
@@ -28,6 +40,12 @@ class visualizer:
         
         if 'num_frames' in kwargs:
             num_frames = kwargs['num_frames']
+            
+        
+        weight = 'uniform'
+        if 'weights' in kwargs and kwargs['weights']=='non-uniform':
+            weight = 'non-uniform'
+            
             
         # initialize figure
         fig = plt.figure(figsize = (10,4))
@@ -87,8 +105,12 @@ class visualizer:
             kernel_size = slider[k]
             half_size = int((kernel_size-1)/2)
             
-            # construct the kernel 
-            kernel = np.array(list(range(1,half_size+1)) + list(range(half_size+1,0,-1)))
+            # construct the kernel
+            if weight == 'non-uniform': 
+                kernel = np.array(list(range(1,half_size+1)) + list(range(half_size+1,0,-1)))
+            else:
+                kernel = np.ones(2*half_size+1)
+            
             kernel = kernel/sum(kernel)
 
             # compute convolution/cross-correlation for the current frame
@@ -122,3 +144,84 @@ class visualizer:
         anim = animation.FuncAnimation(fig, animate,frames=num_frames, interval=num_frames, blit=True)
         
         return(anim)
+
+
+    
+# this subfunction padds the input sequence,
+# on the left with seq[0] and on the right with seq[-1]
+def myPadding (seq, length):
+    left_padded = np.concatenate((seq[0]*np.ones(length),seq))
+    right_padded = np.concatenate((left_padded,seq[-1]*np.ones(length)))
+    return right_padded    
+    
+    
+# subfunction for convolution/cross-correlation
+def myConvolution (seq, kernel):
+    seq_size = len(seq)
+    kernel_size = len(kernel)
+    
+    padded_seq = myPadding(seq, int((kernel_size-1)/2))
+    
+    conv = np.zeros(seq_size)
+    for i in range(0, seq_size):
+        conv[i] = np.dot(padded_seq[i:kernel_size+i], kernel)
+    return conv
+    
+    
+
+def plot_time_series(data_path, **kwargs):
+    
+    
+    # read Trump's job approval data (from http://www.presidency.ucsb.edu/data/popularity.php)
+    df = pd.read_csv(data_path, delim_whitespace = True, header=None)
+
+    # extract approval ratings
+    y = np.asarray(df[2])
+
+    # reverse the order of data (to be ascending in time)
+    y = y[::-1]   
+    
+    
+    # initialize figure
+    fig = plt.figure(figsize = (8,4))
+    ax = fig.add_subplot(111)
+
+    # plot data
+    ax.plot(y, color = 'grey', linewidth=2)
+    
+    
+    # plot convolution
+    if 'plot_convolution' in kwargs and kwargs['plot_convolution']:
+        
+        # kernel size for the current frame 
+        kernel_size = 40
+        half_size = int((kernel_size-1)/2)
+            
+        # construct the kernel 
+        kernel = np.array(list(range(1, half_size+1)) + list(range(half_size+1,0,-1)))
+        kernel = kernel/sum(kernel)
+
+        # compute convolution/cross-correlation for the current frame
+        y_hat = myConvolution(y, kernel)    
+            
+        # plot convolution/cross-correlation
+        ax.plot(y_hat, color = 'red', linewidth=2.5)
+    
+                       
+    # fix viewing limits on panel
+    ax.set_ylim([min(y)-2, max(y)+2])
+            
+    # set tickmarks
+    ax.set_xticks(np.arange(0,len(y), 60))
+    ax.set_yticks(np.arange(min(y)-2, max(y)+2, 4)) 
+                
+    # label axes
+    ax.set_xlabel('$\mathrm{days\,\,elapsed}$', fontsize = 12)
+    ax.set_ylabel('$\mathrm{approval\,\,ratings\,\,(\%)}$', fontsize = 12, rotation = 90, labelpad = 15)
+            
+    # set axis 
+    ax.axhline(y=0, color='k', zorder = 0, linewidth = 0.5)
+    
+    
+    
+    
