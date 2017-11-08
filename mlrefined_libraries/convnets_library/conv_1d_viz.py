@@ -223,5 +223,26 @@ def plot_time_series(data_path, **kwargs):
     ax.axhline(y=0, color='k', zorder = 0, linewidth = 0.5)
     
     
+def plot_sequence(n,x,y,z):   
     
+    
+    # initialize figure
+    fig = plt.figure(figsize = (6,3))
+    ax = plt.subplot(111)
+    
+    plt.plot(n,x,'r',linewidth=2, label='$x$')  
+    plt.plot(n,y,'k',linewidth=2, label='$y$')   
+    plt.plot(n,z,'g--',linewidth=1, label='$z$')
+
+    # fix viewing limits on panel
+    ax.set_ylim([-1.7, 2.7])
+            
+    # set tickmarks
+    #ax.set_xticks(np.arange(0,len(y), 60))
+    ax.set_yticks([-1,0,1]) 
+                
+    plt.legend(loc=2, fontsize=13)
+    
+    plt.show()
+
     

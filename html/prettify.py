@@ -46,6 +46,9 @@ if 'tree' in series.lower():
    
 if 'perceptron' in series.lower():
     series_url = 'Multilayer_Perceptrons' 
+    
+if 'convolution' in series.lower():
+    series_url = 'Convolutional_Neural_Networks'     
 
 # This script adds navigation bar + sharing logos + title
 script_1 = '''
