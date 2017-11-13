@@ -77,19 +77,23 @@ def edge_detect(image_path, **kwargs):
 def create_image(image_name, **kwargs):
     
     
-    if image_name == 'square':
+    if image_name == 'square_top':
         img = 50*np.ones((500,500),dtype='uint8') 
         img[60:240,60:240]=200
         
         
-    if image_name == 'triangle':
+    if image_name == 'triangle_top':
         img = 50*np.ones((500,500),dtype='uint8') 
         for i in range(60,240):
             for j in range(60,i):
                 img[i,j]=200
                 
+    if image_name == 'square_bottom':
+        img = 50*np.ones((500,500),dtype='uint8') 
+        img[260:440,260:440]=200            
+                
         
-    if image_name == 'triangle_shifted':
+    if image_name == 'triangle_bottom':
         img = 50*np.ones((500,500),dtype='uint8') 
         for i in range(260,440):
             for j in range(260,i):
@@ -155,6 +159,15 @@ def load_kernels():
                '8': np.array([[-1, -1,  0],
                               [-1,  0,  1],
                               [ 0,  1,  1]])}    
+        
+    return kernels
+
+
+def load_kernels_v2(num_kernels, kernel_size):
+    
+    kernels = {}
+    for i in np.arange(1,num_kernels+1):
+        kernels[str(i)] = np.random.randn(kernel_size[0], kernel_size[1])   
         
     return kernels
   
