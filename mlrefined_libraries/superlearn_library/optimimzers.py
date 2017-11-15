@@ -37,13 +37,17 @@ class MyOptimizers:
         projection = 'None'
         if 'projection' in kwargs:
             projection = kwargs['projection']
+        verbose = False
+        if 'verbose' in kwargs:
+            verbose = kwargs['verbose']
        
         # create container for weight history 
         w_hist = []
         w_hist.append(w)
         
         # start gradient descent loop
-        print ('starting optimization...')
+        if verbose == True:
+            print ('starting optimization...')
         for k in range(max_its):   
             # plug in value into func and derivative
             grad_eval = self.grad(w)
@@ -56,10 +60,6 @@ class MyOptimizers:
                     grad_norm += 10**-6*np.sign(2*np.random.rand(1) - 1)
                 grad_eval /= grad_norm
             
-            ### decide on steplength parameter alpha ###
-            # a fixed step?
-            # alpha = alpha
-            
             # use backtracking line search?
             if steplength_rule == 'backtracking':
                 alpha = self.backtracking(w,grad_eval)
@@ -70,17 +70,14 @@ class MyOptimizers:
             
             ### take gradient descent step ###
             w = w - alpha*grad_eval
-
-            ### projection? ###
-            if 'projection' in kwargs:
-                w = projection(w)
             
             # record
             w_hist.append(w)     
-            
-        print ('...optimization complete!')
-        time.sleep(1.5)
-        clear_output()
+         
+        if verbose == True:
+            print ('...optimization complete!')
+            time.sleep(1.5)
+            clear_output()
         
         return w_hist
 
@@ -114,16 +111,21 @@ class MyOptimizers:
         max_its = 20
         if 'max_its' in kwargs:
             max_its = kwargs['max_its']
-        self.epsilon = 10**-5
+        self.epsilon = 10**(-5)
         if 'epsilon' in kwargs:
             self.epsilon = kwargs['epsilon']
+        verbose = False
+        if 'verbose' in kwargs:
+            verbose = kwargs['verbose']
         
         # create container for weight history 
         w_hist = []
         w_hist.append(unflatten(w))
         
-        # start newton's method loop    
-        print ('starting optimization...')
+        # start newton's method loop  
+        if verbose == True:
+            print ('starting optimization...')
+            
         geval_old = flat_g(w)
         for k in range(max_its):
             # compute gradient and hessian
@@ -147,8 +149,9 @@ class MyOptimizers:
             # record current weights
             w_hist.append(unflatten(w))
             
-        print ('...optimization complete!')
-        time.sleep(1.5)
-        clear_output()
+        if verbose == True:
+            print ('...optimization complete!')
+            time.sleep(1.5)
+            clear_output()
         
         return w_hist
