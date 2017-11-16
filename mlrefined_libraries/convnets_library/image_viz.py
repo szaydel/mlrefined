@@ -13,6 +13,7 @@ import numpy as np
 import cv2
 from scipy import signal as sig
 import time
+from sklearn.preprocessing import normalize
 
         
 def edge_detect(image_path, **kwargs):
@@ -47,7 +48,13 @@ def edge_detect(image_path, **kwargs):
     if 'num_iterations' in kwargs:
         num_iterations = kwargs['num_iterations']    
     
-
+    
+    #m = (0,0,0) 
+    #s = (10,10,10)
+    #image = cv2.randn(image,m,s)
+    # apply Gaussian noise to the input image 
+    #image = image + cv2.randn(image,(0),(1)) 
+    print(np.shape(image))
     # apply Gaussian blur to smooth out the input image 
     img = cv2.GaussianBlur(image, GaussianBlurSize, GaussianBlurSigma);
 
@@ -75,6 +82,23 @@ def edge_detect(image_path, **kwargs):
     
     
 def create_image(image_name, **kwargs):
+    
+    
+    if image_name == '2':
+        img = 50*np.ones((500,500),dtype='uint8') 
+        img[80:120,100:400]=200
+        img[380:420,100:400]=200
+        img[230:270,100:400]=200
+        img[100:250,360:400]=200
+        img[250:400,100:140]=200
+        
+    if image_name == '5':
+        img = 50*np.ones((500,500),dtype='uint8') 
+        img[80:120,100:400]=200
+        img[380:420,100:400]=200
+        img[230:270,100:400]=200
+        img[100:250,100:140]=200
+        img[250:400,360:400]=200        
     
     
     if image_name == 'square_top':
@@ -256,7 +280,7 @@ def make_circ_hist(hist):
     norm.autoscale(colors)
     colormap = cm.viridis
     
-    hist = 1000*hist**3
+    hist = 100*hist**2
     
     plt.quiver(x, y, hist*x, hist*y, color=colormap(norm(colors)),  angles='xy', 
            scale_units='xy', scale=1, width=.013)
@@ -319,7 +343,11 @@ def make_feat(image, kernels, **kwargs):
         pool = lambda window: window.max()   
         
     if  pooling_func == 'mean':
-        pool = lambda window: window.mean()      
+        pool = lambda window: window.mean()  
+        
+    norm = 'l2'
+    if 'norm' in kwargs:
+        norm = kwargs['norm']     
     
     
     feat=[]
@@ -335,6 +363,8 @@ def make_feat(image, kernels, **kwargs):
         
         feat.append(conv_feats)
     
+    feat = normalize(feat, norm=norm, axis=0)
+        
     return np.reshape(feat, np.size(feat), 1)   
 
 
